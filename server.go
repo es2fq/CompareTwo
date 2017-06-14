@@ -3,6 +3,7 @@ package something
 import (
 	"fmt"
 	"html/template"
+	"log"
 	"net/http"
 	"os"
 	"path/filepath"
@@ -14,6 +15,14 @@ type Page struct {
 }
 
 var templates = template.New("")
+
+func determinePort() (string, error) {
+	port := os.Getenv("PORT")
+	if port == "" {
+		return "", fmt.Errorf("$PORT not set")
+	}
+	return ":" + port, nil
+}
 
 func parseTemplates() *template.Template {
 	templ := template.New("")
@@ -33,9 +42,10 @@ func parseTemplates() *template.Template {
 }
 
 func mainHandler(w http.ResponseWriter, r *http.Request) {
-	fmt.Printf("main handler\n")
-	p := Page{Title: "hi"}
-	renderTemplate(w, "index", p)
+	// fmt.Printf("main handler\n")
+	// p := Page{Title: "hi"}
+	// renderTemplate(w, "index", p)
+	fmt.Fprintln(w, "Hello world")
 }
 
 func renderTemplate(w http.ResponseWriter, tmpl string, p Page) {
@@ -46,9 +56,14 @@ func renderTemplate(w http.ResponseWriter, tmpl string, p Page) {
 }
 
 func main() {
-	fmt.Printf("Started...\n")
+	addr, err := determinePort()
+	if err != nil {
+		log.Fatal(err)
+	}
 	// http.Handle("/css/", http.StripPrefix("/css/", http.FileServer(http.Dir("css"))))
 	// templates = parseTemplates()
-	// http.HandleFunc("/", mainHandler)
-	http.ListenAndServe(":"+os.Getenv("PORT"), nil)
+	http.HandleFunc("/", mainHandler)
+	if err := http.ListenAndServe(addr, nil); err != nil {
+		panic(err)
+	}
 }
