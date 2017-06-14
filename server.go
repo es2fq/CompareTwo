@@ -50,5 +50,5 @@ func main() {
 	http.Handle("/css/", http.StripPrefix("/css/", http.FileServer(http.Dir("css"))))
 	templates = parseTemplates()
 	http.HandleFunc("/", mainHandler)
-	http.ListenAndServe(":"+os.Getenv("PORT"), nil)
+	http.ListenAndServe(":7777", nil)
 }
