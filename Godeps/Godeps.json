@@ -1,0 +1,6 @@
+{
+	"ImportPath": "github.com/es2fq/comparetwo",
+	"GoVersion": "go1.6",
+	"GodepVersion": "v79",
+	"Deps": []
+}

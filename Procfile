@@ -1,1 +1,1 @@
-web: comparetwo 
+web: server 
