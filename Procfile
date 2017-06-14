@@ -1,1 +1,1 @@
-web: simple
+web: comparetwo
