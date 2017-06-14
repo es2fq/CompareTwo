@@ -42,10 +42,8 @@ func parseTemplates() *template.Template {
 }
 
 func mainHandler(w http.ResponseWriter, r *http.Request) {
-	// fmt.Printf("main handler\n")
-	// p := Page{Title: "hi"}
-	// renderTemplate(w, "index", p)
-	fmt.Fprintln(w, "Hello world")
+	p := Page{Title: "hi"}
+	renderTemplate(w, "index", p)
 }
 
 func renderTemplate(w http.ResponseWriter, tmpl string, p Page) {
@@ -60,8 +58,8 @@ func main() {
 	if err != nil {
 		log.Fatal(err)
 	}
-	// http.Handle("/css/", http.StripPrefix("/css/", http.FileServer(http.Dir("css"))))
-	// templates = parseTemplates()
+	http.Handle("/css/", http.StripPrefix("/css/", http.FileServer(http.Dir("css"))))
+	templates = parseTemplates()
 	http.HandleFunc("/", mainHandler)
 	if err := http.ListenAndServe(addr, nil); err != nil {
 		panic(err)
