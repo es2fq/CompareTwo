@@ -1,1 +1,1 @@
-web: comparetwo -port=7777
+web: server
