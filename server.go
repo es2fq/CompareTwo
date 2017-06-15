@@ -10,10 +10,6 @@ import (
 	"strings"
 )
 
-type Page struct {
-	Title string
-}
-
 var templates = template.New("")
 
 func determinePort() (string, error) {
@@ -42,12 +38,11 @@ func parseTemplates() *template.Template {
 }
 
 func mainHandler(w http.ResponseWriter, r *http.Request) {
-	p := Page{Title: "hi"}
-	renderTemplate(w, "index", p)
+	renderTemplate(w, "index")
 }
 
-func renderTemplate(w http.ResponseWriter, tmpl string, p Page) {
-	err := templates.ExecuteTemplate(w, tmpl+".html", p)
+func renderTemplate(w http.ResponseWriter, tmpl string) {
+	err := templates.ExecuteTemplate(w, tmpl+".html", nil)
 	if err != nil {
 		http.Error(w, err.Error(), http.StatusInternalServerError)
 	}
