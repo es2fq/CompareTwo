@@ -6,19 +6,14 @@ html {
 body {
     /* IE10+ */ 
     background-image: -ms-linear-gradient(top, #EFEFEF 0%, #a9a9a9 100%);
-
     /* Mozilla Firefox */ 
     background-image: -moz-linear-gradient(top, #EFEFEF 0%, #a9a9a9 100%);
-
     /* Opera */ 
     background-image: -o-linear-gradient(top, #EFEFEF 0%, #a9a9a9 100%);
-
     /* Webkit (Safari/Chrome 10) */ 
     background-image: -webkit-gradient(linear, left top, left bottom, color-stop(0, #EFEFEF), color-stop(100, #a9a9a9));
-
     /* Webkit (Chrome 11+) */ 
     background-image: -webkit-linear-gradient(top, #EFEFEF 0%, #a9a9a9 100%);
-
     /* W3C Markup */ 
     background-image: linear-gradient(to bottom, #EFEFEF 0%, #a9a9a9 100%);
 
@@ -34,7 +29,7 @@ body {
     font-size: 24px;
     font-weight: 400;
     right: 20px;
-    top: 5px;
+    top: 4px;
     font-family: Oswald, sans-serif;
 }
 /* PAGES */
@@ -51,6 +46,33 @@ body {
     border-top: none;
     border-color: #6d7993;
     height: 500px;
+}
+.page div {
+    position: absolute;
+}
+PAGE 1
+#page1 {
+    border: solid;
+    height: 400px;
+}
+#page1 div {
+    height: 100%;
+    width: 50%;
+    border: solid;
+}
+#page1 #left {
+    left: 0;
+}
+#page1 #right {
+    right: 0;
+}
+/* PAGE 2 */
+#page2 {
+
+}
+/* PAGE 3 */
+#page3 {
+
 }
 /* NAVIGATION BAR */
 #topnav,
