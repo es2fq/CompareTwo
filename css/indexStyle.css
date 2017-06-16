@@ -1,4 +1,58 @@
 @import url(http://fonts.googleapis.com/css?family=Raleway);
+@import url(http://fonts.googleapis.com/css?family=Oswald);
+html {
+    height: 100%;
+}
+body {
+    /* IE10+ */ 
+    background-image: -ms-linear-gradient(top, #EFEFEF 0%, #a9a9a9 100%);
+
+    /* Mozilla Firefox */ 
+    background-image: -moz-linear-gradient(top, #EFEFEF 0%, #a9a9a9 100%);
+
+    /* Opera */ 
+    background-image: -o-linear-gradient(top, #EFEFEF 0%, #a9a9a9 100%);
+
+    /* Webkit (Safari/Chrome 10) */ 
+    background-image: -webkit-gradient(linear, left top, left bottom, color-stop(0, #EFEFEF), color-stop(100, #a9a9a9));
+
+    /* Webkit (Chrome 11+) */ 
+    background-image: -webkit-linear-gradient(top, #EFEFEF 0%, #a9a9a9 100%);
+
+    /* W3C Markup */ 
+    background-image: linear-gradient(to bottom, #EFEFEF 0%, #a9a9a9 100%);
+
+    /* background: url("http://cdn.pcwallart.com/images/gradient-black-to-white-square-wallpaper-4.jpg") no-repeat center center fixed;  */
+    -webkit-background-size: cover;
+    -moz-background-size: cover;
+    -o-background-size: cover;
+    background-size: cover;
+    background-repeat: no-repeat;
+}
+#title {
+    position: absolute;
+    font-size: 24px;
+    font-weight: 400;
+    right: 20px;
+    top: 5px;
+    font-family: Oswald, sans-serif;
+}
+/* PAGES */
+#pages {
+
+}
+#pages > div {
+
+}
+.page {
+    position: absolute;
+    width: -webkit-calc(100% - 22px);
+    border: 3px solid;
+    border-top: none;
+    border-color: #6d7993;
+    height: 500px;
+}
+/* NAVIGATION BAR */
 #topnav,
 #topnav ul,
 #topnav ul li,
@@ -25,12 +79,14 @@
 }
 #topnav {
     width: auto;
-    border-bottom: 3px solid #47c9af;
-    font-family: Raleway, sans-serif;
+    border-bottom: 3px solid #6d7993;
+    font-family: Oswald, sans-serif;
     line-height: 1;
 }
 #topnav ul {
-    background: #ffffff;
+    /* background: #ffffff; */
+    background-color: rgba(255,0,0,0);
+    float: left;
 }
 #topnav > ul > li {
     float: left;
@@ -53,7 +109,7 @@
 #topnav > ul > li > a {
     z-index: 2;
     padding: 18px 25px 12px 25px;
-    font-size: 15px;
+    font-size: 24px;
     font-weight: 400;
     text-decoration: none;
     color: #444444;
@@ -93,5 +149,5 @@
 #topnav > ul > li.active > a:after,
 #topnav > ul > li:hover > a:after,
 #topnav > ul > li > a:hover:after {
-    background: #47c9af;
+    background: #6d7993;
 }

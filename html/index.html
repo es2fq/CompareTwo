@@ -10,20 +10,38 @@
     <body>
         <script>
             $(document).ready(function() {
-                var menuSelector = '#topnav ul li';
-                $(menuSelector).on('click', function() {
-                    $(menuSelector).removeClass('active');
-                    $(this).addClass('active');
+            var menuSelector = '#topnav ul li';
+            $(menuSelector).on('click', function() {
+                $(menuSelector).removeClass('active');
+                $(this).addClass('active');
                 });
             });
         </script>
 
-        <div id="topnav">
-            <ul>
-                <li class='active'><a href="#">Home</a></li>
-                <li><a href="#">Create</a></li>
-                <li><a href="#">Contact</a></li>
-            </ul>
+        <h1 id="title">title</h1>
+
+        <div class="wrapper">
+            <div id="topnav">
+                <ul>
+                    <li class='active'><a href="#">Home</a></li>
+                    <li><a href="#">Create</a></li>
+                    <li><a href="#">Contact</a></li>
+                </ul>
+            </div>
+
+            <div id="pages">
+                <div class="page" id="page1">
+                    hello
+                </div>
+
+                <div class="page" id="page2">
+                    hello my name is
+                </div>
+
+                <div class="page" id="page3">
+                    hello my name is bob
+                </div>
+            </div>
         </div>
     </body>
 </html>
