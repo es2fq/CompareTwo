@@ -6,18 +6,9 @@
         <title>Compare Two</title>
 
         <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+        <script src="../js/script.js"></script>
     </head>
     <body>
-        <script>
-            $(document).ready(function() {
-            var menuSelector = '#topnav ul li';
-            $(menuSelector).on('click', function() {
-                $(menuSelector).removeClass('active');
-                $(this).addClass('active');
-                });
-            });
-        </script>
-
         <h1 id="title">title</h1>
 
         <div class="wrapper">
@@ -32,8 +23,12 @@
             <div id="pages">
                 <div class="page" id="page1">
                     <div id="left">
+                        <img id="image1" />
                     </div>
                     <div id="right">
+                        <img id="image2" />
+                    </div>
+                    <div id="bottom">
                     </div>
                 </div>
 
