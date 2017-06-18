@@ -30,19 +30,35 @@ body {
     font-size: 24px;
     font-weight: 400;
     color: #b2543d;
-    right: 20px;
+    right: 7%;
     top: 4px;
     font-family: Oswald, sans-serif;
 }
 /* PAGES */
 #pages {
-
 }
 #pages > div {
+    opacity: 0;
+    transition: opacity 0.4s ease-in;
+    -ms-transition: opacity 0.4s ease-in;
+    -moz-transition: opacity 0.4s ease-in;
+    -webkit-transition: opacity 0.4s ease-in;
+}
+#pages > div.active {
+    opacity: 1;
+    transition: opacity 0.4s ease-in;
+    -ms-transition: opacity 0.4s ease-in;
+    -moz-transition: opacity 0.4s ease-in;
+    -webkit-transition: opacity 0.4s ease-in;
 }
 .page {
     position: absolute;
-    width: -webkit-calc(100% - 22px);
+    /* width: -webkit-calc(100% - 118px); */
+    width: 90%;
+    left: 0;
+    right: 0;
+    margin-left: auto;
+    margin-right: auto;
     border: 3px solid;
     border-top: none;
     border-color: #6d7993;
@@ -50,17 +66,16 @@ body {
 }
 .page div {
     position: absolute;
-    -webkit-box-sizing: border-box
+    -webkit-box-sizing: border-box;
     -moz-box-sizing: border-box;
     box-sizing: border-box;
 }
-PAGE 1
+/* PAGE 1 */
 #page1 {
-    width: auto;
     height: 100%;
 }
 #page1 #left {
-    width: 50%;
+    width: 35%;
     height: 75%;
     left: 0;
     border-right: 1.5px solid;
@@ -72,10 +87,11 @@ PAGE 1
         content:url("http://coolwildlife.com/wp-content/uploads/galleries/post-3004/Fox%20Picture%20003.jpg");
     }
 #page1 #right {
-    width: 50%;
+    width: 35%;
     height: 75%;
-    right: 0;
+    left: 35%;
     border-left: 1.5px solid;
+    border-right: 3px solid;
     border-color: #6d7993;
 }
     #page1 #right #image2 {
@@ -85,9 +101,11 @@ PAGE 1
     }
 #page1 #bottom {
     height: 25%;
-    width: 100%;
+    width: 70%;
+    left: 0;
     bottom: 0;
     border-top: 3px solid;
+    border-right: 3px solid;
     border-color: #6d7993;
 }
 /* PAGE 2 */
@@ -124,7 +142,8 @@ PAGE 1
     height: 0;
 }
 #topnav {
-    width: auto;
+    width: 90%;
+    margin: 0 auto;
     border-bottom: 3px solid #6d7993;
     font-family: Oswald, sans-serif;
     line-height: 1;
