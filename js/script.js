@@ -18,11 +18,11 @@ $(document).ready(function() {
 
     function resizeImageWindow() {
         console.log("resize");
-        var imageWindow = '#page1';
+        var contentWindow = '.page';
         var navigationBar = '#topnav';
         var newWidth = parseFloat($(navigationBar).css('width')) + offset;
         var newHeight = parseFloat(newWidth, 10) * (14/30); 
-        $(imageWindow).css('width', newWidth);
-        $(imageWindow).css('height', newHeight);
+        $(contentWindow).css('width', newWidth);
+        $(contentWindow).css('height', newHeight);
     }
 });
