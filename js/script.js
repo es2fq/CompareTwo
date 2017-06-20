@@ -51,10 +51,10 @@ $(document).ready(function() {
     //     url: "https://crossorigin.me/" + imageUrl
     // });
     
-    leftImage.click(function() {
+    $('#page2 #left').click(function() {
         importButton1.click();
     });
-    rightImage.click(function() {
+    $('#page2 #right').click(function() {
         importButton2.click();
     });
 });

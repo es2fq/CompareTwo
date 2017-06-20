@@ -122,7 +122,11 @@ body {
     height: 75%;
     left: 0;
     border-right: 1.5px solid;
+    border-bottom: 3px solid;
     border-color: #6d7993;
+}
+#page2 #left:hover {
+    cursor: hand;
 }
     #page2 #left #image1 {
         width: 100%;
@@ -136,7 +140,11 @@ body {
     height: 75%;
     left: 50%;
     border-left: 1.5px solid;
+    border-bottom: 3px solid;
     border-color: #6d7993;
+}
+#page2 #right:hover {
+    cursor: hand;
 }
     #page2 #right #image2 {
         width: 100%;
@@ -145,6 +153,12 @@ body {
         max-height: 100%;
         /* content:url("https://d2x8fm1skimpik.cloudfront.net/images/process/upload-step-1@2x.jpg"); */
     }
+#page2 #bottom {
+    height: 25%;
+    width: 100%;
+    left: 0;
+    bottom: 0;
+}
 /* PAGE 3 */
 #page3 {
 
