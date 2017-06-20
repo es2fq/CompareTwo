@@ -5,15 +5,17 @@
         
         <link rel="stylesheet" type="text/css" href="../css/indexStyle.css" />
         <link rel="stylesheet" type="text/css" href="../css/croppie.css" />
+        <link rel="stylesheet" type="text/css" href="../css/remodal.css" />
+        <link rel="stylesheet" type="text/css" href="../css/remodal-default-theme.css" />
 
         <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
         <script src="../js/script.js"></script>
         <script src="../js/croppie.js"></script>
+        <script src="../js/remodal.min.js"></script>
     </head>
     <body>
-        <h1 id="title">title</h1>
-
-        <div class="wrapper">
+        <div class="remodal-bg">
+            <h1 id="title">title</h1>
             <div id="topnav">
                 <ul>
                     <li class='active'><a href="#">Home</a></li>
@@ -48,8 +50,17 @@
                     </div>
                     <div id="right">
                     </div>
+                    <a data-remodal-target="modal">Call the modal window</a>
                 </div>
             </div>
+        </div>
+        <div class="remodal" data-remodal-id="modal">
+            <button data-remodal-action="close" class="remodal-close"></button>
+            <h1>Hello</h1>
+            <p>hello hello</p>
+            <br>
+            <button data-remodal-action="cancel" class="remodal-cancel">Cancel</button>
+            <button data-remodal-action="confirm" class="remodal-confirm">OK</button>
         </div>
     </body>
 </html>

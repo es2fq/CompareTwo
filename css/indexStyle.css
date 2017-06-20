@@ -65,7 +65,8 @@ body {
     border-color: #6d7993;
     height: 500px;
 }
-.page div {
+.page div,
+.page img {
     position: absolute;
     -webkit-box-sizing: border-box;
     -moz-box-sizing: border-box;
@@ -132,7 +133,6 @@ body {
     height: 75%;
     left: 50%;
     border-left: 1.5px solid;
-    border-right: 3px solid;
     border-color: #6d7993;
 }
     #page2 #right #image2 {
@@ -140,7 +140,7 @@ body {
         height: 100%;
         max-width: 100%;
         max-height: 100%;
-        content:url("https://d2x8fm1skimpik.cloudfront.net/images/process/upload-step-1@2x.jpg");
+        /* content:url("https://d2x8fm1skimpik.cloudfront.net/images/process/upload-step-1@2x.jpg"); */
     }
 /* PAGE 3 */
 #page3 {

@@ -30,21 +30,21 @@ $(document).ready(function() {
     var rightImage = $('#page2 #right #image2');
     var rightDim = parseFloat(rightImage.css('width')) / 2;
 
-    var leftCrop = leftImage.croppie({
-        viewport: {
-            width: leftDim,
-            height: leftDim,
-        }
-    });
-    var rightCrop = rightImage.croppie({
-        viewport: {
-            width: rightDim,
-            height: rightDim,
-        }
-    });
+    // var leftCrop = leftImage.croppie({
+    //     viewport: {
+    //         width: leftDim,
+    //         height: leftDim,
+    //     }
+    // });
+    // var rightCrop = rightImage.croppie({
+    //     viewport: {
+    //         width: rightDim,
+    //         height: rightDim,
+    //     }
+    // });
 
-    var imageUrl = "https://assets.rbl.ms/1268721/980x.jpg";
-    leftCrop.croppie('bind', {
-        url: "https://crossorigin.me/" + imageUrl
-    });
+    // var imageUrl = "https://assets.rbl.ms/1268721/980x.jpg";
+    // leftCrop.croppie('bind', {
+    //     url: "https://crossorigin.me/" + imageUrl
+    // });
 });
