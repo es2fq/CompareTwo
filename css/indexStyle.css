@@ -114,6 +114,9 @@ body {
 #page2 {
     height: 100%;
 }
+#page2 #importButton {
+    display: none;
+}
 #page2 #left {
     width: 50%;
     height: 75%;

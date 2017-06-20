@@ -30,6 +30,9 @@ $(document).ready(function() {
     var rightImage = $('#page2 #right #image2');
     var rightDim = parseFloat(rightImage.css('width')) / 2;
 
+    var importButton1 = $('#importImg1');
+    var importButton2 = $('#importImg2');
+
     // var leftCrop = leftImage.croppie({
     //     viewport: {
     //         width: leftDim,
@@ -47,4 +50,11 @@ $(document).ready(function() {
     // leftCrop.croppie('bind', {
     //     url: "https://crossorigin.me/" + imageUrl
     // });
+    
+    leftImage.click(function() {
+        importButton1.click();
+    });
+    rightImage.click(function() {
+        importButton2.click();
+    });
 });
