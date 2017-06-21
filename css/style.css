@@ -26,6 +26,17 @@ body {
     background-size: cover;
     background-repeat: no-repeat;
 }
+button {
+    display: inline-block;
+    padding: 4px 16px;
+    line-height: 1.8;
+    appearance: none;
+    box-shadow: none;
+    border-radius: 0;
+}
+button:focus {
+    outline: none;
+}
 .inputfile {
     width: 0.1px;
     height: 0.1px;
@@ -47,6 +58,33 @@ body {
     }
     .inputfile + label {
         cursor: hand
+    }
+.fileButton { 
+    width: 70px;
+    color: black;
+    background: white;
+    border: solid 3px;
+    border-color: black;
+    border-radius: 50px 0px 0px 50px;
+}
+.urlButton {
+    width: 70px;
+    color: black;
+    background: white;
+    border: solid 3px;
+    border-color: black;
+    border-radius: 0px 50px 50px 0px;
+}
+    .fileButton:hover,
+    .urlButton:hover {
+        cursor: hand;
+        border-color: red;
+        color: red;
+    }
+    .fileButton:active,
+    .urlButton:active {
+        border-color: green;
+        color: green;
     }
 #title {
     position: absolute;
