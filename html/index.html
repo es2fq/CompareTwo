@@ -60,24 +60,34 @@
         <div id="remodal1" class="remodal" data-remodal-id="import1">
             <button data-remodal-action="close" class="remodal-close"></button>
             <h2>Image 1</h2>
-            <button class="fileButton">File</button>
-            <button class="urlButton">URL</button>
-            <br><br>
-            <input id="file1" class="inputfile" type="file" accept="image/*"></input>
-            <label for="file1">Choose a file</label>
-            <br><br>
+            <div id="importButtons">
+                <button class="fileButton active">File</button>
+                <button class="urlButton">URL</button>
+            </div>
+            <br>
+            <div id="inputOptions">
+                <input id="file1" class="inputFile" type="file" accept="image/*"></input>
+                <label id="inputLabel" class="active" for="file1">Choose a file</label>
+                <input id="urlInput1" class="inputUrl" type="url"></input>
+            </div>
+            <br>
             <button data-remodal-action="cancel" class="remodal-cancel">Cancel</button>
             <button data-remodal-action="confirm" class="remodal-confirm">Upload</button>
         </div>
         <div id="remodal2" class="remodal" data-remodal-id="import2">
             <button data-remodal-action="close" class="remodal-close"></button>
             <p>Image 2</p>
-            <button class="fileButton">File</button>
-            <button class="urlButton">URL</button>
-            <br><br>
-            <input id="file2" class="inputfile" type="file" accept="image/*"></input>
-            <label for="file2">Choose a file</label>
-            <br><br>
+            <div id="importButtons">
+                <button class="fileButton active">File</button>
+                <button class="urlButton">URL</button>
+            </div>
+            <br>
+            <div id="inputOptions">
+                <input id="file2" class="inputFile" type="file" accept="image/*"></input>
+                <label id="inputLabel" class="active" for="file2">Choose a file</label>
+                <input id="urlInput2" class="inputUrl" type="url"></input>
+            </div>
+            <br>
             <button data-remodal-action="cancel" class="remodal-cancel">Cancel</button>
             <button data-remodal-action="confirm" class="remodal-confirm">Upload</button>
         </div>

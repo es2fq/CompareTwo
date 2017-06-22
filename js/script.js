@@ -87,4 +87,31 @@ $(document).ready(function() {
                 label.innerHTML = labelVal;
         });
     });
+
+    var inputOptions1 = $('#remodal1 #inputOptions');
+    var inputOptions2 = $('#remodal2 #inputOptions');
+
+    var buttonSelector1 = $('#remodal1 #importButtons > button');
+    buttonSelector1.on('click', function() {
+        buttonSelector1.removeClass('active');
+        $(this).addClass('active');
+
+        inputOptions1.children().each(function() {
+            $(this).removeClass('active');
+        });
+        var index = $(this).index() + 1;
+        var option = inputOptions1.children().eq(index);
+        option.addClass('active');
+    });
+    var buttonSelector2 = $('#remodal2 #importButtons > button');
+    buttonSelector2.on('click', function() {
+        buttonSelector2.removeClass('active');
+        $(this).addClass('active');
+
+        inputOptions2.children().each(function() {
+            $(this).removeClass('active');
+        });
+        var index = $(this).index() + 1;
+        var option = inputOptions2.children().eq(index);
+    });
 });

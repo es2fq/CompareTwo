@@ -26,6 +26,16 @@ body {
     background-size: cover;
     background-repeat: no-repeat;
 }
+#title {
+    position: absolute;
+    font-size: 32px;
+    font-weight: 400;
+    color: #b2543d;
+    right: 7%;
+    top: -5px;
+    font-family: Oswald, sans-serif;
+}
+/* IMPORT BUTTONS */
 button {
     display: inline-block;
     padding: 4px 16px;
@@ -37,28 +47,9 @@ button {
 button:focus {
     outline: none;
 }
-.inputfile {
-    width: 0.1px;
-    height: 0.1px;
-    opacity: 0;
-    overflow: hidden;
-    position: absolute;
-    z-index: -1;
+#importButtons button.active {
+    background-color: lightblue;
 }
-    .inputfile + label {
-        font-size: 1.25em;
-        font-weight: 700;
-        color: white;
-        background-color: black;
-        display: inline-block;
-    }
-    .inputfile:focus + label,
-    .inputfile + label:hover {
-        background-color: red;
-    }
-    .inputfile + label {
-        cursor: hand
-    }
 .fileButton { 
     width: 70px;
     color: black;
@@ -86,15 +77,44 @@ button:focus {
         border-color: green;
         color: green;
     }
-#title {
+/* INPUT FILE */
+.inputFile {
     position: absolute;
-    font-size: 32px;
-    font-weight: 400;
-    color: #b2543d;
-    right: 7%;
-    top: -5px;
-    font-family: Oswald, sans-serif;
+    width: 0.1px;
+    height: 0.1px;
+    opacity: 0;
+    overflow: hidden;
+    z-index: -1;
 }
+    .inputFile + label {
+        font-size: 1.25em;
+        font-weight: 700;
+        color: white;
+        background-color: black;
+        display: inline-block;
+        visibility: hidden;
+    }
+    .inputFile + label.active {
+        visibility: visible;
+    }
+    .inputFile:focus + label,
+    .inputFile + label:hover {
+        background-color: red;
+    }
+    .inputFile + label {
+        cursor: hand
+    }
+/* INPUT URL */
+.inputUrl {
+    position: absolute;
+    text-align: center;
+    width: 50%;
+    left: 25%;
+    visibility: hidden;
+}
+    .inputUrl.active {
+        visibility: visible;
+    }
 /* PAGES */
 #pages {
 }
