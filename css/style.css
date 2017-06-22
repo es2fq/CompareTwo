@@ -48,7 +48,7 @@ button:focus {
     outline: none;
 }
 #importButtons button.active {
-    background-color: lightblue;
+    background-color: #6d7993;
 }
 .fileButton { 
     width: 70px;
@@ -69,13 +69,11 @@ button:focus {
     .fileButton:hover,
     .urlButton:hover {
         cursor: hand;
-        border-color: red;
-        color: red;
+        border-color: #c2c2b2;
+        color: #c2c2b2;
     }
     .fileButton:active,
     .urlButton:active {
-        border-color: green;
-        color: green;
     }
 /* INPUT FILE */
 .inputFile {
@@ -87,11 +85,13 @@ button:focus {
     z-index: -1;
 }
     .inputFile + label {
+        height: 30px;
         font-size: 1.25em;
         font-weight: 700;
         color: white;
-        background-color: black;
+        background-color: #c2c2b2;
         display: inline-block;
+        padding: 4px 16px;
         visibility: hidden;
     }
     .inputFile + label.active {
@@ -99,7 +99,7 @@ button:focus {
     }
     .inputFile:focus + label,
     .inputFile + label:hover {
-        background-color: red;
+        background-color: gray;
     }
     .inputFile + label {
         cursor: hand
@@ -109,7 +109,10 @@ button:focus {
     position: absolute;
     text-align: center;
     width: 50%;
+    height: 35px;
     left: 25%;
+    border: 3px solid;
+    border-color: #c2c2b2;
     visibility: hidden;
 }
     .inputUrl.active {
