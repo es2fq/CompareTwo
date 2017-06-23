@@ -113,10 +113,16 @@ $(document).ready(function() {
             reader.readAsDataURL(file);
         }
         if (inputUrl.hasClass('active')) {
-            if (inputUrl.val() == '') {
+            var url = inputUrl.val();
+            if (url == '') {
                 return;
             }
-            createCroppie(inputUrl.val(), num, "url");
+            isValidImageUrl(url, function(isImage) {
+                console.log(isImage);
+                if (isImage) {
+                    createCroppie(url, num, "url");
+                }
+            });
         }
     }
 
@@ -183,6 +189,18 @@ $(document).ready(function() {
             var index = $(this).index() + 1;
             var option = inputOptions2.children().eq(index);
             option.addClass('active');
+        });
+    }
+
+    function isValidImageUrl(url, callback) {
+        $("<img>").on('load', function() {
+            callback(true);
+        })
+        .on('error', function() {
+            callback(false);
+        })
+        .attr({
+            src: url;
         });
     }
 
