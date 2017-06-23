@@ -115,6 +115,10 @@ button:focus {
     border-color: #c2c2b2;
     visibility: hidden;
 }
+    .inputUrl:focus {
+        outline: none;
+        border-color: gray;
+    }
     .inputUrl.active {
         visibility: visible;
     }
@@ -209,15 +213,15 @@ button:focus {
     border-bottom: 3px solid;
     border-color: #6d7993;
 }
-#page2 #left:hover {
-    cursor: hand;
-    border:3px solid;
-    border-color: #ff383f;
-}
+    #page2 #left:hover {
+        cursor: hand;
+        border: 3px solid;
+        border-color: #b2543d;
+    }
     #page2 #left #image1 {
         max-width: 100%;
         max-height: 100%;
-        content:url("https://d2x8fm1skimpik.cloudfront.net/images/process/upload-step-1@2x.jpg"); */
+        content: url("https://cdn0.iconfinder.com/data/icons/interface-10/128/_upload_image-512.png");
     }
 #page2 #right {
     width: 50%;
@@ -227,15 +231,15 @@ button:focus {
     border-bottom: 3px solid;
     border-color: #6d7993;
 }
-#page2 #right:hover {
-    cursor: hand;
-    border: 3px solid;
-    border-color: #ff383f;
-}
+    #page2 #right:hover {
+        cursor: hand;
+        border: 3px solid;
+        border-color: #b2543d;
+    }
     #page2 #right #image2 {
         max-width: 100%;
         max-height: 100%;
-        content:url("https://d2x8fm1skimpik.cloudfront.net/images/process/upload-step-1@2x.jpg");
+        content:url("https://cdn0.iconfinder.com/data/icons/interface-10/128/_upload_image-512.png");
     }
 #page2 #bottom {
     height: 25%;
