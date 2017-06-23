@@ -200,7 +200,7 @@ $(document).ready(function() {
             callback(false);
         })
         .attr({
-            src: url;
+            src: url
         });
     }
 
