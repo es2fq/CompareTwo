@@ -47,7 +47,7 @@ button {
 button:focus {
     outline: none;
 }
-#importButtons button.active {
+.importButtons button.active {
     background-color: #6d7993;
 }
 .fileButton { 
@@ -215,8 +215,7 @@ button:focus {
 }
     #page2 #left:hover {
         cursor: hand;
-        border: 3px solid;
-        border-color: #b2543d;
+        opacity: 0.5;
     }
     #page2 #left #image1 {
         max-width: 100%;
@@ -233,8 +232,7 @@ button:focus {
 }
     #page2 #right:hover {
         cursor: hand;
-        border: 3px solid;
-        border-color: #b2543d;
+        opacity: 0.5;
     }
     #page2 #right #image2 {
         max-width: 100%;

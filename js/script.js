@@ -36,32 +36,12 @@ $(document).ready(function() {
         var newHeight = parseFloat(newWidth, 10) * (14/30); 
         $(contentWindow).css('width', newWidth);
         $(contentWindow).css('height', newHeight);
-    }
 
-    function initImportHandler() {
         var leftImport = $('#page2 #left');
         var rightImport = $('#page2 #right');
 
         var leftImage = $('#page2 #left #image1');
-        var leftViewportDim = parseFloat(leftImage.css('width')) / 2;
         var rightImage = $('#page2 #right #image2');
-        var rightViewportDim = parseFloat(rightImage.css('width')) / 2;
-
-        var importButton1 = $('#importImg1');
-        var importButton2 = $('#importImg2');
-
-        // var leftCrop = leftImage.croppie({
-        //     viewport: {
-        //         width: leftViewportDim,
-        //         height: leftViewportDim,
-        //     }
-        // });
-        // var rightCrop = rightImage.croppie({
-        //     viewport: {
-        //         width: rightViewportDim,
-        //         height: rightViewportDim,
-        //     }
-        // });
 
         leftImageDim = parseFloat(leftImport.width() / 2);
         leftImage.css('width', leftImageDim);
@@ -74,17 +54,23 @@ $(document).ready(function() {
         rightImage.css('height', rightImageDim); 
         rightImage.css('margin-left', '25%');
         rightImage.css('margin-top', (parseFloat(rightImport.css('height')) - rightImageDim) / 2);
+    }
 
-        // var imageUrl = "https://assets.rbl.ms/1268721/980x.jpg";
-        // leftCrop.croppie('bind', {
-        //     url: "https://crossorigin.me/" + imageUrl
-        // });
+    function initImportHandler() {
+        var importButton1 = $('#importImg1');
+        var importButton2 = $('#importImg2');
 
         $('#page2 #left').click(function() {
             importButton1.click();
         });
         $('#page2 #right').click(function() {
             importButton2.click();
+        });
+        $('#confirm1').click(function() {
+            handleConfirm('1');
+        });
+        $('#confirm2').click(function() {
+            handleConfirm('2');
         });
 
         var inputs = document.querySelectorAll('.inputfile');
@@ -103,11 +89,78 @@ $(document).ready(function() {
         });
     }
 
-    function initImportButtons() {
-        var inputOptions1 = $('#remodal1 #inputOptions');
-        var inputOptions2 = $('#remodal2 #inputOptions');
+    function handleConfirm(num) {
+        var inputFile = $('.inputOptions #file' + num);
+        var inputLabel = $('.inputOptions #inputLabel' + num);
+        var inputUrl = $('.inputOptions #urlInput' + num);
 
-        var buttonSelector1 = $('#remodal1 #importButtons > button');
+        if (inputLabel.hasClass('active')) {
+            if (inputFile.val() == '') {
+                return;
+            }
+            var file = inputFile.get(0).files[0];
+            var fileType = file["type"];
+
+            var ValidImageTypes = ["image/gif", "image/jpeg", "image/png"];
+            if ($.inArray(fileType, ValidImageTypes) < 0) {
+                return;
+            }
+            
+            var reader = new FileReader();
+            reader.onload = function(e) {
+                createCroppie(e.target.result, num, "file");
+            };
+            reader.readAsDataURL(file);
+        }
+        if (inputUrl.hasClass('active')) {
+            if (inputUrl.val() == '') {
+                return;
+            }
+            createCroppie(inputUrl.val(), num, "url");
+        }
+    }
+
+    function createCroppie(url, num, type) {
+        var image = $('#page2 #image' + num);
+        var viewportDim = parseFloat(image.css('width')) / 2;
+
+        var crop = image.croppie({
+            viewport: {
+                width: viewportDim,
+                height: viewportDim,
+            }
+        });
+        
+        if (type == "url") {
+            url = "https://crossorigin.me/" + url;
+        }
+
+        crop.croppie('bind', {
+            url: url
+        });
+
+        unbindImage(num);
+    }
+
+    function unbindImage(num) {
+        var image;
+        if (num == '1') {
+            image = $('#page2 #left');
+        }
+        if (num == '2') {
+            image = $('#page2 #right');
+        }
+
+        if (image) {
+            image.off('click');
+        }
+    }
+
+    function initImportButtons() {
+        var inputOptions1 = $('#remodal1 .inputOptions');
+        var inputOptions2 = $('#remodal2 .inputOptions');
+
+        var buttonSelector1 = $('#remodal1 .importButtons > button');
         buttonSelector1.on('click', function() {
             buttonSelector1.removeClass('active');
             $(this).addClass('active');
@@ -119,7 +172,7 @@ $(document).ready(function() {
             var option = inputOptions1.children().eq(index);
             option.addClass('active');
         });
-        var buttonSelector2 = $('#remodal2 #importButtons > button');
+        var buttonSelector2 = $('#remodal2 .importButtons > button');
         buttonSelector2.on('click', function() {
             buttonSelector2.removeClass('active');
             $(this).addClass('active');
@@ -129,6 +182,7 @@ $(document).ready(function() {
             });
             var index = $(this).index() + 1;
             var option = inputOptions2.children().eq(index);
+            option.addClass('active');
         });
     }
 
