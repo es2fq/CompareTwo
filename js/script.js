@@ -127,8 +127,8 @@ $(document).ready(function() {
     }
 
     function createCroppie(url, num, type) {
-        var image = $('#page2 #image' + num);
-        var viewportDim = parseFloat(image.css('width')) / 2;
+        var image = $('#page2 * #image' + num);
+        var viewportDim = parseFloat(image.css('width'));
 
         var crop = image.croppie({
             viewport: {

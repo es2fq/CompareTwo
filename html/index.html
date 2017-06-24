@@ -68,7 +68,7 @@
             <div class="inputOptions">
                 <input id="file1" class="inputFile" type="file" accept="image/*"></input>
                 <label id="inputLabel1" class="active" for="file1">Choose a file</label>
-                <input id="urlInput1" class="inputUrl" type="url" placeholder="Enter a valid URL"></input>
+                <input id="urlInput1" class="inputUrl" type="url" placeholder="Enter a valid URL" onclick="this.setSelectionRange(0, this.value.length)"></input>
             </div>
             <br>
             <button data-remodal-action="cancel" class="remodal-cancel">Cancel</button>
@@ -85,7 +85,7 @@
             <div class="inputOptions">
                 <input id="file2" class="inputFile" type="file" accept="image/*"></input>
                 <label id="inputLabel2" class="active" for="file2">Choose a file</label>
-                <input id="urlInput2" class="inputUrl" type="url" placeholder="Enter a valid URL"></input>
+                <input id="urlInput2" class="inputUrl" type="url" placeholder="Enter a valid URL" onclick="this.setSelectionRange(0, this.value.length)"></input>
             </div>
             <br>
             <button data-remodal-action="cancel" class="remodal-cancel">Cancel</button>
