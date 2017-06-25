@@ -118,15 +118,20 @@ $(document).ready(function() {
                 return;
             }
             isValidImageUrl(url, function(isImage) {
-                console.log(isImage);
                 if (isImage) {
                     createCroppie(url, num, "url");
+                }
+                else {
+                    alert("Not a valid image!");
                 }
             });
         }
     }
 
     function createCroppie(url, num, type) {
+        var body = $("body");
+        body.addClass("loading");
+
         var image = $('#page2 * #image' + num);
         var viewportDim = parseFloat(image.css('width'));
 

@@ -156,6 +156,9 @@
 
     /* Utilities */
     function loadImage(src, imageEl) {
+        var body = $("body");
+        body.addClass("loading");
+
         var img = imageEl || new Image();
         img.style.opacity = 0;
 
@@ -172,6 +175,7 @@
                 img.onload = function () {
                     setTimeout(function () {
                         resolve(img);
+                        body.removeClass("loading");
                     }, 1);
                 }
                 img.src = src;
