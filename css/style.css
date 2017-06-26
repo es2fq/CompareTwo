@@ -264,24 +264,34 @@ button:focus {
 }
     #page2 #bottom #importText {
         position: absolute;
-        left: 31%;
+        left: 28%;
         top: 15%;
         text-align: center;
+        color: #b2543d;
     }
     #page2 #bottom #resetImport {
-        width: 50%;
-        height: 100%;
         left: 0;
         top: 15%;
+        margin-left: 10px;
+        color: red;
         display: none;
     }
+        #page2 #bottom #resetImport:hover {
+            opacity: 0.5;
+            cursor: hand;
+        }
     #page2 #bottom #nextPage {
-        width: 25%;
-        height: 100%;
         right: 0;
         top: 15%;
+        margin-right: 10px;
+        text-align: right;
+        color: green;
         display: none;
     }
+        #page2 #bottom #nextPage:hover {
+            opacity: 0.5;
+            cursor: hand;
+        }
 /* PAGE 3 */
 #page3 {
 
