@@ -132,6 +132,9 @@ $(document).ready(function() {
         var body = $("body");
         body.addClass("loading");
 
+        var text = $("#importText");
+        text.hide();
+
         var image = $('#page2 * #image' + num);
         var viewportDim = parseFloat(image.css('width'));
 

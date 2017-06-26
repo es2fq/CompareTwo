@@ -260,22 +260,27 @@ button:focus {
     width: 100%;
     left: 0;
     bottom: 0;
-    text-align: center;
+    font-size: 4vw;
 }
     #page2 #bottom #importText {
         position: absolute;
-        left: 32%;
+        left: 31%;
         top: 15%;
-        font-size: 4vw;
+        text-align: center;
     }
     #page2 #bottom #resetImport {
         width: 50%;
         height: 100%;
+        left: 0;
+        top: 15%;
+        display: none;
     }
     #page2 #bottom #nextPage {
         width: 25%;
         height: 100%;
         right: 0;
+        top: 15%;
+        display: none;
     }
 /* PAGE 3 */
 #page3 {
