@@ -139,7 +139,8 @@ $(document).ready(function() {
             viewport: {
                 width: viewportDim,
                 height: viewportDim,
-            }
+            },
+            showZoomer: false,
         });
         
         if (type == "url") {
@@ -150,10 +151,10 @@ $(document).ready(function() {
             url: url
         });
 
-        unbindImage(num);
+        removeImageClick(num);
     }
 
-    function unbindImage(num) {
+    function removeImageClick(num) {
         var image;
         if (num == '1') {
             image = $('#page2 #left');

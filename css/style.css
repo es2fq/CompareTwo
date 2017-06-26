@@ -260,7 +260,11 @@ button:focus {
     width: 100%;
     left: 0;
     bottom: 0;
+    text-align: center;
 }
+    #page2 #bottom #importText {
+        font-size: 4vw;
+    }
 /* PAGE 3 */
 #page3 {
 
