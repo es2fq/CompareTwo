@@ -61,10 +61,12 @@ $(document).ready(function() {
         var importButton2 = $('#importImg2');
 
         $('#page2 #left').click(function() {
-            importButton1.click();
+            if ($('#page2').hasClass('active'))
+                importButton1.click();
         });
         $('#page2 #right').click(function() {
-            importButton2.click();
+            if ($('#page2').hasClass('active'))
+                importButton2.click();
         });
         $('#confirm1').click(function() {
             handleConfirm('1');
@@ -128,6 +130,8 @@ $(document).ready(function() {
         }
     }
 
+    var croppie1;
+    var croppie2;
     function createCroppie(url, num, type) {
         var body = $("body");
         body.addClass("loading");
@@ -148,6 +152,9 @@ $(document).ready(function() {
             },
             showZoomer: false,
         });
+
+        if (num == '1') croppie1 = crop;
+        if (num == '2') croppie2 = crop;
         
         if (type == "url") {
             url = "https://crossorigin.me/" + url;
@@ -207,6 +214,15 @@ $(document).ready(function() {
         nextPage.on('click', function() {
             $('#page2 > div').removeClass('active');
             $('#page2 #descriptionPage').addClass('active');
+
+            croppie1.croppie('result', 'base64').then(function(data) {
+                var image = $('#croppedImg1');
+                image.attr('src', data);
+            });
+            croppie2.croppie('result', 'base64').then(function(data) {
+                var image = $('#croppedImg2');
+                image.attr('src', data);
+            });
         });
     }
 

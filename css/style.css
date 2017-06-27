@@ -252,7 +252,7 @@ button:focus {
         max-height: 100%;
         content: url("https://cdn0.iconfinder.com/data/icons/interface-10/128/_upload_image-512.png");
     }
-    #page2 #left #image1:hover {
+    #page2.active #left #image1:hover {
         cursor: hand;
         opacity: 0.5;
     }
@@ -269,7 +269,7 @@ button:focus {
         max-height: 100%;
         content:url("https://cdn0.iconfinder.com/data/icons/interface-10/128/_upload_image-512.png");
     }
-    #page2 #right #image2:hover {
+    #page2.active #right #image2:hover {
         cursor: hand;
         opacity: 0.5;
     }
@@ -310,6 +310,11 @@ button:focus {
             opacity: 0.5;
             cursor: hand;
         }
+#croppedImg1 {
+    width: 100px;
+    height: 100px;
+}
+
 /* PAGE 3 */
 #page3 {
 
