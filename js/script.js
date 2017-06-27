@@ -54,6 +54,13 @@ $(document).ready(function() {
         rightImage.css('height', rightImageDim); 
         rightImage.css('margin-left', '25%');
         rightImage.css('margin-top', (parseFloat(rightImport.css('height')) - rightImageDim) / 2);
+
+        var leftCrop = $('#croppedImg1');
+        var rightCrop = $('#croppedImg2');
+
+        croppedDim = parseFloat(leftImport.width() / 3);
+        leftCrop.css('width', croppedDim);
+        leftCrop.css('height', croppedDim);
     }
 
     function initImportHandler() {
@@ -219,10 +226,10 @@ $(document).ready(function() {
                 var image = $('#croppedImg1');
                 image.attr('src', data);
             });
-            croppie2.croppie('result', 'base64').then(function(data) {
-                var image = $('#croppedImg2');
-                image.attr('src', data);
-            });
+            // croppie2.croppie('result', 'base64').then(function(data) {
+            //     var image = $('#croppedImg2');
+            //     image.attr('src', data);
+            // });
         });
     }
 

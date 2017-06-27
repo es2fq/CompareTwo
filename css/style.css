@@ -290,8 +290,8 @@ button:focus {
     #page2 #bottom #resetImport {
         left: 0;
         top: 15%;
-        margin-left: 10px;
-        color: red;
+        margin-left: 15px;
+        color: #b2543d;
         display: none;
     }
         #page2 #bottom #resetImport:hover {
@@ -301,7 +301,7 @@ button:focus {
     #page2 #bottom #nextPage {
         right: 0;
         top: 15%;
-        margin-right: 10px;
+        margin-right: 15px;
         text-align: right;
         color: green;
         display: none;
@@ -310,9 +310,29 @@ button:focus {
             opacity: 0.5;
             cursor: hand;
         }
-#croppedImg1 {
-    width: 100px;
-    height: 100px;
+#descriptionPage {
+
+}
+#questionSection {
+    width: 100%;
+    height: 10%;
+    border: solid;
+}
+#topSection {
+
+}
+    #croppedImg1 {
+        width: 100px;
+        height: 100px;
+    }
+#bottomSection {
+
+}
+    #croppedImg2 {
+
+    }
+#bottomNav {
+
 }
 
 /* PAGE 3 */
