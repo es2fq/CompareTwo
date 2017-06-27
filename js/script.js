@@ -135,6 +135,9 @@ $(document).ready(function() {
         var text = $("#importText");
         text.hide();
 
+        var bottomOptions = $("#page2 #bottom div");
+        bottomOptions.show();
+
         var image = $('#page2 * #image' + num);
         var viewportDim = parseFloat(image.css('width'));
 
@@ -198,6 +201,12 @@ $(document).ready(function() {
             var index = $(this).index() + 1;
             var option = inputOptions2.children().eq(index);
             option.addClass('active');
+        });
+
+        var nextPage = $('#nextPage');
+        nextPage.on('click', function() {
+            $('#page2 > div').removeClass('active');
+            $('#page2 #descriptionPage').addClass('active');
         });
     }
 
