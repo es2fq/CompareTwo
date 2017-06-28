@@ -69,6 +69,16 @@ $(document).ready(function() {
 
         description1.css('left', croppedDim);
         description2.css('left', croppedDim);
+
+        var margin = 5;
+        var descriptionWidth = parseFloat($('#croppedSection').css('width')) - 2 * croppedDim - margin;
+        description1.css('width', descriptionWidth);
+        description2.css('width', descriptionWidth);
+        description1.css('height', croppedDim / 2 - 2);
+        description2.css('height', croppedDim / 2 - 2);
+        description1.css('margin-left', margin / 4);
+        description2.css('margin-left', margin / 4);
+        description2.css('top', croppedDim / 2 - 2);
     }
 
     function initImportHandler() {
