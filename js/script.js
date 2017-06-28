@@ -58,9 +58,11 @@ $(document).ready(function() {
         var leftCrop = $('#croppedImg1');
         var rightCrop = $('#croppedImg2');
 
-        croppedDim = parseFloat(leftImport.width() / 3);
+        croppedDim = parseFloat($('#croppedSection').css('height'));
         leftCrop.css('width', croppedDim);
         leftCrop.css('height', croppedDim);
+        rightCrop.css('width', croppedDim);
+        rightCrop.css('height', croppedDim);
     }
 
     function initImportHandler() {
