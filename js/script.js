@@ -63,6 +63,12 @@ $(document).ready(function() {
         leftCrop.css('height', croppedDim);
         rightCrop.css('width', croppedDim);
         rightCrop.css('height', croppedDim);
+
+        var description1 = $('#description1');
+        var description2 = $('#description2');
+
+        description1.css('left', croppedDim);
+        description2.css('left', croppedDim);
     }
 
     function initImportHandler() {
@@ -148,9 +154,6 @@ $(document).ready(function() {
         var text = $("#importText");
         text.hide();
 
-        var bottomOptions = $("#page2 #bottom div");
-        bottomOptions.show();
-
         var image = $('#page2 * #image' + num);
         var viewportDim = parseFloat(image.css('width'));
 
@@ -172,6 +175,13 @@ $(document).ready(function() {
         crop.croppie('bind', {
             url: url
         });
+
+        var resetButton = $('#page2 #bottom #resetImport');
+        var nextButton = $('#page2 #bottom #nextPage');
+        resetButton.show();
+        if (croppie1 && croppie2) {
+            nextButton.show();
+        }
 
         removeImageClick(num);
     }
@@ -201,6 +211,9 @@ $(document).ready(function() {
             if ($('#page2').hasClass('active'))
                 $('#importImg2').click();
         });
+
+        croppie1 = null;
+        croppie2 = null;
 
         var leftExtraDiv = $('#page2 #left div');
         leftExtraDiv.replaceWith(leftExtraDiv.contents());
@@ -247,10 +260,10 @@ $(document).ready(function() {
                 var image = $('#croppedImg1');
                 image.attr('src', data);
             });
-            // croppie2.croppie('result', 'base64').then(function(data) {
-            //     var image = $('#croppedImg2');
-            //     image.attr('src', data);
-            // });
+            croppie2.croppie('result', 'base64').then(function(data) {
+                var image = $('#croppedImg2');
+                image.attr('src', data);
+            });
         });
         var prevPage = $('#prevPage');
         prevPage.on('click', function() {
