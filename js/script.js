@@ -188,6 +188,25 @@ $(document).ready(function() {
         }
     }
 
+    function resetImportPage() {
+        $('#importText').show();
+        $('#page2 #bottom div').hide();
+        $('#page2 #left').click(function() {
+            if ($('#page2').hasClass('active'))
+                $('#importImg1').click();
+        });
+        $('#page2 #right').click(function() {
+            if ($('#page2').hasClass('active'))
+                $('#importImg2').click();
+        });
+
+        var leftExtraDiv = $('#page2 #left div');
+        leftExtraDiv.replaceWith(leftExtraDiv.contents());
+        
+        var rightExtraDiv = $('#page2 #right div');
+        rightExtraDiv.replaceWith(rightExtraDiv.contents());
+    }
+
     function initImportButtons() {
         var inputOptions1 = $('#remodal1 .inputOptions');
         var inputOptions2 = $('#remodal2 .inputOptions');
@@ -230,6 +249,22 @@ $(document).ready(function() {
             //     var image = $('#croppedImg2');
             //     image.attr('src', data);
             // });
+        });
+        var prevPage = $('#prevPage');
+        prevPage.on('click', function() {
+            $('#page2 > div').removeClass('active');
+            $('#page2 #importPage').addClass('active'); 
+        });
+
+        var resetImports = $('#resetImport');
+        resetImports.on('click', function() {
+            if (croppie1) {
+                croppie1.croppie('destroy');
+            }
+            if (croppie2) {
+                croppie2.croppie('destroy');
+            }
+            resetImportPage();
         });
     }
 

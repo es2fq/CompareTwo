@@ -4,6 +4,9 @@ html {
     width: 100%;
     height: 100%;
     font-family: Oswald, sans-serif;
+
+    min-width: 500px;
+    width: auto !important;
 }
 body {
     /* IE10+ */ 
@@ -303,7 +306,6 @@ button:focus {
         top: 15%;
         margin-right: 15px;
         text-align: right;
-        color: green;
         display: none;
     }
         #page2 #bottom #nextPage:hover {
@@ -342,7 +344,27 @@ button:focus {
     height: 20%;
     bottom: 0;
     border: solid;
+    font-size: 4vw;
 }
+    #bottomNav #prevPage {
+        left: 0;
+        top: 7%;
+        margin-left: 15px;
+    }
+        #bottomNav #prevPage:hover {
+            cursor: hand;
+            opacity: 0.5;
+        }
+    #bottomNav #submit {
+        right: 0;
+        top: 7%;
+        margin-right: 15px;
+        text-align: right;
+        color: green;
+    }
+        #bottomNav #submit:hover {
+            cursor: hand;
+        }
 
 /* PAGE 3 */
 #page3 {
