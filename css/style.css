@@ -338,9 +338,13 @@ button:focus {
     }
     #description1 {
         position: absolute;
+        outline: none;
+        resize: none;
     }
     #description2 {
         position: absolute;
+        outline: none;
+        resize: none;
     }
 #bottomNav {
     width: 100%;
