@@ -320,6 +320,14 @@ button:focus {
     height: 20%;
     border: solid;
 }
+    #question {
+        width: 100%;
+        height: 100%;
+        font-size: 4vw;
+        appearance: none;
+        box-shadow: none;
+        border-radius: none;
+    }
 #croppedSection {
     width: 100%;
     height: 60%;
@@ -327,7 +335,7 @@ button:focus {
     border: solid;
 }
     #croppedImg1 {
-        left: 0;
+        right: 0;
         max-width: 100%;
         max-height: 100%;
     }
@@ -338,11 +346,13 @@ button:focus {
     }
     #description1 {
         position: absolute;
+        left: 0;
         outline: none;
         resize: none;
     }
     #description2 {
         position: absolute;
+        left: 0;
         outline: none;
         resize: none;
     }

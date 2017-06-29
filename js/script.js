@@ -61,23 +61,18 @@ $(document).ready(function() {
         croppedDim = parseFloat($('#croppedSection').css('height'));
         leftCrop.css('width', croppedDim);
         leftCrop.css('height', croppedDim);
+        leftCrop.css('margin-right', croppedDim);
         rightCrop.css('width', croppedDim);
         rightCrop.css('height', croppedDim);
 
         var description1 = $('#description1');
         var description2 = $('#description2');
 
-        description1.css('left', croppedDim);
-        description2.css('left', croppedDim);
-
-        var margin = 5;
-        var descriptionWidth = parseFloat($('#croppedSection').css('width')) - 2 * croppedDim - margin;
+        var descriptionWidth = parseFloat($('#croppedSection').css('width')) - 2 * croppedDim;
         description1.css('width', descriptionWidth);
-        description2.css('width', descriptionWidth);
         description1.css('height', croppedDim / 2 - 2);
+        description2.css('width', descriptionWidth);
         description2.css('height', croppedDim / 2 - 2);
-        description1.css('margin-left', margin / 4);
-        description2.css('margin-left', margin / 4);
         description2.css('top', croppedDim / 2 - 2);
     }
 
