@@ -70,10 +70,10 @@ $(document).ready(function() {
 
         var descriptionWidth = parseFloat($('#croppedSection').css('width')) - 2 * croppedDim;
         description1.css('width', descriptionWidth);
-        description1.css('height', croppedDim / 2 - 2);
+        description1.css('height', croppedDim / 2 - 1.5);
         description2.css('width', descriptionWidth);
-        description2.css('height', croppedDim / 2 - 2);
-        description2.css('top', croppedDim / 2 - 2);
+        description2.css('height', croppedDim / 2 - 1.5);
+        description2.css('top', croppedDim / 2 - 1.5);
     }
 
     function initImportHandler() {
@@ -108,6 +108,19 @@ $(document).ready(function() {
                 else
                     label.innerHTML = labelVal;
             });
+        });
+
+        $('#description1').on('focus', function() {
+            $('#croppedImg1').css('border', '3px dashed');
+        });
+        $('#description1').on('focusout', function() {
+            $('#croppedImg1').css('border', 'none');
+        });
+        $('#description2').on('focus', function() {
+            $('#croppedImg2').css('border', '3px dashed');
+        });
+        $('#description2').on('focusout', function() {
+            $('#croppedImg2').css('border', 'none');
         });
     }
 

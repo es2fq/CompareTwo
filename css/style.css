@@ -327,6 +327,7 @@ button:focus {
         appearance: none;
         box-shadow: none;
         border-radius: none;
+        background: transparent;
     }
 #croppedSection {
     width: 100%;
@@ -349,12 +350,14 @@ button:focus {
         left: 0;
         outline: none;
         resize: none;
+        background: transparent;
     }
     #description2 {
         position: absolute;
         left: 0;
         outline: none;
         resize: none;
+        background: transparent;
     }
 #bottomNav {
     width: 100%;
