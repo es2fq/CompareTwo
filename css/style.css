@@ -350,6 +350,7 @@ button:focus {
         left: 0;
         outline: none;
         resize: none;
+        font-size: 3vw;
         background: transparent;
     }
     #description2 {
@@ -357,6 +358,7 @@ button:focus {
         left: 0;
         outline: none;
         resize: none;
+        font-size: 3vw;
         background: transparent;
     }
 #bottomNav {
