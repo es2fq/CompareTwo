@@ -122,6 +122,13 @@ $(document).ready(function() {
         $('#description2').on('focusout', function() {
             $('#croppedImg2').css('border', 'none');
         });
+
+        $('#submit').on('click', function() {
+            if ($('#question').val() == "") {
+                $('#question').css('border-color', 'red');
+                return;
+            }
+        });
     }
 
     function handleConfirm(num) {
