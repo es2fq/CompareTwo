@@ -132,13 +132,20 @@ $(document).ready(function() {
             var desc1 = $('description1').val();
             var desc2 = $('description2').val();
 
-        //     $.ajax({
-        //         type: "POST",
-        //         url:
-        //         question: question,
-        //         desc1: desc1,
-        //         desc2: desc2,
-        //     });
+            var body = $("body");
+            body.addClass("loading");
+
+            var postRequest = $.ajax({
+                type: "POST",
+                url: "/submit",
+                question: question,
+                desc1: desc1,
+                desc2: desc2,
+            });
+
+            postRequest.done(function() {
+                body.removeClass("loading");
+            });
         });
     }
 

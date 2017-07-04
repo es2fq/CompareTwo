@@ -37,15 +37,19 @@ func parseTemplates() *template.Template {
 	return templ
 }
 
-func mainHandler(w http.ResponseWriter, r *http.Request) {
-	renderTemplate(w, "index")
-}
-
 func renderTemplate(w http.ResponseWriter, tmpl string) {
 	err := templates.ExecuteTemplate(w, tmpl+".html", nil)
 	if err != nil {
 		http.Error(w, err.Error(), http.StatusInternalServerError)
 	}
+}
+
+func mainHandler(w http.ResponseWriter, r *http.Request) {
+	renderTemplate(w, "index")
+}
+
+func submitHandler(w http.ResponseWriter, r *http.Request) {
+
 }
 
 func main() {
@@ -57,7 +61,10 @@ func main() {
 	http.Handle("/css/", http.StripPrefix("/css/", http.FileServer(http.Dir("css"))))
 	http.Handle("/js/", http.StripPrefix("/js/", http.FileServer(http.Dir("js"))))
 	templates = parseTemplates()
+
 	http.HandleFunc("/", mainHandler)
+	http.HandleFunc("/submit", submitHandler)
+
 	if err := http.ListenAndServe(addr, nil); err != nil {
 		panic(err)
 	}
