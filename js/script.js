@@ -128,6 +128,17 @@ $(document).ready(function() {
                 $('#question').css('border-color', 'red');
                 return;
             }
+            var question = $('#question').val();
+            var desc1 = $('description1').val();
+            var desc2 = $('description2').val();
+
+        //     $.ajax({
+        //         type: "POST",
+        //         url:
+        //         question: question,
+        //         desc1: desc1,
+        //         desc2: desc2,
+        //     });
         });
     }
 
