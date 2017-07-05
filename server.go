@@ -49,7 +49,12 @@ func mainHandler(w http.ResponseWriter, r *http.Request) {
 }
 
 func submitHandler(w http.ResponseWriter, r *http.Request) {
-
+	question := r.PostFormValue("question")
+	desc1 := r.PostFormValue("desc1")
+	desc2 := r.PostFormValue("desc2")
+	log.Println(question)
+	log.Println(desc1)
+	log.Println(desc2)
 }
 
 func main() {
@@ -57,7 +62,7 @@ func main() {
 	if err != nil {
 		log.Fatal(err)
 	}
-	fmt.Printf("Listening on port %q", addr)
+	log.Println("Listening on port " + addr)
 	http.Handle("/css/", http.StripPrefix("/css/", http.FileServer(http.Dir("css"))))
 	http.Handle("/js/", http.StripPrefix("/js/", http.FileServer(http.Dir("js"))))
 	templates = parseTemplates()

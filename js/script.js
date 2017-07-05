@@ -129,18 +129,21 @@ $(document).ready(function() {
                 return;
             }
             var question = $('#question').val();
-            var desc1 = $('description1').val();
-            var desc2 = $('description2').val();
+            var desc1 = $('#description1').val();
+            var desc2 = $('#description2').val();
 
             var body = $("body");
             body.addClass("loading");
 
+            var postData =
+                "question\=" + question +
+                "&desc1\=" + desc1 +
+                "&desc2\=" + desc2;
+
             var postRequest = $.ajax({
                 type: "POST",
                 url: "/submit",
-                question: question,
-                desc1: desc1,
-                desc2: desc2,
+                data: postData,
             });
 
             postRequest.done(function() {
