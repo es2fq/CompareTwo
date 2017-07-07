@@ -34,12 +34,16 @@ func initializeDatabase() {
 
 	if err != nil {
 		log.Fatalf("Error opening database: %q", err)
+		panic(err)
 	}
 
 	err = db.Ping()
 	if err != nil {
 		log.Println("Error on ping: %q", err)
+		panic(err)
 	}
+
+	log.Println("Succesfully connected to database.")
 }
 
 func determinePort() (string, error) {
