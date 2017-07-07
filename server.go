@@ -93,6 +93,13 @@ func submitHandler(w http.ResponseWriter, r *http.Request) {
 
 func main() {
 	initializeDatabase()
+	result, err := db.Exec(
+		"CREATE DATABASE DATA",
+	)
+	if err != nil {
+		log.Println("Failed")
+	}
+	log.Println(result)
 
 	addr, err := determinePort()
 	if err != nil {
