@@ -12,24 +12,12 @@ import (
 	"strings"
 )
 
-const (
-	dbhost = "ec2-23-21-96-159.compute-1.amazonaws.com"
-	dbname = "d3uihtml34nn49"
-	dbuser = "cjygjjffrhrhrd"
-	dbpass = "17d9939428b880bf2022612976c8098b9fbd315eecd619d16ff7266b23cb1fce"
-	dbport = 5432
-)
-
 var db *sql.DB
 var templates = template.New("")
 
 func initializeDatabase() {
 	var err error
 
-	// psqlInfo := fmt.Sprintf("host=%s port=%d user=%s "+
-	//     "password=%s dbname=%s sslmode=disable",
-	//     dbhost, dbport, dbuser, dbpass, dbname)
-	// db, err = sql.Open("postgres", psqlInfo)
 	db, err = sql.Open("postgres", os.Getenv("DATABASE_URL"))
 
 	if err != nil {
@@ -94,7 +82,7 @@ func submitHandler(w http.ResponseWriter, r *http.Request) {
 func main() {
 	initializeDatabase()
 	result, err := db.Exec(
-		"CREATE DATABASE IF NOT EXISTS data",
+		"CREATE TABLE IF NOT EXISTS data",
 	)
 	if err != nil {
 		log.Println("Failed")
