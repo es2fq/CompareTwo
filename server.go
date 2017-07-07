@@ -26,9 +26,9 @@ var templates = template.New("")
 func initializeDatabase() {
 	var err error
 
-	psqlInfo := fmt.Sprintf("host=%s port=%d user=%s "+
-		"password=%s dbname=%s sslmode=disable",
-		dbhost, dbport, dbuser, dbpass, dbname)
+	// psqlInfo := fmt.Sprintf("host=%s port=%d user=%s "+
+	//     "password=%s dbname=%s sslmode=disable",
+	//     dbhost, dbport, dbuser, dbpass, dbname)
 	// db, err = sql.Open("postgres", psqlInfo)
 	db, err = sql.Open("postgres", os.Getenv("DATABASE_URL"))
 
