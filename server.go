@@ -1,7 +1,9 @@
 package main
 
 import (
+	"database/sql"
 	"fmt"
+	_ "github.com/lib/pq"
 	"html/template"
 	"log"
 	"net/http"
@@ -10,7 +12,16 @@ import (
 	"strings"
 )
 
+var db *sql.DB
 var templates = template.New("")
+
+func initializeDatabase() {
+	var err error
+	db, err = sql.Open("postgres", "ec2-23-21-96-159.compute-1.amazonaws.com")
+	if err != nil {
+		log.Fatalf("Error opening database: %q", err)
+	}
+}
 
 func determinePort() (string, error) {
 	port := os.Getenv("PORT")
@@ -58,11 +69,14 @@ func submitHandler(w http.ResponseWriter, r *http.Request) {
 }
 
 func main() {
+	initializeDatabase()
+
 	addr, err := determinePort()
 	if err != nil {
 		log.Fatal(err)
 	}
 	log.Println("Listening on port " + addr)
+
 	http.Handle("/css/", http.StripPrefix("/css/", http.FileServer(http.Dir("css"))))
 	http.Handle("/js/", http.StripPrefix("/js/", http.FileServer(http.Dir("js"))))
 	templates = parseTemplates()
