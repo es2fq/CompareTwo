@@ -94,7 +94,7 @@ func submitHandler(w http.ResponseWriter, r *http.Request) {
 func main() {
 	initializeDatabase()
 	result, err := db.Exec(
-		"CREATE DATABASE DATA",
+		"CREATE DATABASE IF NOT EXISTS data",
 	)
 	if err != nil {
 		log.Println("Failed")
