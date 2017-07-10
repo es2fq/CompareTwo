@@ -81,7 +81,7 @@ func submitHandler(w http.ResponseWriter, r *http.Request) {
 
 func main() {
 	initializeDatabase()
-	result, err := db.Exec("CREATE DATABASE DB")
+	result, err := db.Exec("CREATE TABLE Questions")
 	if err != nil {
 		log.Println("Failed")
 		log.Println(err)
