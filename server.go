@@ -86,6 +86,7 @@ func main() {
 	)
 	if err != nil {
 		log.Println("Failed")
+		log.Println(err)
 	}
 	log.Println(result)
 
