@@ -86,7 +86,12 @@ func submitHandler(w http.ResponseWriter, r *http.Request) {
 	desc2 := r.PostFormValue("desc2")
 	image1 := r.PostFormValue("image1")
 	image2 := r.PostFormValue("image2")
+
+	log.Println(question)
+	log.Println(desc1)
+	log.Println(desc2)
 	log.Println(image1)
+	log.Println(image2)
 }
 
 func main() {
