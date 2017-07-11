@@ -37,24 +37,7 @@ func initializeDatabase() {
 func initializeTables() {
 	var err error
 
-	db.Exec("DROP TABLE Questions")
-	db.Exec("DROP TABLE Desc1")
-	db.Exec("DROP TABLE Desc2")
-	db.Exec("DROP TABLE Image1")
-	db.Exec("DROP TABLE Image2")
-
-	// _, err = db.Exec("CREATE TABLE IF NOT EXISTS Questions (id INT NOT NULL, PRIMARY KEY (id), data varchar(32) NOT NULL)")
-	// checkError(err)
-	// _, err = db.Exec("CREATE TABLE IF NOT EXISTS Desc1 (id INT NOT NULL, PRIMARY KEY (id), data varchar(32))")
-	// checkError(err)
-	// _, err = db.Exec("CREATE TABLE IF NOT EXISTS Desc2 (id INT NOT NULL, PRIMARY KEY (id), data varchar(32))")
-	// checkError(err)
-	// _, err = db.Exec("CREATE TABLE IF NOT EXISTS Image1 (id INT NOT NULL, PRIMARY KEY (id), data varchar(32) NOT NULL)")
-	// checkError(err)
-	// _, err = db.Exec("CREATE TABLE IF NOT EXISTS Image2 (id INT NOT NULL, PRIMARY KEY (id), data varchar(32) NOT NULL)")
-	// checkError(err)
-
-	_, err = db.Exec("CREATE TABLE IF NOT EXISTS Posts (id INT NOT NULL AUTO_INCREMENT, Question varchar(255) NOT NULL, Desc1 varchar(255), Desc2 varchar(255), Image1 varchar(255) NOT NULL, Image2 varchar(255) NOT NULL)")
+	_, err = db.Exec("CREATE TABLE IF NOT EXISTS Posts (id SERIAL NOT NULL AUTO_INCREMENT, Question varchar(255) NOT NULL, Desc1 varchar(255), Desc2 varchar(255), Image1 varchar(255) NOT NULL, Image2 varchar(255) NOT NULL)")
 	checkError(err)
 }
 
