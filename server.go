@@ -41,6 +41,7 @@ func initializeTables() {
 	checkError(err)
 
 	_, err = db.Exec("INSERT INTO Posts (Question, Desc1, Desc2, Image1, Image2) VALUES ('question', 'desc1', 'desc2', 'image1', 'image2')")
+	checkError(err)
 }
 
 func determinePort() (string, error) {
@@ -91,6 +92,25 @@ func submitHandler(w http.ResponseWriter, r *http.Request) {
 func main() {
 	initializeDatabase()
 	initializeTables()
+
+	result, err := db.Query("SELECT * FROM Posts")
+	checkError(err)
+
+	for result.Next() {
+		var id string
+		var question string
+		var desc1 string
+		var desc2 string
+		var image1 string
+		var image2 string
+		err = result.Scan(&id, &question, &desc1, &desc2, &image1, &image2)
+		checkError(err)
+		log.Println(question)
+		log.Println(desc1)
+		log.Println(desc2)
+		log.Println(image1)
+		log.Println(image2)
+	}
 
 	addr, err := determinePort()
 	if err != nil {
