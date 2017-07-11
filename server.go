@@ -82,10 +82,7 @@ func submitHandler(w http.ResponseWriter, r *http.Request) {
 func main() {
 	initializeDatabase()
 	result, err := db.Exec("CREATE TABLE IF NOT EXISTS Questions (id integer, data varchar(32))")
-	if err != nil {
-		log.Println("Failed")
-		log.Println(err)
-	}
+	checkError(err)
 	log.Println(result)
 
 	addr, err := determinePort()
@@ -103,5 +100,11 @@ func main() {
 
 	if err := http.ListenAndServe(addr, nil); err != nil {
 		panic(err)
+	}
+}
+
+func checkError(err error) {
+	if err != nil {
+		log.Println(err)
 	}
 }
