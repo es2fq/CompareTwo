@@ -40,8 +40,8 @@ func initializeTables() {
 	_, err = db.Exec("CREATE TABLE IF NOT EXISTS Posts (id serial PRIMARY KEY, Question varchar(255) NOT NULL, Desc1 varchar(255), Desc2 varchar(255), Image1 varchar(255) NOT NULL, Image2 varchar(255) NOT NULL)")
 	checkError(err)
 
-	_, err = db.Exec("INSERT INTO Posts (Question, Desc1, Desc2, Image1, Image2) VALUES ('question', 'desc1', 'desc2', 'image1', 'image2')")
-	checkError(err)
+	// _, err = db.Exec("INSERT INTO Posts (Question, Desc1, Desc2, Image1, Image2) VALUES ('question', 'desc1', 'desc2', 'image1', 'image2')")
+	// checkError(err)
 }
 
 func determinePort() (string, error) {
@@ -105,6 +105,7 @@ func main() {
 		var image2 string
 		err = result.Scan(&id, &question, &desc1, &desc2, &image1, &image2)
 		checkError(err)
+		log.Println(id)
 		log.Println(question)
 		log.Println(desc1)
 		log.Println(desc2)
