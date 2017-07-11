@@ -34,6 +34,21 @@ func initializeDatabase() {
 	log.Println("Succesfully connected to database.")
 }
 
+func initializeTables() {
+	var err error
+
+	_, err = db.Exec("CREATE TABLE IF NOT EXISTS Questions (id INT NOT NULL, PRIMARY KEY (id), data varchar(32) NOT NULL)")
+	checkError(err)
+	_, err = db.Exec("CREATE TABLE IF NOT EXISTS Desc1 (id INT NOT NULL, PRIMARY KEY (id), data varchar(32))")
+	checkError(err)
+	_, err = db.Exec("CREATE TABLE IF NOT EXISTS Desc2 (id INT NOT NULL, PRIMARY KEY (id), data varchar(32))")
+	checkError(err)
+	_, err = db.Exec("CREATE TABLE IF NOT EXISTS Image1 (id INT NOT NULL, PRIMARY KEY (id), data varchar(32) NOT NULL)")
+	checkError(err)
+	_, err = db.Exec("CREATE TABLE IF NOT EXISTS Image2 (id INT NOT NULL, PRIMARY KEY (id), data varchar(32) NOT NULL)")
+	checkError(err)
+}
+
 func determinePort() (string, error) {
 	port := os.Getenv("PORT")
 	if port == "" {
@@ -81,19 +96,7 @@ func submitHandler(w http.ResponseWriter, r *http.Request) {
 
 func main() {
 	initializeDatabase()
-
-	var err error
-
-	_, err = db.Exec("CREATE TABLE IF NOT EXISTS Questions (id INT NOT NULL, PRIMARY KEY (id), data varchar(32) NOT NULL)")
-	checkError(err)
-	_, err = db.Exec("CREATE TABLE IF NOT EXISTS Desc1 (id INT NOT NULL, PRIMARY KEY (id), data varchar(32))")
-	checkError(err)
-	_, err = db.Exec("CREATE TABLE IF NOT EXISTS Desc2 (id INT NOT NULL, PRIMARY KEY (id), data varchar(32))")
-	checkError(err)
-	_, err = db.Exec("CREATE TABLE IF NOT EXISTS Image1 (id INT NOT NULL, PRIMARY KEY (id), data varchar(32) NOT NULL)")
-	checkError(err)
-	_, err = db.Exec("CREATE TABLE IF NOT EXISTS Image2 (id INT NOT NULL, PRIMARY KEY (id), data varchar(32) NOT NULL)")
-	checkError(err)
+	initializeTables()
 
 	addr, err := determinePort()
 	if err != nil {
