@@ -84,15 +84,15 @@ func main() {
 
 	var err error
 
-	_, err = db.Exec("CREATE TABLE IF NOT EXISTS Questions (id integer AUTO_INCREMENT, data varchar(32) NOT NULL)")
+	_, err = db.Exec("CREATE TABLE IF NOT EXISTS Questions (id INT NOT NULL, PRIMARY KEY (id), data varchar(32) NOT NULL)")
 	checkError(err)
-	_, err = db.Exec("CREATE TABLE IF NOT EXISTS Desc1 (id integer AUTO_INCREMENT, data varchar(32))")
+	_, err = db.Exec("CREATE TABLE IF NOT EXISTS Desc1 (id INT NOT NULL, PRIMARY KEY (id), data varchar(32))")
 	checkError(err)
-	_, err = db.Exec("CREATE TABLE IF NOT EXISTS Desc2 (id integer AUTO_INCREMENT, data varchar(32))")
+	_, err = db.Exec("CREATE TABLE IF NOT EXISTS Desc2 (id INT NOT NULL, PRIMARY KEY (id), data varchar(32))")
 	checkError(err)
-	_, err = db.Exec("CREATE TABLE IF NOT EXISTS Image1 (id integer AUTO_INCREMENT, data varchar(32) NOT NULL)")
+	_, err = db.Exec("CREATE TABLE IF NOT EXISTS Image1 (id INT NOT NULL, PRIMARY KEY (id), data varchar(32) NOT NULL)")
 	checkError(err)
-	_, err = db.Exec("CREATE TABLE IF NOT EXISTS Image2 (id integer AUTO_INCREMENT, data varchar(32) NOT NULL)")
+	_, err = db.Exec("CREATE TABLE IF NOT EXISTS Image2 (id INT NOT NULL, PRIMARY KEY (id), data varchar(32) NOT NULL)")
 	checkError(err)
 
 	addr, err := determinePort()
