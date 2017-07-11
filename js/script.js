@@ -132,13 +132,18 @@ $(document).ready(function() {
             var desc1 = $('#description1').val();
             var desc2 = $('#description2').val();
 
+            var image1 = $('#croppedImg1').prop('src');
+            var image2 = $('#croppedImg2').prop('src');
+
             var body = $("body");
             body.addClass("loading");
 
             var postData =
                 "question\=" + question +
                 "&desc1\=" + desc1 +
-                "&desc2\=" + desc2;
+                "&desc2\=" + desc2 +
+                "&image1\=" + image1 +
+                "&image2\=" + image2;
 
             var postRequest = $.ajax({
                 type: "POST",
