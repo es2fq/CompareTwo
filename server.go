@@ -87,11 +87,16 @@ func submitHandler(w http.ResponseWriter, r *http.Request) {
 	image1 := r.PostFormValue("image1")
 	image2 := r.PostFormValue("image2")
 
-	log.Println(question)
-	log.Println(desc1)
-	log.Println(desc2)
-	log.Println(image1)
-	log.Println(image2)
+	stmt, err := db.Prepare("INSERT INTO Posts (Question, Desc1, Desc2, Image1, Image2) VALUES (?, ?, ?, ?, ?)")
+	checkError(err)
+
+	res, err := stmt.Exec(question, desc1, desc2, image1, image2)
+	checkError(err)
+
+	id, err := res.LastInsertId()
+	checkError(err)
+
+	log.Println("LastInsertId: %q", id)
 }
 
 func main() {
