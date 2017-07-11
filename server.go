@@ -84,34 +84,31 @@ func submitHandler(w http.ResponseWriter, r *http.Request) {
 	question := r.PostFormValue("question")
 	desc1 := r.PostFormValue("desc1")
 	desc2 := r.PostFormValue("desc2")
-	log.Println(question)
-	log.Println(desc1)
-	log.Println(desc2)
 }
 
 func main() {
 	initializeDatabase()
 	initializeTables()
 
-	result, err := db.Query("SELECT * FROM Posts")
-	checkError(err)
+	// result, err := db.Query("SELECT * FROM Posts")
+	// checkError(err)
 
-	for result.Next() {
-		var id string
-		var question string
-		var desc1 string
-		var desc2 string
-		var image1 string
-		var image2 string
-		err = result.Scan(&id, &question, &desc1, &desc2, &image1, &image2)
-		checkError(err)
-		log.Println(id)
-		log.Println(question)
-		log.Println(desc1)
-		log.Println(desc2)
-		log.Println(image1)
-		log.Println(image2)
-	}
+	// for result.Next() {
+	//     var id string
+	//     var question string
+	//     var desc1 string
+	//     var desc2 string
+	//     var image1 string
+	//     var image2 string
+	//     err = result.Scan(&id, &question, &desc1, &desc2, &image1, &image2)
+	//     checkError(err)
+	//     log.Println(id)
+	//     log.Println(question)
+	//     log.Println(desc1)
+	//     log.Println(desc2)
+	//     log.Println(image1)
+	//     log.Println(image2)
+	// }
 
 	addr, err := determinePort()
 	if err != nil {
