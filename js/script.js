@@ -132,8 +132,8 @@ $(document).ready(function() {
             var desc1 = $('#description1').val();
             var desc2 = $('#description2').val();
 
-            var image1 = $('#croppedImg1').prop('src');
-            var image2 = $('#croppedImg2').prop('src');
+            var image1 = $('#croppedImg1').prop('src').replace('data:image/png;base64,', '');
+            var image2 = $('#croppedImg2').prop('src').replace('data:image/png;base64,', '');
 
             var body = $("body");
             body.addClass("loading");
