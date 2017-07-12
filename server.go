@@ -103,6 +103,12 @@ func main() {
 	initializeDatabase()
 	initializeTables()
 
+	stmt, err := db.Prepare("INSERT INTO Posts (Question, Desc1, Desc2, Image1, Image2) VALUES (?, ?, ?, ?, ?)")
+	checkError(err)
+
+	res, err := stmt.Exec("asdf", "hello", "jiojw", "vawieop", "fjwfo")
+	checkError(err)
+
 	// result, err := db.Query("SELECT * FROM Posts")
 	// checkError(err)
 
