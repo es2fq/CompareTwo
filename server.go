@@ -103,11 +103,13 @@ func main() {
 	initializeDatabase()
 	initializeTables()
 
-	// stmt, err := db.Prepare("INSERT INTO Posts (Question, Desc1, Desc2, Image1, Image2) VALUES (?, ?, ?, ?, ?)")
-	// checkError(err)
+	stmt, err := db.Prepare("INSERT INTO Posts (Question, Desc1, Desc2, Image1, Image2) VALUES (?, ?, ?, ?, ?)")
+	checkError(err)
 
-	// res, err := stmt.Exec("asdf", "hello", "jiojw", "vawieop", "fjwfo")
-	// checkError(err)
+	res, err := stmt.Exec("asdf", "hello", "jiojw", "vawieop", "fjwfo")
+	checkError(err)
+
+	log.Println("After Exec")
 
 	// id, err := res.LastInsertId()
 	// checkError(err)
