@@ -87,7 +87,7 @@ func submitHandler(w http.ResponseWriter, r *http.Request) {
 	image1 := r.PostFormValue("image1")
 	image2 := r.PostFormValue("image2")
 
-	stmt, err := db.Prepare("INSERT INTO Posts (Question, Desc1, Desc2, Image1, Image2) VALUES (?, ?, ?, ?, ?)")
+	stmt, err := db.Prepare("INSERT INTO Posts (Question, Desc1, Desc2, Image1, Image2) VALUES ($1, $2, $3, $4, $5)")
 	checkError(err)
 
 	res, err := stmt.Exec(question, desc1, desc2, image1, image2)
@@ -103,7 +103,7 @@ func main() {
 	initializeDatabase()
 	initializeTables()
 
-	stmt, err := db.Prepare("INSERT INTO Posts (Question, Desc1, Desc2, Image1, Image2) VALUES (?, ?, ?, ?, ?)")
+	stmt, err := db.Prepare("INSERT INTO Posts (Question, Desc1, Desc2, Image1, Image2) VALUES ($1, $2, $3, $4, $5)")
 	checkError(err)
 	log.Println("After Prepare")
 
