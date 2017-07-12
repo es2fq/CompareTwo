@@ -109,6 +109,11 @@ func main() {
 	res, err := stmt.Exec("asdf", "hello", "jiojw", "vawieop", "fjwfo")
 	checkError(err)
 
+	id, err := res.LastInsertId()
+	checkError(err)
+
+	log.Println("LastInsertId: %q", id)
+
 	// result, err := db.Query("SELECT * FROM Posts")
 	// checkError(err)
 
