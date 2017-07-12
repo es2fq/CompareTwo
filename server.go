@@ -106,8 +106,9 @@ func main() {
 	stmt, err := db.Prepare("INSERT INTO Posts (Question, Desc1, Desc2, Image1, Image2) VALUES (?, ?, ?, ?, ?)")
 	checkError(err)
 
-	_, err := stmt.Exec("asdf", "hello", "jiojw", "vawieop", "fjwfo")
+	res, err := stmt.Exec("asdf", "hello", "jiojw", "vawieop", "fjwfo")
 	checkError(err)
+	log.Println(res)
 
 	log.Println("After Exec")
 
