@@ -81,22 +81,22 @@ func mainHandler(w http.ResponseWriter, r *http.Request) {
 }
 
 func submitHandler(w http.ResponseWriter, r *http.Request) {
-	// question := r.PostFormValue("question")
-	// desc1 := r.PostFormValue("desc1")
-	// desc2 := r.PostFormValue("desc2")
-	// image1 := r.PostFormValue("image1")
-	// image2 := r.PostFormValue("image2")
+	question := r.PostFormValue("question")
+	desc1 := r.PostFormValue("desc1")
+	desc2 := r.PostFormValue("desc2")
+	image1 := r.PostFormValue("image1")
+	image2 := r.PostFormValue("image2")
 
-	// stmt, err := db.Prepare("INSERT INTO Posts (Question, Desc1, Desc2, Image1, Image2) VALUES ($1, $2, $3, $4, $5)")
-	// checkError(err)
+	stmt, err := db.Prepare("INSERT INTO Posts (Question, Desc1, Desc2, Image1, Image2) VALUES ($1, $2, $3, $4, $5)")
+	checkError(err)
 
-	// res, err := stmt.Exec(question, desc1, desc2, image1, image2)
-	// checkError(err)
+	res, err := stmt.Exec(question, desc1, desc2, image1, image2)
+	checkError(err)
 
-	// id, err := res.LastInsertId()
-	// checkError(err)
+	id, err := res.LastInsertId()
+	checkError(err)
 
-	// log.Println("LastInsertId: %q", id)
+	log.Println("LastInsertId: %q", id)
 }
 
 func main() {
