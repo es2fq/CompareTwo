@@ -37,7 +37,7 @@ func initializeDatabase() {
 func initializeTables() {
 	var err error
 
-	_, err = db.Exec("CREATE TABLE IF NOT EXISTS Posts (id serial PRIMARY KEY, Question varchar(255) NOT NULL, Desc1 varchar(255), Desc2 varchar(255), Image1 varchar(255) NOT NULL, Image2 varchar(255) NOT NULL)")
+	_, err = db.Exec("CREATE TABLE IF NOT EXISTS Posts (id serial PRIMARY KEY, Question varchar(255) NOT NULL, Desc1 varchar(255), Desc2 varchar(255), Image1 text NOT NULL, Image2 text NOT NULL)")
 	checkError(err)
 
 	// _, err = db.Exec("INSERT INTO Posts (Question, Desc1, Desc2, Image1, Image2) VALUES ('question', 'desc1', 'desc2', 'image1', 'image2')")
