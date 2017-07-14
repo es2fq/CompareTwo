@@ -5,10 +5,7 @@ $(document).ready(function() {
         resizeImageWindow();
         initImportHandler();
         initImportButtons();
-
-        $.get("/getpost", function(data) {
-            console.log(data)
-        });
+        setPostDisplay();
     }
 
     function initMenu() {
@@ -21,6 +18,15 @@ $(document).ready(function() {
             var pageId = "#page" + ($(this).index() + 1);
             $(pageSelector).removeClass('active');
             $(pageId).addClass('active');
+        });
+    }
+
+    function setPostDisplay() {
+        $.get("/getpost", function (data) {
+            console.log(data.Id);
+            console.log(data.Question);
+            console.log(data.Desc1);
+            console.log(data.Desc2):
         });
     }
 

@@ -110,7 +110,6 @@ func getPostHandler(w http.ResponseWriter, r *http.Request) {
 
 	count := checkCount(res)
 	randIndex := rand.Intn(count)
-	log.Println(randIndex)
 
 	res, err = db.Query("SELECT * FROM Posts where id=" + strconv.Itoa(randIndex))
 	checkError(err)
@@ -132,7 +131,6 @@ func getPostHandler(w http.ResponseWriter, r *http.Request) {
 	post := &Post{Id: id, Question: question, Desc1: desc1, Desc2: desc2, Image1: image1, Image2: image2}
 	data, err := json.Marshal(post)
 	checkError(err)
-	log.Println(data)
 
 	w.Write(data)
 }
