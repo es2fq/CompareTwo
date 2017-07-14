@@ -26,7 +26,7 @@ $(document).ready(function() {
             console.log(data.Id);
             console.log(data.Question);
             console.log(data.Desc1);
-            console.log(data.Desc2):
+            console.log(data.Desc2);
         });
     }
 
