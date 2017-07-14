@@ -111,6 +111,14 @@ func main() {
 	initializeDatabase()
 	initializeTables()
 
+	valueString := "hello" + "," + "asdf" + "," + "ajowef" + "," + "jweiof" + "," + "jowef"
+	log.Println(valueString)
+
+	res, err := db.Exec("INSERT INTO Posts (Question, Desc1, Desc2, Image1, Image2) VALUES (" + valueString + ")")
+	checkError(err)
+
+	log.Println(res)
+
 	// stmt, err := db.Prepare("INSERT INTO Posts (Question, Desc1, Desc2, Image1, Image2) VALUES ($1, $2, $3, $4, $5)")
 	// checkError(err)
 	// log.Println("After Prepare")
