@@ -99,9 +99,8 @@ func getPostHandler(w http.ResponseWriter, r *http.Request) {
 	checkError(err)
 
 	count := checkCount(res)
-	log.Println(count)
-
 	randIndex := rand.Intn(count)
+	log.Println(randIndex)
 
 	res, err = db.Query("SELECT * FROM Posts where id=" + strconv.Itoa(randIndex))
 	checkError(err)
