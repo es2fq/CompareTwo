@@ -6,6 +6,7 @@ import (
 	_ "github.com/lib/pq"
 	"html/template"
 	"log"
+	"math/rand"
 	"net/http"
 	"os"
 	"path/filepath"
@@ -98,6 +99,9 @@ func getPostHandler(w http.ResponseWriter, r *http.Request) {
 
 	count := checkCount(res)
 	log.Println(count)
+
+	randIndex := rand.Intn(count) + 1
+	log.Println("Random: %q", randIndex)
 
 	res, err = db.Query("SELECT * FROM Posts ORDER BY RAND() LIMIT 1")
 	checkError(err)
