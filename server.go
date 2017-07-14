@@ -92,6 +92,20 @@ func submitHandler(w http.ResponseWriter, r *http.Request) {
 	log.Println(res)
 }
 
+func getPostHandler(w http.ResponseWriter, r *http.Request) {
+	res, err := db.Query("SELECT * FROM Posts ORDER BY RAND() LIMIT 1")
+	checkError(err)
+
+	var id string
+	var question string
+	var desc1 string
+
+	err = res.Scan(&id, &question, &desc1)
+	checkError(err)
+
+	log.Println(id, question, desc1)
+}
+
 func main() {
 	initializeDatabase()
 	initializeTables()
@@ -128,6 +142,7 @@ func main() {
 
 	http.HandleFunc("/", mainHandler)
 	http.HandleFunc("/submit", submitHandler)
+	http.HandleFunc("/getpost", getPostHandler)
 
 	if err := http.ListenAndServe(addr, nil); err != nil {
 		panic(err)
