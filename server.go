@@ -100,10 +100,10 @@ func getPostHandler(w http.ResponseWriter, r *http.Request) {
 	count := checkCount(res)
 	log.Println(count)
 
-	randIndex := rand.Intn(count) + 1
-	log.Println("Random: %q", randIndex)
+	randIndex := rand.Intn(count)
+	log.Println("Random: ")
 
-	res, err = db.Query("SELECT * FROM Posts ORDER BY RAND() LIMIT 1")
+	res, err = db.Query("SELECT * FROM Posts where id=" + randIndex)
 	checkError(err)
 
 	var id string
@@ -128,25 +128,25 @@ func main() {
 	initializeDatabase()
 	initializeTables()
 
-	result, err := db.Query("SELECT * FROM Posts")
-	checkError(err)
+	// result, err := db.Query("SELECT * FROM Posts")
+	// checkError(err)
 
-	for result.Next() {
-		var id string
-		var question string
-		var desc1 string
-		var desc2 string
-		var image1 string
-		var image2 string
-		err = result.Scan(&id, &question, &desc1, &desc2, &image1, &image2)
-		checkError(err)
-		log.Println(id)
-		log.Println(question)
-		log.Println(desc1)
-		log.Println(desc2)
-		log.Println(image1)
-		log.Println(image2)
-	}
+	// for result.Next() {
+	//     var id string
+	//     var question string
+	//     var desc1 string
+	//     var desc2 string
+	//     var image1 string
+	//     var image2 string
+	//     err = result.Scan(&id, &question, &desc1, &desc2, &image1, &image2)
+	//     checkError(err)
+	//     log.Println(id)
+	//     log.Println(question)
+	//     log.Println(desc1)
+	//     log.Println(desc2)
+	//     log.Println(image1)
+	//     log.Println(image2)
+	// }
 
 	addr, err := determinePort()
 	if err != nil {
