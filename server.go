@@ -19,12 +19,12 @@ var db *sql.DB
 var templates = template.New("")
 
 type Post struct {
-	id       string
-	question string
-	desc1    string
-	desc2    string
-	image1   string
-	image2   string
+	Id       string
+	Question string
+	Desc1    string
+	Desc2    string
+	Image1   string
+	Image2   string
 }
 
 func initializeDatabase() {
