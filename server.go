@@ -109,9 +109,12 @@ func getPostHandler(w http.ResponseWriter, r *http.Request) {
 	var id string
 	var question string
 	var desc1 string
+	var desc2 string
+	var image1 string
+	var image2 string
 
 	for res.Next() {
-		err = res.Scan(&id, &question, &desc1)
+		err = res.Scan(&id, &question, &desc1, &desc2, &image1, &image2)
 		checkError(err)
 	}
 
