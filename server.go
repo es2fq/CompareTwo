@@ -95,7 +95,8 @@ func submitHandler(w http.ResponseWriter, r *http.Request) {
 func getPostHandler(w http.ResponseWriter, r *http.Request) {
 	res, err := db.Query("SELECT COUNT(*) FROM Posts")
 	checkError(err)
-	log.Println(res)
+
+	count := checkCount(res)
 
 	res, err = db.Query("SELECT * FROM Posts ORDER BY RAND() LIMIT 1")
 	checkError(err)
@@ -108,6 +109,14 @@ func getPostHandler(w http.ResponseWriter, r *http.Request) {
 	checkError(err)
 
 	log.Println(id, question, desc1)
+}
+
+func checkCount(rows *sql.Rows) (count int) {
+	for rows.Next() {
+		err := rows.Scan(&count)
+		checkError(err)
+	}
+	return count
 }
 
 func main() {
