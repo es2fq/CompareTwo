@@ -193,7 +193,6 @@ button:focus {
     #page1 #left #image1 {
         max-width: 100%;
         max-height: 100%;
-        content:url("http://coolwildlife.com/wp-content/uploads/galleries/post-3004/Fox%20Picture%20003.jpg");
     }
 #page1 #right {
     width: 35%;
@@ -206,7 +205,6 @@ button:focus {
     #page1 #right #image2 {
         max-width: 100%;
         max-height: 100%;
-        content:url("http://www.nationalgeographic.com/content/dam/animals/pictures/mammals/g/gray-wolf/gray-wolf_01.ngsversion.1484679603276.JPG");
     }
 #page1 #bottom {
     height: 25%;
