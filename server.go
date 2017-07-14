@@ -110,8 +110,10 @@ func getPostHandler(w http.ResponseWriter, r *http.Request) {
 	var question string
 	var desc1 string
 
-	err = res.Scan(&id, &question, &desc1)
-	checkError(err)
+	for rows.Next() {
+		err = res.Scan(&id, &question, &desc1)
+		checkError(err)
+	}
 
 	log.Println(id, question, desc1)
 }
