@@ -129,7 +129,7 @@ func getPostHandler(w http.ResponseWriter, r *http.Request) {
 
 	log.Println(id, question, desc1, desc2)
 
-	post := &Post{id: id, question: question, desc1: desc1, desc2: desc2, image1: image1, image2: image2}
+	post := &Post{Id: id, Question: question, Desc1: desc1, Desc2: desc2, Image1: image1, Image2: image2}
 	data, err := json.Marshal(post)
 	checkError(err)
 	log.Println(data)
