@@ -93,9 +93,7 @@ func submitHandler(w http.ResponseWriter, r *http.Request) {
 }
 
 func getPostHandler(w http.ResponseWriter, r *http.Request) {
-	var res string
-	var err error
-	res, err = db.Query("SELECT COUNT(*) FROM Posts")
+	res, err := db.Query("SELECT COUNT(*) FROM Posts")
 	checkError(err)
 	log.Println(res)
 
