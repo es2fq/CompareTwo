@@ -23,10 +23,12 @@ $(document).ready(function() {
 
     function setPostDisplay() {
         $.get("/getpost", function (data) {
-            console.log(data.Id);
-            console.log(data.Question);
-            console.log(data.Desc1);
-            console.log(data.Desc2);
+            console.log(data);
+            var obj = JSON.parse(data);
+            console.log(obj.Id);
+            console.log(obj.Question);
+            console.log(obj.Desc1);
+            console.log(obj.Desc2);
         });
     }
 
