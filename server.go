@@ -39,9 +39,6 @@ func initializeTables() {
 
 	_, err = db.Exec("CREATE TABLE IF NOT EXISTS Posts (id serial PRIMARY KEY, Question varchar(255) NOT NULL, Desc1 varchar(255), Desc2 varchar(255), Image1 text NOT NULL, Image2 text NOT NULL)")
 	checkError(err)
-
-	// _, err = db.Exec("INSERT INTO Posts (Question, Desc1, Desc2, Image1, Image2) VALUES ('question', 'desc1', 'desc2', 'image1', 'image2')")
-	// checkError(err)
 }
 
 func determinePort() (string, error) {
@@ -87,56 +84,17 @@ func submitHandler(w http.ResponseWriter, r *http.Request) {
 	image1 := r.PostFormValue("image1")
 	image2 := r.PostFormValue("image2")
 
-	// question := "'" + r.PostFormValue("question") + "'"
-	// desc1 := "'" + r.PostFormValue("desc1") + "'"
-	// desc2 := "'" + r.PostFormValue("desc2") + "'"
-	// image1 := "'" + r.PostFormValue("image1") + "'"
-	// image2 := "'" + r.PostFormValue("image2") + "'"
-
-	// valueString := question + "," + desc1 + "," + desc2 + "," + image1 + "," + image2
-	// log.Println(valueString)
-
-	// res, err := db.Exec("INSERT INTO Posts (Question, Desc1, Desc2, Image1, Image2) VALUES (" + valueString + ")")
-	// checkError(err)
-
-	// log.Println(res)
-
 	stmt, err := db.Prepare("INSERT INTO Posts (Question, Desc1, Desc2, Image1, Image2) VALUES ($1, $2, $3, $4, $5)")
 	checkError(err)
 
 	res, err := stmt.Exec(question, desc1, desc2, image1, image2)
 	checkError(err)
 	log.Println(res)
-
-	// id, err := res.LastInsertId()
-	// checkError(err)
-
-	// log.Println("LastInsertId: %q", id)
 }
 
 func main() {
 	initializeDatabase()
 	initializeTables()
-
-	// valueString := "'" + "hello" + "','" + "asdf" + "','" + "ajowef" + "','" + "jweiof" + "','" + "jowef" + "'"
-	// log.Println(valueString)
-
-	// res, err := db.Exec("INSERT INTO Posts (Question, Desc1, Desc2, Image1, Image2) VALUES (" + valueString + ")")
-	// checkError(err)
-
-	// log.Println(res)
-
-	///////////////////////////////////////
-
-	stmt, err := db.Prepare("INSERT INTO Posts (Question, Desc1, Desc2, Image1, Image2) VALUES ($1, $2, $3, $4, $5)")
-	checkError(err)
-	log.Println("After Prepare")
-
-	res, err := stmt.Exec("asdf", "hello", "jiojw", "vawieop", "fjwfo")
-	checkError(err)
-	log.Println(res)
-
-	log.Println("After Exec")
 
 	result, err := db.Query("SELECT * FROM Posts")
 	checkError(err)
