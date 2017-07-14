@@ -97,6 +97,7 @@ func getPostHandler(w http.ResponseWriter, r *http.Request) {
 	checkError(err)
 
 	count := checkCount(res)
+	log.Println(count)
 
 	res, err = db.Query("SELECT * FROM Posts ORDER BY RAND() LIMIT 1")
 	checkError(err)
