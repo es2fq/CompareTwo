@@ -25,6 +25,9 @@ $(document).ready(function() {
         $.get("/getpost", function (data) {
             var obj = JSON.parse(data);
 
+            console.log(obj.Question);
+            console.log('data:image/png;base64,'.concat(obj.Image1));
+
             var image1 = $('#page1 #left #image1');
             var image2 = $('#page1 #right #image2');
 
