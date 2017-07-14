@@ -111,28 +111,30 @@ func main() {
 	initializeDatabase()
 	initializeTables()
 
-	valueString := "'" + "hello" + "','" + "asdf" + "','" + "ajowef" + "','" + "jweiof" + "','" + "jowef" + "'"
-	log.Println(valueString)
+	// valueString := "'" + "hello" + "','" + "asdf" + "','" + "ajowef" + "','" + "jweiof" + "','" + "jowef" + "'"
+	// log.Println(valueString)
 
-	res, err := db.Exec("INSERT INTO Posts (Question, Desc1, Desc2, Image1, Image2) VALUES (" + valueString + ")")
-	checkError(err)
-
-	log.Println(res)
-
-	// stmt, err := db.Prepare("INSERT INTO Posts (Question, Desc1, Desc2, Image1, Image2) VALUES ($1, $2, $3, $4, $5)")
+	// res, err := db.Exec("INSERT INTO Posts (Question, Desc1, Desc2, Image1, Image2) VALUES (" + valueString + ")")
 	// checkError(err)
-	// log.Println("After Prepare")
 
-	// res, err := stmt.Exec("asdf", "hello", "jiojw", "vawieop", "fjwfo")
-	// checkError(err)
 	// log.Println(res)
 
-	// log.Println("After Exec")
+	///////////////////////////////////////
 
-	// id, err := res.LastInsertId()
-	// checkError(err)
+	stmt, err := db.Prepare("INSERT INTO Posts (Question, Desc1, Desc2, Image1, Image2) VALUES ($1, $2, $3, $4, $5)")
+	checkError(err)
+	log.Println("After Prepare")
 
-	// log.Println("LastInsertId: %q", id)
+	res, err := stmt.Exec("asdf", "hello", "jiojw", "vawieop", "fjwfo")
+	checkError(err)
+	log.Println(res)
+
+	log.Println("After Exec")
+
+	id, err := res.LastInsertId()
+	checkError(err)
+
+	log.Println("LastInsertId: %q", id)
 
 	// result, err := db.Query("SELECT * FROM Posts")
 	// checkError(err)
