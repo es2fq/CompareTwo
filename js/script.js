@@ -5,6 +5,10 @@ $(document).ready(function() {
         resizeImageWindow();
         initImportHandler();
         initImportButtons();
+
+        $.get("/getpost", function(data) {
+            console.log(data)
+        });
     }
 
     function initMenu() {

@@ -133,6 +133,8 @@ func getPostHandler(w http.ResponseWriter, r *http.Request) {
 	data, err := json.Marshal(post)
 	checkError(err)
 	log.Println(data)
+
+	w.Write(data)
 }
 
 func checkCount(rows *sql.Rows) (count int) {
