@@ -22,9 +22,15 @@ $(document).ready(function() {
     }
 
     function setPostDisplay() {
-        // $.get("/getpost", function (data) {
-        //     var obj = JSON.parse(data);
-        // });
+        $.get("/getpost", function (data) {
+            var obj = JSON.parse(data);
+
+            var image1 = $('#page1 #left #image1');
+            var image2 = $('#page1 #right #image2');
+
+            image1.attr('src', 'data:image/png;base64,' + obj.Image1);
+            image2.attr('src', 'data:image/png;base64,' + obj.Image2);
+        });
     }
 
     var offset;
