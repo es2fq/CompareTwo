@@ -134,7 +134,7 @@ func getPostHandler(w http.ResponseWriter, r *http.Request) {
 	checkError(err)
 	log.Println(data)
 
-	w.Write(data)
+	w.Write(question, desc1, desc2)
 }
 
 func checkCount(rows *sql.Rows) (count int) {
