@@ -28,9 +28,12 @@ $(document).ready(function() {
             var image1URL = obj.Image1.split(' ').join('+');
             var image2URL = obj.Image2.split(' ').join('+');
 
+            var question = $('#page1 #bottom #questionText');
+            var date = $('#page1 #bottom #dateText');
             var image1 = $('#page1 #left #image1');
             var image2 = $('#page1 #right #image2');
 
+            question.text(obj.Question);
             image1.attr('src', 'data:image/png;base64,' + image1URL);
             image2.attr('src', 'data:image/png;base64,' + image2URL);
         });
