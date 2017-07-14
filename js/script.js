@@ -1,11 +1,11 @@
 $(document).ready(function() {
     function main() {
         initMenu();
+        setPostDisplay();
         initResizeHandler();
         resizeImageWindow();
         initImportHandler();
         initImportButtons();
-        setPostDisplay();
     }
 
     function initMenu() {
@@ -22,14 +22,9 @@ $(document).ready(function() {
     }
 
     function setPostDisplay() {
-        $.get("/getpost", function (data) {
-            console.log(data);
-            var obj = JSON.parse(data);
-            console.log(obj.Id);
-            console.log(obj.Question);
-            console.log(obj.Desc1);
-            console.log(obj.Desc2);
-        });
+        // $.get("/getpost", function (data) {
+        //     var obj = JSON.parse(data);
+        // });
     }
 
     var offset;
