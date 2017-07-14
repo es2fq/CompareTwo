@@ -111,7 +111,7 @@ func main() {
 	initializeDatabase()
 	initializeTables()
 
-	valueString := "hello" + "," + "asdf" + "," + "ajowef" + "," + "jweiof" + "," + "jowef"
+	valueString := "'" + "hello" + "','" + "asdf" + "','" + "ajowef" + "','" + "jweiof" + "','" + "jowef" + "'"
 	log.Println(valueString)
 
 	res, err := db.Exec("INSERT INTO Posts (Question, Desc1, Desc2, Image1, Image2) VALUES (" + valueString + ")")
