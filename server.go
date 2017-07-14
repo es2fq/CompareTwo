@@ -93,7 +93,13 @@ func submitHandler(w http.ResponseWriter, r *http.Request) {
 }
 
 func getPostHandler(w http.ResponseWriter, r *http.Request) {
-	res, err := db.Query("SELECT * FROM Posts ORDER BY RAND() LIMIT 1")
+	var res string
+	var err error
+	res, err = db.Query("SELECT COUNT(*) FROM Posts")
+	checkError(err)
+	log.Println(res)
+
+	res, err = db.Query("SELECT * FROM Posts ORDER BY RAND() LIMIT 1")
 	checkError(err)
 
 	var id string
