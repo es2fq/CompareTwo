@@ -19,7 +19,7 @@ var db *sql.DB
 var templates = template.New("")
 
 type Post struct {
-	id       int
+	id       string
 	question string
 	desc1    string
 	desc2    string
@@ -110,11 +110,12 @@ func getPostHandler(w http.ResponseWriter, r *http.Request) {
 
 	count := checkCount(res)
 	randIndex := rand.Intn(count)
+	log.Println(randIndex)
 
 	res, err = db.Query("SELECT * FROM Posts where id=" + strconv.Itoa(randIndex))
 	checkError(err)
 
-	var id int
+	var id string
 	var question string
 	var desc1 string
 	var desc2 string
