@@ -2,6 +2,7 @@ package main
 
 import (
 	"database/sql"
+	"encoding/json"
 	"fmt"
 	_ "github.com/lib/pq"
 	"html/template"
@@ -16,6 +17,15 @@ import (
 
 var db *sql.DB
 var templates = template.New("")
+
+type Post struct {
+	id       int
+	question string
+	desc1    string
+	desc2    string
+	image1   string
+	image2   string
+}
 
 func initializeDatabase() {
 	var err error
@@ -100,12 +110,11 @@ func getPostHandler(w http.ResponseWriter, r *http.Request) {
 
 	count := checkCount(res)
 	randIndex := rand.Intn(count)
-	log.Println(randIndex)
 
 	res, err = db.Query("SELECT * FROM Posts where id=" + strconv.Itoa(randIndex))
 	checkError(err)
 
-	var id string
+	var id int
 	var question string
 	var desc1 string
 	var desc2 string
@@ -117,7 +126,10 @@ func getPostHandler(w http.ResponseWriter, r *http.Request) {
 		checkError(err)
 	}
 
-	log.Println(id, question, desc1)
+	post := &Post{id: id, question: question, desc1: desc1, desc2: desc2, image1: image1, image2: image2}
+	data, err := json.Marshal(post)
+	checkError(err)
+	log.Println(data)
 }
 
 func checkCount(rows *sql.Rows) (count int) {
