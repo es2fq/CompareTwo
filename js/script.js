@@ -37,10 +37,14 @@ $(document).ready(function() {
 
             question.text(obj.Question);
             date.text(obj.Date);
-            desc1.text(obj.Desc1);
-            desc2.text(obj.Desc2);
             image1.attr('src', 'data:image/png;base64,' + image1URL);
             image2.attr('src', 'data:image/png;base64,' + image2URL);
+            image1.load(function() {
+                desc1.text(obj.Desc1);
+            });
+            image2.load(function() {
+                desc2.text(obj.Desc2);
+            });
         });
     }
 
