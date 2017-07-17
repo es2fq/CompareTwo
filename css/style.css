@@ -218,7 +218,7 @@ button:focus {
     border-top: 3px solid;
     border-right: 3px solid;
     border-color: #6d7993;
-    font-size: 4vw;
+    font-size: 2vw;
 }
 #page1 #bottom #questionText {
     width: 100%;
