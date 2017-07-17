@@ -224,12 +224,14 @@ button:focus {
     height: 50%;
     top: 0;
     text-align: center;
+    border: solid;
 }
 #page1 #dateText {
     width: 100%;
     height: 50%;
     bottom: 0;
     text-align: center;
+    border: solid;
 }
 /* PAGE 2 */
 #page2 {
