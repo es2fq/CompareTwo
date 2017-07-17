@@ -154,6 +154,18 @@ $(document).ready(function() {
             var image1 = $('#croppedImg1').prop('src').replace('data:image/png;base64,', '');
             var image2 = $('#croppedImg2').prop('src').replace('data:image/png;base64,', '');
 
+            var monthNames = ["January", "February", "March", "April", "May", "June", "July", "August", "September", "October", "November", "December"];
+            var currentDate = new Date();
+            var year = currentDate.getFullYear();
+            var month = monthNames[currentDate.getMonth()];
+            var day = currentDate.getDate();
+            var hour = currentDate.getHours();
+            var minutes = currentDate.getMinutes();
+            var seconds = currentDate.getSeconds();
+
+            var dateString = "Posted on " + hour + ":" + minutes + ":" + seconds + ", " + month + " " + day + ", " + year;
+            console.log(dateString);
+
             var body = $("body");
             body.addClass("loading");
 
