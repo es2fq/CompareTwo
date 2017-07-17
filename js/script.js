@@ -164,6 +164,16 @@ $(document).ready(function() {
             var minutes = currentDate.getMinutes();
             var seconds = currentDate.getSeconds();
 
+            var ampm = "AM";
+            if (12 <= hour) {
+                ampm = "PM";
+            }
+
+            hour = hour % 12;
+            if (hour == 0) {
+                hour = 12
+            }
+
             var dateString = "Posted on " + hour + ":" + minutes + ":" + seconds + ", " + month + " " + day + ", " + year;
             console.log(dateString);
 
