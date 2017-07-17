@@ -225,6 +225,7 @@ button:focus {
     height: 50%;
     top: 0;
     text-align: center;
+    vertical-align: middle;
     border: solid;
 }
 #page1 #bottom #dateText {
@@ -232,6 +233,7 @@ button:focus {
     height: 50%;
     bottom: 0;
     text-align: center;
+    vertical-align: middle;
     border: solid;
 }
 /* PAGE 2 */
