@@ -34,6 +34,7 @@ $(document).ready(function() {
             var image2 = $('#page1 #right #image2');
 
             question.text(obj.Question);
+            date.text(obj.Date);
             image1.attr('src', 'data:image/png;base64,' + image1URL);
             image2.attr('src', 'data:image/png;base64,' + image2URL);
         });
@@ -174,7 +175,8 @@ $(document).ready(function() {
                 "&desc1\=" + desc1 +
                 "&desc2\=" + desc2 +
                 "&image1\=" + image1 +
-                "&image2\=" + image2;
+                "&image2\=" + image2 +
+                "&date\=" + dateString;
 
             var postRequest = $.ajax({
                 type: "POST",
