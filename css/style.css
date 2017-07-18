@@ -188,6 +188,7 @@ button:focus {
     width: 35%;
     height: 75%;
     left: 0;
+    text-align: center;
     border-right: 1.5px solid;
     border-color: #6d7993;
 }
@@ -226,6 +227,7 @@ button:focus {
     width: 35%;
     height: 75%;
     left: 35%;
+    text-align: center;
     border-left: 1.5px solid;
     border-right: 3px solid;
     border-color: #6d7993;
