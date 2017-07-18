@@ -232,25 +232,27 @@ button:focus {
     #page1 #left #selectButton1 {
         position: absolute;
         background: rgba(0, 0, 0, 0);
-        border: solid 4px green;
+        border: solid 2px green;
         color: green;
         left: 35%;
         bottom: 5%;
         padding: 2px 8px 2px 8px;
         font-size: 2vw;
         visibility: hidden;
+        opacity: 0;
         transition: all 0.4s ease-in;
         -ms-transition: all 0.4s ease-in;
         -moz-transition: all 0.4s ease-in;
         -webkit-transition: all 0.4s ease-in;
     }
         #page1 #left #selectButton1:hover {
-            background: white;
+            background: green;
             color: white;
             cursor: hand;
         }
         #page1 #left:hover #selectButton1 {
             visibility: visible;
+            opacity: 1;
         }
 #page1 #right {
     width: 35%;
@@ -300,21 +302,28 @@ button:focus {
     }
     #page1 #right #selectButton2 {
         position: absolute;
+        background: rgba(0, 0, 0, 0);
+        border: solid 2px green;
+        color: green;
         left: 35%;
         bottom: 5%;
         padding: 2px 8px 2px 8px;
         font-size: 2vw;
         visibility: hidden;
+        opacity: 0;
         transition: all 0.4s ease-in;
         -ms-transition: all 0.4s ease-in;
         -moz-transition: all 0.4s ease-in;
         -webkit-transition: all 0.4s ease-in;
     }
         #page1 #right #selectButton2:hover {
+            background: green;
+            color: white;
             cursor: hand;
         }
         #page1 #right:hover #selectButton2 {
             visibility: visible;
+            opacity: 1;
         }
 #page1 #bottom {
     height: 25%;
