@@ -158,7 +158,8 @@ func main() {
 		var desc2 string
 		var image1 string
 		var image2 string
-		err = result.Scan(&id, &question, &desc1, &desc2, &image1, &image2)
+		var date string
+		err = result.Scan(&id, &question, &desc1, &desc2, &image1, &image2, &date)
 		checkError(err)
 		log.Println(id, question)
 	}
