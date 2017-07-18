@@ -231,8 +231,8 @@ button:focus {
         -webkit-transition: opacity 0.4s ease-in;
     }
     #page1 #left #selectButton {
-        bottom: 0;
-        padding: 4px 8px 4px 8px;
+        bottom: 30%;
+        padding: 2px 4px 2px 4px;
         font-size: 2vw;
     }
 #page1 #right {
