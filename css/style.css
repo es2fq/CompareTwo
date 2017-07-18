@@ -205,6 +205,9 @@ button:focus {
             opacity: 0.3;
             cursor: hand;
         }
+        #page1 #left #image1:hover \ #desc1 {
+            visibility: visible;
+        }
     #page1 #left #desc1 {
         width: 100%;
         height: 100%;
@@ -216,9 +219,6 @@ button:focus {
         -moz-transition: opacity 0.4s ease-in;
         -webkit-transition: opacity 0.4s ease-in;
     }
-        #page1 #left #desc1:hover {
-            visibility: visible;
-        }
 #page1 #right {
     width: 35%;
     height: 75%;
@@ -241,6 +241,9 @@ button:focus {
             opacity: 0.3;
             cursor: hand;
         }
+        #page1 #right #image2:hover \ #desc2 {
+            visibility: visible;
+        }
     #page1 #right #desc2 {
         width: 100%;
         height: 100%;
@@ -252,9 +255,6 @@ button:focus {
         -moz-transition: opacity 0.4s ease-in;
         -webkit-transition: opacity 0.4s ease-in;
     }
-        #page1 #right #desc2:hover {
-            visibility: visible;
-        }
 #page1 #bottom {
     height: 25%;
     width: 70%;
