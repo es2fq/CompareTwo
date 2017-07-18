@@ -198,9 +198,11 @@ button:focus {
         max-width: 100%;
         max-height: 100%;
         transition: opacity 0.4s ease-in;
+        left: 0;
         -ms-transition: opacity 0.4s ease-in;
         -moz-transition: opacity 0.4s ease-in;
         -webkit-transition: opacity 0.4s ease-in;
+        /* content: url("https://68.media.tumblr.com/20b34e8d12d4230f9b362d7feb148c57/tumblr_oiwytz4dh41tf8vylo1_1280.png"); */
     }
         #page1 #left #image1:hover {
             -webkit-filter: grayscale(100%);
@@ -237,10 +239,12 @@ button:focus {
         height: 100%;
         max-width: 100%;
         max-height: 100%;
+        left: 0;
         transition: opacity 0.4s ease-in;
         -ms-transition: opacity 0.4s ease-in;
         -moz-transition: opacity 0.4s ease-in;
         -webkit-transition: opacity 0.4s ease-in;
+        /* content: url("https://68.media.tumblr.com/20b34e8d12d4230f9b362d7feb148c57/tumblr_oiwytz4dh41tf8vylo1_1280.png"); */
     }
         #page1 #right #image2:hover {
             -webkit-filter: grayscale(100%);
