@@ -205,7 +205,7 @@ button:focus {
             opacity: 0.3;
             cursor: hand;
         }
-        #page1 #left #image1:hover \ #desc1 {
+        #page1 #left #image1:hover + #desc1 {
             visibility: visible;
         }
     #page1 #left #desc1 {
@@ -241,7 +241,7 @@ button:focus {
             opacity: 0.3;
             cursor: hand;
         }
-        #page1 #right #image2:hover \ #desc2 {
+        #page1 #right #image2:hover + #desc2 {
             visibility: visible;
         }
     #page1 #right #desc2 {
