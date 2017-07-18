@@ -218,7 +218,6 @@ button:focus {
         text-align: center;
         word-wrap: break-word;
         visibility: hidden;
-        padding: 4px;
         transition: opacity 0.4s ease-in;
         -ms-transition: opacity 0.4s ease-in;
         -moz-transition: opacity 0.4s ease-in;
@@ -259,7 +258,6 @@ button:focus {
         text-align: center;
         word-wrap: break-word;
         visibility: hidden;
-        padding: 4px;
         transition: opacity 0.4s ease-in;
         -ms-transition: opacity 0.4s ease-in;
         -moz-transition: opacity 0.4s ease-in;
