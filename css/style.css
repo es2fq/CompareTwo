@@ -210,11 +210,15 @@ button:focus {
         height: 100%;
         text-align: center;
         word-wrap: break-word;
+        visibility: hidden;
         transition: opacity 0.4s ease-in;
         -ms-transition: opacity 0.4s ease-in;
         -moz-transition: opacity 0.4s ease-in;
         -webkit-transition: opacity 0.4s ease-in;
     }
+        #page1 #left #desc1:hover {
+            visibility: visible;
+        }
 #page1 #right {
     width: 35%;
     height: 75%;
@@ -242,11 +246,15 @@ button:focus {
         height: 100%;
         text-align: center;
         word-wrap: break-word;
+        visibility: hidden;
         transition: opacity 0.4s ease-in;
         -ms-transition: opacity 0.4s ease-in;
         -moz-transition: opacity 0.4s ease-in;
         -webkit-transition: opacity 0.4s ease-in;
     }
+        #page1 #right #desc2:hover {
+            visibility: visible;
+        }
 #page1 #bottom {
     height: 25%;
     width: 70%;
