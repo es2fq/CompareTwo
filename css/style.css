@@ -193,6 +193,7 @@ button:focus {
     border-color: #6d7993;
 }
     #page1 #left #image1 {
+        position: absolute;
         width: 100%;
         height: 100%;
         max-width: 100%;
@@ -213,6 +214,7 @@ button:focus {
             visibility: visible;
         }
     #page1 #left #desc1 {
+        position: absolute;
         width: 100%;
         height: 100%;
         text-align: center;
