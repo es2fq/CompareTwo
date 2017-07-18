@@ -231,13 +231,22 @@ button:focus {
     }
     #page1 #left #selectButton1 {
         position: absolute;
+        background: rgba(0, 0, 0, 0);
+        border: solid 4px green;
+        color: green;
         left: 35%;
         bottom: 5%;
         padding: 2px 8px 2px 8px;
         font-size: 2vw;
         visibility: hidden;
+        transition: all 0.4s ease-in;
+        -ms-transition: all 0.4s ease-in;
+        -moz-transition: all 0.4s ease-in;
+        -webkit-transition: all 0.4s ease-in;
     }
         #page1 #left #selectButton1:hover {
+            background: white;
+            color: white;
             cursor: hand;
         }
         #page1 #left:hover #selectButton1 {
@@ -296,6 +305,10 @@ button:focus {
         padding: 2px 8px 2px 8px;
         font-size: 2vw;
         visibility: hidden;
+        transition: all 0.4s ease-in;
+        -ms-transition: all 0.4s ease-in;
+        -moz-transition: all 0.4s ease-in;
+        -webkit-transition: all 0.4s ease-in;
     }
         #page1 #right #selectButton2:hover {
             cursor: hand;
