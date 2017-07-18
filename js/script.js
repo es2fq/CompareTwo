@@ -39,12 +39,8 @@ $(document).ready(function() {
             date.text(obj.Date);
             image1.attr('src', 'data:image/png;base64,' + image1URL);
             image2.attr('src', 'data:image/png;base64,' + image2URL);
-            image1.load(function() {
-                desc1.text(obj.Desc1);
-            });
-            image2.load(function() {
-                desc2.text(obj.Desc2);
-            });
+            desc1.text(obj.Desc1);
+            desc2.text(obj.Desc2);
         });
     }
 
