@@ -222,7 +222,7 @@ button:focus {
         visibility: hidden;
         font-size: 3vw;
         left: 0;
-        margin-left: -3.5px;
+        margin-left: -4px;
         margin-top: 4px;
         padding: 0px 4px 0px 4px;
         transition: opacity 0.4s ease-in;
@@ -269,7 +269,7 @@ button:focus {
         visibility: hidden;
         font-size: 3vw;
         left: 0;
-        margin-left: -3.5px;
+        margin-left: -4px;
         margin-top: 4px;
         padding: 0px 4px 0px 4px;
         transition: opacity 0.4s ease-in;
