@@ -229,18 +229,22 @@ button:focus {
         -moz-transition: opacity 0.4s ease-in;
         -webkit-transition: opacity 0.4s ease-in;
     }
-    #page1 #left #selectButton {
+    #page1 #left #selectButton1 {
         position: absolute;
         left: 35%;
         bottom: 5%;
         padding: 2px 8px 2px 8px;
         font-size: 2vw;
         visibility: hidden;
+        transition: opacity 0.4s ease-in;
+        -ms-transition: opacity 0.4s ease-in;
+        -moz-transition: opacity 0.4s ease-in;
+        -webkit-transition: opacity 0.4s ease-in;
     }
-        #page1 #left #selectButton:hover {
+        #page1 #left #selectButton1:hover {
             cursor: hand;
         }
-        #page1 #left:hover #selectButton {
+        #page1 #left:hover #selectButton1 {
             visibility: visible;
         }
 #page1 #right {
@@ -289,6 +293,24 @@ button:focus {
         -moz-transition: opacity 0.4s ease-in;
         -webkit-transition: opacity 0.4s ease-in;
     }
+    #page2 #right #selectButton2 {
+        position: absolute;
+        left: 35%;
+        bottom: 5%;
+        padding: 2px 8px 2px 8px;
+        font-size: 2vw;
+        visibility: hidden;
+        transition: opacity 0.4s ease-in;
+        -ms-transition: opacity 0.4s ease-in;
+        -moz-transition: opacity 0.4s ease-in;
+        -webkit-transition: opacity 0.4s ease-in;
+    }
+        #page2 #right #selectButton2:hover {
+            cursor: hand;
+        }
+        #page2 #right:hover #selectButton2 {
+            visibility: visible;
+        }
 #page1 #bottom {
     height: 25%;
     width: 70%;
