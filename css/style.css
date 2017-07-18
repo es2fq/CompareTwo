@@ -204,7 +204,7 @@ button:focus {
         -webkit-transition: opacity 0.4s ease-in;
         /* content: url("https://68.media.tumblr.com/20b34e8d12d4230f9b362d7feb148c57/tumblr_oiwytz4dh41tf8vylo1_1280.png"); */
     }
-        #page1 #left #image1:hover {
+        #page1 #left:hover #image1 {
             -webkit-filter: grayscale(100%);
             -moz-filter: grayscale(100%);
             filter: grayscale(100%);
@@ -231,8 +231,10 @@ button:focus {
         -webkit-transition: opacity 0.4s ease-in;
     }
     #page1 #left #selectButton {
-        bottom: 30%;
-        padding: 2px 4px 2px 4px;
+        position: absolute;
+        left: 35%;
+        bottom: 5%;
+        padding: 2px 8px 2px 8px;
         font-size: 2vw;
     }
 #page1 #right {
@@ -256,7 +258,7 @@ button:focus {
         -webkit-transition: opacity 0.4s ease-in;
         /* content: url("https://68.media.tumblr.com/20b34e8d12d4230f9b362d7feb148c57/tumblr_oiwytz4dh41tf8vylo1_1280.png"); */
     }
-        #page1 #right #image2:hover {
+        #page1 #right:hover #image2 {
             -webkit-filter: grayscale(100%);
             -moz-filter: grayscale(100%);
             filter: grayscale(100%);
