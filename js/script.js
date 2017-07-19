@@ -65,6 +65,7 @@ $(document).ready(function() {
                         var obj = JSON.parse(data);
                         var recentPost = document.createElement('div');
                         recentPost.innerHTML = obj.Question;
+                        postContainer.append(recentPost);
                     }
                 });
             // }
