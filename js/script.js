@@ -21,11 +21,12 @@ $(document).ready(function() {
         });
     }
 
+    var postCount;
     function setPostDisplay() {
         var body = $("body");
         body.addClass("loading");
         $.get("/getpostcount", function (data) {
-            console.log(data);        
+            postCount = data;
         });
 
         $.get("/getpost", function (data) {
@@ -188,7 +189,6 @@ $(document).ready(function() {
             }
 
             var dateString = "Posted on " + hour + ":" + minutes + ":" + seconds + ", " + month + " " + day + ", " + year;
-            console.log(dateString);
 
             var body = $("body");
             body.addClass("loading");
