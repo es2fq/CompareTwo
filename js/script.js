@@ -26,22 +26,6 @@ $(document).ready(function() {
         var body = $("body");
         body.addClass("loading");
 
-        $.get("/getpostcount", function(data) {
-            postCount = data;
-        })
-        .done(function(data) {
-            var postData = "row\=" + postCount;
-            var postRequest = $.ajax({
-                type: "POST",
-                url: "/getpostbyrownumber",
-                data: postData,
-                success: function(data) {
-                    var obj = JSON.parse(data);
-                    console.log(obj.Question);
-                }
-            });
-        });
-
         $.get("/getpost", function(data) {
             var obj = JSON.parse(data);
 
@@ -64,6 +48,26 @@ $(document).ready(function() {
         })
         .done(function(data) {
             body.removeClass("loading");     
+        });
+
+        $.get("/getpostcount", function(data) {
+            postCount = data;
+        })
+        .done(function(data) {
+            var postContainer = $('#page1 #rightSide');
+            // for (var i = 0; i < 5; i++) {
+                var postData = "row\=" + (postCount - 0);
+                var postRequest = $.ajax({
+                    type: "POST",
+                    url: "/getpostbyrownumber",
+                    data: postData,
+                    success: function(data) {
+                        var obj = JSON.parse(data);
+                        var recentPost = document.createElement('div');
+                        recentPost.innerHTML = obj.Question;
+                    }
+                });
+            // }
         });
     }
 
