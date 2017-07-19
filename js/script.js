@@ -27,6 +27,17 @@ $(document).ready(function() {
         body.addClass("loading");
         $.get("/getpostcount", function (data) {
             postCount = data;
+            console.log(postCount);
+        });
+
+        var postData = "row\=1";
+        var postRequest = $.ajax({
+            type: "POST",
+            url: "/getpostbyrownumber",
+            data: postData,
+            success: function(data) {
+                console.log(data)
+            }
         });
 
         $.get("/getpost", function (data) {

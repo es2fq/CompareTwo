@@ -156,6 +156,19 @@ func checkCount(rows *sql.Rows) (count int) {
 	return count
 }
 
+func getPostByRowNumber(w http.ResponseWriter, r *http.Request) {
+	rowNum, err := strconv.Atoi(r.PostFormValue("row"))
+	checkError(err)
+
+	stmt, err := db.Prepare("SELECT * FROM Posts LIMIT $1, $2")
+	checkError(err)
+
+	res, err := stmt.Exec(strconv.Itoa(rowNum-1), strconv.Itoa(rowNum))
+	checkError(err)
+
+	log.Println(res)
+}
+
 func main() {
 	initializeDatabase()
 	initializeTables()
@@ -190,6 +203,7 @@ func main() {
 	http.HandleFunc("/submit", submitHandler)
 	http.HandleFunc("/getpost", getPostHandler)
 	http.HandleFunc("/getpostcount", getPostCountHandler)
+	http.HandleFunc("/getpostbyrownumber", getPostByRowNumber)
 
 	if err := http.ListenAndServe(addr, nil); err != nil {
 		panic(err)
