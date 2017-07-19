@@ -360,16 +360,21 @@ $(document).ready(function() {
 
         var nextPage = $('#nextPage');
         nextPage.on('click', function() {
+            var body = $("body");
+            body.addClass("loading");
+
             $('#page2 > div').removeClass('active');
             $('#page2 #descriptionPage').addClass('active');
 
             croppie1.croppie('result', 'base64').then(function(data) {
                 var image = $('#croppedImg1');
                 image.attr('src', data);
+                body.removeClass("loading");
             });
             croppie2.croppie('result', 'base64').then(function(data) {
                 var image = $('#croppedImg2');
                 image.attr('src', data);
+                body.removeClass("loading");
             });
         });
         var prevPage = $('#prevPage');
