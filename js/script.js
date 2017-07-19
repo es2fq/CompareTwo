@@ -22,6 +22,8 @@ $(document).ready(function() {
     }
 
     function setPostDisplay() {
+        var body = $("body");
+        body.addClass("loading");
         $.get("/getpost", function (data) {
             var obj = JSON.parse(data);
 
@@ -41,6 +43,9 @@ $(document).ready(function() {
             image2.attr('src', 'data:image/png;base64,' + image2URL);
             desc1.text(obj.Desc1);
             desc2.text(obj.Desc2);
+        })
+        .done(function (data) {
+            body.removeClass("loading");     
         });
     }
 
