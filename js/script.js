@@ -25,22 +25,24 @@ $(document).ready(function() {
     function setPostDisplay() {
         var body = $("body");
         body.addClass("loading");
-        $.get("/getpostcount", function (data) {
+
+        $.get("/getpostcount", function(data) {
             postCount = data;
+        })
+        .done(function(data) {
+            var postData = "row\=" + postCount;
+            var postRequest = $.ajax({
+                type: "POST",
+                url: "/getpostbyrownumber",
+                data: postData,
+                success: function(data) {
+                    var obj = JSON.parse(data);
+                    console.log(obj.Question);
+                }
+            });
         });
 
-        var postData = "row\=1";
-        var postRequest = $.ajax({
-            type: "POST",
-            url: "/getpostbyrownumber",
-            data: postData,
-            success: function(data) {
-                var obj = JSON.parse(data);
-                console.log(obj.Question);
-            }
-        });
-
-        $.get("/getpost", function (data) {
+        $.get("/getpost", function(data) {
             var obj = JSON.parse(data);
 
             var image1URL = obj.Image1.split(' ').join('+');
@@ -60,7 +62,7 @@ $(document).ready(function() {
             desc1.text(obj.Desc1);
             desc2.text(obj.Desc2);
         })
-        .done(function (data) {
+        .done(function(data) {
             body.removeClass("loading");     
         });
     }
