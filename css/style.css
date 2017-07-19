@@ -349,7 +349,7 @@ button:focus {
     text-align: center;
     vertical-align: middle;
 }
-#rightSide {
+#page1 #rightSide {
     width: 30%;
     height: 100%;
     right: 0;
