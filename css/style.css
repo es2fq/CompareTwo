@@ -349,6 +349,11 @@ button:focus {
     text-align: center;
     vertical-align: middle;
 }
+#page1 #rightSide {
+    width: 30%;
+    height: 100%;
+    right: 0;
+}
 /* PAGE 2 */
 #page2 {
     height: 100%;
