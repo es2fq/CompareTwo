@@ -160,16 +160,30 @@ func getPostByRowNumber(w http.ResponseWriter, r *http.Request) {
 	rowNum, err := strconv.Atoi(r.PostFormValue("row"))
 	checkError(err)
 
-	log.Println(r.PostFormValue("row"))
-	log.Println(rowNum)
-
 	stmt, err := db.Prepare("SELECT * FROM Posts LIMIT $1 OFFSET $2")
 	checkError(err)
 
 	res, err := stmt.Exec(strconv.Itoa(rowNum), strconv.Itoa(rowNum-1))
 	checkError(err)
 
-	log.Println(res)
+	var id string
+	var question string
+	var desc1 string
+	var desc2 string
+	var image1 string
+	var image2 string
+	var date string
+
+	for res.Next() {
+		err = res.Scan(&id, &question, &desc1, &desc2, &image1, &image2, &date)
+		checkError(err)
+	}
+
+	post := &Post{Id: id, Question: question, Desc1: desc1, Desc2: desc2, Image1: image1, Image2: image2, Date: date}
+	data, err := json.Marshal(post)
+	checkError(err)
+
+	w.Write(data)
 }
 
 func main() {
