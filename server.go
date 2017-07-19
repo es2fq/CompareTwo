@@ -136,14 +136,16 @@ func getPostHandler(w http.ResponseWriter, r *http.Request) {
 	w.Write(data)
 }
 
-func getPostCountHandler(w httpResponseWriter, r *http.Request) {
+func getPostCountHandler(w http.ResponseWriter, r *http.Request) {
 	res, err := db.Query("SELECT COUNT(*) FROM Posts")
 	checkError(err)
 
 	count := checkCount(res)
 
+	data, err := json.Marshal(count)
+	checkError(err)
+
 	w.Write(data)
-	w.Write(count)
 }
 
 func checkCount(rows *sql.Rows) (count int) {
