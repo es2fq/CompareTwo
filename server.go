@@ -160,10 +160,7 @@ func getPostByRowNumber(w http.ResponseWriter, r *http.Request) {
 	rowNum, err := strconv.Atoi(r.PostFormValue("row"))
 	checkError(err)
 
-	stmt, err := db.Prepare("SELECT * FROM Posts LIMIT $1 OFFSET $2")
-	checkError(err)
-
-	res, err := stmt.Exec(strconv.Itoa(rowNum), strconv.Itoa(rowNum-1))
+	res, err := db.Query("SELECT * FROM Posts LIMIT " + strconv.Itoa(rowNum) + " OFFSET " + strconv.Itoa(rowNum-1))
 	checkError(err)
 
 	var id string
