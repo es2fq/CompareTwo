@@ -27,7 +27,6 @@ $(document).ready(function() {
         body.addClass("loading");
         $.get("/getpostcount", function (data) {
             postCount = data;
-            console.log(postCount);
         });
 
         var postData = "row\=1";
