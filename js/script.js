@@ -24,6 +24,10 @@ $(document).ready(function() {
     function setPostDisplay() {
         var body = $("body");
         body.addClass("loading");
+        $.get("/getpostcount", function (data) {
+            console.log(data);        
+        });
+
         $.get("/getpost", function (data) {
             var obj = JSON.parse(data);
 

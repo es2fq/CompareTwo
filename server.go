@@ -136,6 +136,16 @@ func getPostHandler(w http.ResponseWriter, r *http.Request) {
 	w.Write(data)
 }
 
+func getPostCountHandler(w httpResponseWriter, r *http.Request) {
+	res, err := db.Query("SELECT COUNT(*) FROM Posts")
+	checkError(err)
+
+	count := checkCount(res)
+
+	w.Write(data)
+	w.Write(count)
+}
+
 func checkCount(rows *sql.Rows) (count int) {
 	for rows.Next() {
 		err := rows.Scan(&count)
@@ -177,6 +187,7 @@ func main() {
 	http.HandleFunc("/", mainHandler)
 	http.HandleFunc("/submit", submitHandler)
 	http.HandleFunc("/getpost", getPostHandler)
+	http.HandleFunc("/getpostcount", getPostCountHandler)
 
 	if err := http.ListenAndServe(addr, nil); err != nil {
 		panic(err)
