@@ -354,6 +354,30 @@ button:focus {
     height: 100%;
     right: 0;
 }
+#reportIcon {
+    position: absolute;
+    width: 40%;
+    height: 25%;
+    left: 5%;
+    bottom: 0;
+    opacity: 0.7;
+}
+    #reportIcon:hover {
+        opacity: 1;
+        cursor: hand;
+    }
+#reloadIcon {
+    position: absolute;
+    width: 40%;
+    height: 25%;
+    right: 5%;
+    bottom: 0;
+    opacity: 0.7;
+}
+    #reloadIcon:hover {
+        opacity: 1;
+        cursor: hand;
+    }
 /* PAGE 2 */
 #page2 {
     height: 100%;
