@@ -55,8 +55,10 @@ $(document).ready(function() {
         })
         .done(function(data) {
             var postContainer = $('#page1 #rightSide');
+            console.log(postCount);
             for (var i = 0; i < 5; i++) {
                 var postData = "row\=" + (postCount - i);
+                console.log(postCount - i);
                 var postRequest = $.ajax({
                     type: "POST",
                     url: "/getpostbyrownumber",
@@ -65,7 +67,7 @@ $(document).ready(function() {
                         var obj = JSON.parse(data);
                         var recentPost = document.createElement('div');
                         recentPost.innerHTML = obj.Question;
-                        recentPost.style = "position: relative; color: blue;"
+                        recentPost.style = "position: relative;"
                         postContainer.append(recentPost);
                     }
                 });
