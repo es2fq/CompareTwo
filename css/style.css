@@ -354,6 +354,14 @@ button:focus {
     height: 100%;
     right: 0;
 }
+#recentPostsTitle {
+    width: 100%;
+    font-size: 2.5vw;
+    word-wrap: break-word;
+    padding-left: 5%;
+    padding-right: 5%;
+    text-decoration: underline;
+}
 #reportIcon {
     position: absolute;
     width: 40%;

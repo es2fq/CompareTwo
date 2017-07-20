@@ -68,7 +68,7 @@ $(document).ready(function() {
                         recentPost.style = `\
                             position: relative;
                             width: 100%;
-                            font-size: 2.5vw;
+                            font-size: 2vw;
                             word-wrap: break-word;
                             padding-left: 5%;
                             padding-right: 5%;
