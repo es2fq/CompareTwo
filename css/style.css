@@ -208,7 +208,7 @@ button:focus {
             -webkit-filter: grayscale(100%);
             -moz-filter: grayscale(100%);
             filter: grayscale(100%);
-            opacity: 0.1;
+            opacity: 0.3;
         }
         #page1 #left:hover #desc1 {
             visibility: visible;
@@ -279,7 +279,7 @@ button:focus {
             -webkit-filter: grayscale(100%);
             -moz-filter: grayscale(100%);
             filter: grayscale(100%);
-            opacity: 0.1;
+            opacity: 0.3;
         }
         #page1 #right:hover #desc2 {
             visibility: visible;
