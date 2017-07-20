@@ -70,6 +70,8 @@ $(document).ready(function() {
                             width: 100%;
                             font-size: 2.5vw;
                             word-wrap: break-word;
+                            padding-left: 5%;
+                            padding-right: 5%;
                         `;
                         postContainer.append(recentPost);
                     }
