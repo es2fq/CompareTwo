@@ -65,7 +65,7 @@ $(document).ready(function() {
                         var obj = JSON.parse(data);
                         var recentPost = document.createElement('div');
                         recentPost.innerHTML = obj.Question;
-                        recentPost.position = "relative";
+                        recentPost.style = "position: relative; color: blue;"
                         postContainer.append(recentPost);
                     }
                 });
