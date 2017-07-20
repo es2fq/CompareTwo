@@ -65,7 +65,12 @@ $(document).ready(function() {
                         var obj = JSON.parse(data);
                         var recentPost = document.createElement('div');
                         recentPost.innerHTML = obj.Question;
-                        recentPost.style = "position: relative;"
+                        recentPost.style = `\
+                            position: relative;
+                            width: 100%;
+                            font-size: 2.5vw;
+                            word-wrap: break-word;
+                        `;
                         postContainer.append(recentPost);
                     }
                 });
