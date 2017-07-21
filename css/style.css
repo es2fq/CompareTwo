@@ -355,6 +355,7 @@ button:focus {
     right: 0;
 }
 #recentPostsTitle {
+    position: relative;
     width: 100%;
     font-size: 2.5vw;
     word-wrap: break-word;
