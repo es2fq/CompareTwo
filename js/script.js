@@ -465,6 +465,9 @@ $(document).ready(function() {
             var barGraph = document.getElementById("barGraph");
             var ctx = barGraph.getContext('2d');
 
+            var percentLeft = currentPost.votes1 / (currentPost.votes1 + currentPost.votes2) * 100;
+            var percentRight = currentPost.votes2 / (currentPost.votes1 + currentPost.votes2) * 100;
+
             var chart = new Chart(barGraph, {
                 type: 'bar',
                 data: {
@@ -472,7 +475,7 @@ $(document).ready(function() {
                     datasets: [{
                         label: "Vote Percentage",
                         backgroundColor: ["#3e95cd", "#8e5ea2"],
-                        data: [60, 40]
+                        data: [percentLeft, percentRight]
                     }]
                 },
                 options: {
