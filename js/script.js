@@ -308,7 +308,7 @@ $(document).ready(function() {
                     alert("Sorry, that URL either cannot be accessed or found.");
                     resetImportPage();
                 }
-            });
+            }, 10000);
         }
 
         var image = $('#page2 * #image' + num);
