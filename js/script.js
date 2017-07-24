@@ -298,6 +298,14 @@ $(document).ready(function() {
 
         var text = $("#importText");
         text.hide();
+        
+        if (type == "url") {
+            url = "https://crossorigin.me/" + url;
+            if (!checkURL) {
+                alert("Sorry, the URL cannot be accessed or found.");
+                return;
+            }
+        }
 
         var image = $('#page2 * #image' + num);
         var viewportDim = parseFloat(image.css('width'));
@@ -310,16 +318,8 @@ $(document).ready(function() {
             showZoomer: false,
         });
 
-        image.on('error', function() {
-            alert("error");
-        });
-
         if (num == '1') croppie1 = crop;
         if (num == '2') croppie2 = crop;
-        
-        if (type == "url") {
-            url = "https://crossorigin.me/" + url;
-        }
 
         crop.croppie('bind', {
             url: url
@@ -333,6 +333,19 @@ $(document).ready(function() {
         }
 
         removeImageClick(num);
+    }
+
+    function checkURL(url) {
+        var req = new XMLHttpRequest();
+        req.open('HEAD', url, true);
+        req.send();
+        if (req.status === 404) {
+            return false;
+        }
+        if (req.status === 403) {
+            return false;
+        }
+        return true;
     }
 
     function removeImageClick(num) {
