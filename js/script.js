@@ -301,7 +301,7 @@ $(document).ready(function() {
         
         if (type == "url") {
             url = "https://crossorigin.me/" + url;
-            if (!checkURL) {
+            if (!checkURL(url)) {
                 alert("Sorry, the URL cannot be accessed or found.");
                 return;
             }
