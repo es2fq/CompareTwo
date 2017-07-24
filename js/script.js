@@ -23,6 +23,7 @@ $(document).ready(function() {
     }
 
     var postCount;
+    var currentPost = {};
     function setPostDisplay() {
         var body = $("body");
         body.addClass("loading");
@@ -46,6 +47,14 @@ $(document).ready(function() {
             image2.attr('src', 'data:image/png;base64,' + image2URL);
             desc1.text(obj.Desc1);
             desc2.text(obj.Desc2);
+
+            currentPost.id = obj.Id;
+            currentPost.question = obj.Question;
+            currentPost.date = obj.Date;
+            currentPost.image1 = image1URL;
+            currentPost.image2 = image2URL;
+            currentPost.desc1 = obj.Desc1;
+            currentPost.desc2 = obj.Desc2;
         })
         .done(function(data) {
             body.removeClass("loading");     
@@ -423,9 +432,7 @@ $(document).ready(function() {
     }
 
     function initSelectButtons() {
-        console.log("hello");
         $('#selectButton1').on('click', function() {
-            console.log("hi");
             selectImage(0);
         });
         $('#selectButton2').on('click', function() {
@@ -434,7 +441,7 @@ $(document).ready(function() {
     }
 
     function selectImage(num) {
-        console.log(num);
+        console.log(currentPost.id);
     }
 
     function isValidImageUrl(url, callback) {
