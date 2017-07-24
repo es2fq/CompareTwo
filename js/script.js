@@ -459,6 +459,31 @@ $(document).ready(function() {
         postRequest.done(function() {
             if (num == 1) currentPost.votes1 += 1
             if (num == 2) currentPost.votes2 += 1
+
+            var barGraph = document.getElementById("barGraph");
+            var ctx = barGraph.getContext('2d');
+
+            var chart = new Chart(ctx, {
+                type: 'bar',
+                data: {
+                    datasets: [
+                        {
+                            label: "Vote Percentages",
+                            data: [60, 40]
+                        }
+                    ]
+                },
+                options: {
+                    legend: {display: false},
+                    title: {
+                        display: true,
+                        text: "Vote Percentages"
+                    }
+                }
+            });
+
+            $('#page1 #left').fadeOut();
+            $('#page1 #right').fadeOut();
             body.removeClass("loading");
         });
     }
