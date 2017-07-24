@@ -55,6 +55,8 @@ $(document).ready(function() {
             currentPost.image2 = image2URL;
             currentPost.desc1 = obj.Desc1;
             currentPost.desc2 = obj.Desc2;
+            currentPost.votes1 = obj.Votes1;
+            currentPost.votes2 = obj.Votes2;
         })
         .done(function(data) {
             body.removeClass("loading");     

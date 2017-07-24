@@ -25,6 +25,8 @@ type Post struct {
 	Desc2    string
 	Image1   string
 	Image2   string
+	Votes1   string
+	Votes2   string
 	Date     string
 }
 
@@ -50,7 +52,19 @@ func initializeDatabase() {
 func initializeTables() {
 	var err error
 
-	_, err = db.Exec("CREATE TABLE IF NOT EXISTS Posts (id serial PRIMARY KEY, Question varchar(255) NOT NULL, Desc1 varchar(255), Desc2 varchar(255), Image1 text NOT NULL, Image2 text NOT NULL, Date varchar(255))")
+	_, err = db.Exec("CREATE TABLE IF NOT EXISTS Posts (id serial PRIMARY KEY, Question varchar(255) NOT NULL, Desc1 varchar(255), Desc2 varchar(255), Image1 text NOT NULL, Image2 text NOT NULL, Votes1 int, Votes2 int, Date varchar(255))")
+	checkError(err)
+
+	_, err = db.Exec("ALTER TABLE Posts ADD Votes1 int")
+	checkError(err)
+
+	_, err = db.Exec("ALTER TABLE Posts ADD Votes2 int")
+	checkError(err)
+
+	_, err = db.Exec("UPDATE Posts SET Votes1 = 0")
+	checkError(err)
+
+	_, err = db.Exec("UPDATE Posts SET Votes2 = 0")
 	checkError(err)
 }
 
@@ -97,11 +111,13 @@ func submitHandler(w http.ResponseWriter, r *http.Request) {
 	image1 := r.PostFormValue("image1")
 	image2 := r.PostFormValue("image2")
 	date := r.PostFormValue("date")
+	votes1 := 0
+	votes2 := 0
 
-	stmt, err := db.Prepare("INSERT INTO Posts (Question, Desc1, Desc2, Image1, Image2, Date) VALUES ($1, $2, $3, $4, $5, $6)")
+	stmt, err := db.Prepare("INSERT INTO Posts (Question, Desc1, Desc2, Image1, Image2, Date, Votes1, Votes2) VALUES ($1, $2, $3, $4, $5, $6, $7, $8)")
 	checkError(err)
 
-	res, err := stmt.Exec(question, desc1, desc2, image1, image2, date)
+	res, err := stmt.Exec(question, desc1, desc2, image1, image2, date, votes1, votes2)
 	checkError(err)
 	log.Println(res)
 }
@@ -123,13 +139,15 @@ func getPostHandler(w http.ResponseWriter, r *http.Request) {
 	var image1 string
 	var image2 string
 	var date string
+	var votes1 string
+	var votes2 string
 
 	for res.Next() {
-		err = res.Scan(&id, &question, &desc1, &desc2, &image1, &image2, &date)
+		err = res.Scan(&id, &question, &desc1, &desc2, &image1, &image2, &date, &votes1, &votes2)
 		checkError(err)
 	}
 
-	post := &Post{Id: id, Question: question, Desc1: desc1, Desc2: desc2, Image1: image1, Image2: image2, Date: date}
+	post := &Post{Id: id, Question: question, Desc1: desc1, Desc2: desc2, Image1: image1, Image2: image2, Date: date, Votes1: votes1, Votes2: votes2}
 	data, err := json.Marshal(post)
 	checkError(err)
 
@@ -170,13 +188,15 @@ func getPostByRowNumber(w http.ResponseWriter, r *http.Request) {
 	var image1 string
 	var image2 string
 	var date string
+	var votes1 string
+	var votes2 string
 
 	for res.Next() {
-		err = res.Scan(&id, &question, &desc1, &desc2, &image1, &image2, &date)
+		err = res.Scan(&id, &question, &desc1, &desc2, &image1, &image2, &date, &votes1, &votes2)
 		checkError(err)
 	}
 
-	post := &Post{Id: id, Question: question, Desc1: desc1, Desc2: desc2, Image1: image1, Image2: image2, Date: date}
+	post := &Post{Id: id, Question: question, Desc1: desc1, Desc2: desc2, Image1: image1, Image2: image2, Date: date, Votes1: votes1, Votes2: votes2}
 	data, err := json.Marshal(post)
 	checkError(err)
 
@@ -198,7 +218,9 @@ func main() {
 		var image1 string
 		var image2 string
 		var date string
-		err = result.Scan(&id, &question, &desc1, &desc2, &image1, &image2, &date)
+		var votes1 string
+		var votes2 string
+		err = result.Scan(&id, &question, &desc1, &desc2, &image1, &image2, &date, &votes1, &votes2)
 		checkError(err)
 		log.Println(id, question)
 	}
