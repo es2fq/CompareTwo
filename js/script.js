@@ -292,7 +292,6 @@ $(document).ready(function() {
 
     var croppie1;
     var croppie2;
-    var loaded = false;
     function createCroppie(url, num, type) {
         var body = $("body");
         body.addClass("loading");
@@ -304,8 +303,9 @@ $(document).ready(function() {
             url = "https://crossorigin.me/" + url;
             loaded = false;
             setTimeout(function() {
-                if (!loaded) {
+                if ($("body").hasClass("loading")) {
                     alert("Sorry, that URL either cannot be accessed or found.");
+                    body.removeClass("loading");
                     resetImportPage();
                 }
             }, 10000);
@@ -336,8 +336,6 @@ $(document).ready(function() {
             nextButton.show();
         }
 
-        console.log("hi");
-        loaded = true;
         removeImageClick(num);
     }
 
@@ -417,13 +415,11 @@ $(document).ready(function() {
             croppie1.croppie('result', 'base64').then(function(data) {
                 var image = $('#croppedImg1');
                 image.attr('src', data);
-                console.log("croppie1");
                 body.removeClass("loading");
             });
             croppie2.croppie('result', 'base64').then(function(data) {
                 var image = $('#croppedImg2');
                 image.attr('src', data);
-                console.log("croppie2");
                 body.removeClass("loading");
             });
         });
