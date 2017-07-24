@@ -191,6 +191,14 @@ func getPostByRowNumber(w http.ResponseWriter, r *http.Request) {
 	w.Write(data)
 }
 
+func incrementVoteHandler(w http.ResponseWriter, r *http.Request) {
+	id := r.PostFormValue("id")
+	imageNum := r.PostFormValue("imageNum")
+
+	log.Println(id)
+	log.Println(imageNum)
+}
+
 func main() {
 	initializeDatabase()
 	initializeTables()
@@ -228,6 +236,7 @@ func main() {
 	http.HandleFunc("/getpost", getPostHandler)
 	http.HandleFunc("/getpostcount", getPostCountHandler)
 	http.HandleFunc("/getpostbyrownumber", getPostByRowNumber)
+	http.HandleFunc("/incrementvote", incrementVoteHandler)
 
 	if err := http.ListenAndServe(addr, nil); err != nil {
 		panic(err)

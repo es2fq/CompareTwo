@@ -435,15 +435,28 @@ $(document).ready(function() {
 
     function initSelectButtons() {
         $('#selectButton1').on('click', function() {
-            selectImage(0);
+            selectImage(1);
         });
         $('#selectButton2').on('click', function() {
-            selectImage(1);
+            selectImage(2);
         });
     }
 
     function selectImage(num) {
         console.log(currentPost.id);
+        var postData =
+            "id\=" + currentPost.id +
+            "&postNum\=" + num;
+
+        var postRequest = $.ajax({
+            type: "POST",
+            url: "/incrementvote",
+            data: postData,
+        });
+
+        postRequest.done(function() {
+            console.log("done");
+        });
     }
 
     function isValidImageUrl(url, callback) {
