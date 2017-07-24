@@ -474,6 +474,9 @@ $(document).ready(function() {
                     }]
                 },
                 options: {
+                    animation: {
+                        duration: 3000,
+                    },
                     legend: {display: false},
                     title: {
                         display: true,
