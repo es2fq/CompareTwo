@@ -310,6 +310,10 @@ $(document).ready(function() {
             showZoomer: false,
         });
 
+        image.on('error', function() {
+            alert("error");
+        });
+
         if (num == '1') croppie1 = crop;
         if (num == '2') croppie2 = crop;
         
