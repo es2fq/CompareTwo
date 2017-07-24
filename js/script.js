@@ -457,6 +457,8 @@ $(document).ready(function() {
         });
 
         postRequest.done(function() {
+            body.removeClass("loading");
+
             if (num == 1) currentPost.votes1 += 1
             if (num == 2) currentPost.votes2 += 1
 
@@ -468,7 +470,7 @@ $(document).ready(function() {
                 data: {
                     labels: ["Left", "Right"],
                     datasets: [{
-                        label: "Vote Percentages",
+                        label: "Vote Percentage",
                         backgroundColor: ["#3e95cd", "#8e5ea2"],
                         data: [60, 40]
                     }]
@@ -496,12 +498,11 @@ $(document).ready(function() {
             barGraph.style.width = '100%';
             barGraph.style.height = '100%';
 
-            $('#page1 #chartArea').css('display', 'block');
+            $('#page1 #chartArea').css('visibility', 'visible');
             $('#page1 #chartArea').css('opacity', '1');
 
             $('#page1 #left').fadeOut();
             $('#page1 #right').fadeOut();
-            body.removeClass("loading");
         });
     }
 
