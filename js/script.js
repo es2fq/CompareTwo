@@ -466,7 +466,6 @@ $(document).ready(function() {
             var ctx = barGraph.getContext('2d');
 
             var totalVotes = currentPost.votes1 + currentPost.votes2;
-            console.log(currentPost.votes1, currentPost.votes2, totalVotes);
             var percentLeft = (currentPost.votes1 / totalVotes) * 100;
             var percentRight = (currentPost.votes2 / totalVotes) * 100;
 
@@ -487,7 +486,7 @@ $(document).ready(function() {
                     legend: {display: false},
                     title: {
                         display: true,
-                        text: "Vote Percentages"
+                        text: "Total Votes: " + totalVotes
                     },
                     scales: {
                         yAxes: [{
