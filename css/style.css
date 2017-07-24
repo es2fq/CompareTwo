@@ -234,7 +234,7 @@ button:focus {
         background: rgba(0, 0, 0, 0);
         border: solid 2px green;
         color: green;
-        left: 40%;
+        left: 38%;
         bottom: 5%;
         padding: 2px 8px 2px 8px;
         font-size: 2vw;
@@ -305,7 +305,7 @@ button:focus {
         background: rgba(0, 0, 0, 0);
         border: solid 2px green;
         color: green;
-        left: 40%;
+        left: 38%;
         bottom: 5%;
         padding: 2px 8px 2px 8px;
         font-size: 2vw;
@@ -389,8 +389,9 @@ button:focus {
     }
 #chartArea {
     width: 30%;
-    height: 50%;
+    height: 70%;
     left: 20%;
+    top: 2.5%;
 }
 #barGraph {
     width: 100%;
