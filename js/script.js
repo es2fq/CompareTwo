@@ -478,7 +478,7 @@ $(document).ready(function() {
                     title: {
                         display: true,
                         text: "Vote Percentages"
-                    }
+                    },
                     scales: {
                         yAxes: [{
                             ticks: {
