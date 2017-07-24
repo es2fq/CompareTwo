@@ -443,10 +443,9 @@ $(document).ready(function() {
     }
 
     function selectImage(num) {
-        console.log(currentPost.id);
         var postData =
             "id\=" + currentPost.id +
-            "&postNum\=" + num;
+            "&imageNum\=" + num;
 
         var postRequest = $.ajax({
             type: "POST",

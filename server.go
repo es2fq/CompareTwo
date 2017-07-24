@@ -195,8 +195,14 @@ func incrementVoteHandler(w http.ResponseWriter, r *http.Request) {
 	id := r.PostFormValue("id")
 	imageNum := r.PostFormValue("imageNum")
 
-	log.Println(id)
-	log.Println(imageNum)
+	columnName := "votes" + strconv.Itoa(imageNum)
+	log.Println(columnName)
+
+	stmt, err := db.Prepare("UPDATE Posts SET " + columnName + "=" + columnName + " + 1 WHERE id=?")
+	checkError(err)
+
+	res, err := stmt.Exec(id)
+	checkError(err)
 }
 
 func main() {
