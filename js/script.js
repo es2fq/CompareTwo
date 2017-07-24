@@ -66,6 +66,14 @@ $(document).ready(function() {
                         var obj = JSON.parse(data);
                         var recentPost = document.createElement('div');
                         recentPost.innerHTML = obj.Question;
+                        recentPost.style = `\
+                            position: relative;
+                            width: 100%;
+                            font-size: 2vw;
+                            word-wrap: break-word;
+                            padding-left: 5%;
+                            padding-right: 5%;
+                        `;
                         postContainer.append(recentPost);
                     }
                 });
