@@ -467,19 +467,25 @@ $(document).ready(function() {
                 type: 'bar',
                 data: {
                     labels: ["Left", "Right"],
-                    datasets: [
-                        {
-                            label: "Vote Percentages",
-                            backgroundColor: ["#3e95cd", "#8e5ea2"],
-                            data: [60, 40]
-                        }
-                    ]
+                    datasets: [{
+                        label: "Vote Percentages",
+                        backgroundColor: ["#3e95cd", "#8e5ea2"],
+                        data: [60, 40]
+                    }]
                 },
                 options: {
                     legend: {display: false},
                     title: {
                         display: true,
                         text: "Vote Percentages"
+                    }
+                    scales: {
+                        yAxes: [{
+                            ticks: {
+                                suggestedMin: 0,
+                                suggestedMax: 100,
+                            }
+                        }]
                     }
                 }
             });
