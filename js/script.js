@@ -467,13 +467,17 @@ $(document).ready(function() {
 
             var percentLeft = currentPost.votes1 / (currentPost.votes1 + currentPost.votes2) * 100;
             var percentRight = currentPost.votes2 / (currentPost.votes1 + currentPost.votes2) * 100;
+            console.log("votes1: " + currentPost.votes1);
+            console.log("votes2: " + currentPost.votes2);
+            console.log("percentleft: " + percentLeft);
+            console.log("percentright: " + percentRight);
 
             var chart = new Chart(barGraph, {
                 type: 'bar',
                 data: {
                     labels: ["Left", "Right"],
                     datasets: [{
-                        label: "Vote Percentage",
+                        label: "Percent (%)",
                         backgroundColor: ["#3e95cd", "#8e5ea2"],
                         data: [percentLeft, percentRight]
                     }]
