@@ -200,7 +200,7 @@ func incrementVoteHandler(w http.ResponseWriter, r *http.Request) {
 	stmt, err := db.Prepare("UPDATE Posts SET " + columnName + "=" + columnName + " + 1 WHERE id=?")
 	checkError(err)
 
-	res, err := stmt.Exec(id)
+	_, err := stmt.Exec(id)
 	checkError(err)
 }
 
