@@ -443,6 +443,9 @@ $(document).ready(function() {
     }
 
     function selectImage(num) {
+        var body = $("body");
+        body.addClass("loading");
+
         var postData =
             "id\=" + currentPost.id +
             "&imageNum\=" + num;
@@ -454,7 +457,9 @@ $(document).ready(function() {
         });
 
         postRequest.done(function() {
-            console.log("done");
+            if (num == 1) currentPost.votes1 += 1
+            if (num == 2) currentPost.votes2 += 1
+            body.removeClass("loading");
         });
     }
 
