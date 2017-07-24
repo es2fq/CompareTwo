@@ -55,8 +55,8 @@ $(document).ready(function() {
             currentPost.image2 = image2URL;
             currentPost.desc1 = obj.Desc1;
             currentPost.desc2 = obj.Desc2;
-            currentPost.votes1 = obj.Votes1;
-            currentPost.votes2 = obj.Votes2;
+            currentPost.votes1 = parseInt(obj.Votes1);
+            currentPost.votes2 = parseInt(obj.Votes2);
         })
         .done(function(data) {
             body.removeClass("loading");     
@@ -466,9 +466,6 @@ $(document).ready(function() {
             var ctx = barGraph.getContext('2d');
 
             var totalVotes = currentPost.votes1 + currentPost.votes2;
-            console.log(totalVotes);
-            console.log(currentPost.votes1 / totalVotes);
-            console.log((currentPost.votes1 / totalVotes) * 100);
             var percentLeft = (currentPost.votes1 / totalVotes) * 100;
             var percentRight = (currentPost.votes2 / totalVotes) * 100;
 
