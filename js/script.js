@@ -423,7 +423,9 @@ $(document).ready(function() {
     }
 
     function initSelectButtons() {
+        console.log("hello");
         $('#selectButton1').on('click', function() {
+            console.log("hi");
             selectImage(0);
         });
         $('#selectButton2').on('click', function() {
