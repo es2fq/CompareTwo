@@ -388,9 +388,9 @@ button:focus {
         cursor: hand;
     }
 #chartArea {
-    width: 30%;
+    width: 60%;
     height: 70%;
-    left: 20%;
+    left: 5%;
     top: 2.5%;
 }
 #barGraph {
