@@ -484,6 +484,9 @@ $(document).ready(function() {
                 }
             });
 
+            barGraph.style.width = '100%';
+            barGraph.style.height = '100%';
+
             $('#page1 #left').fadeOut();
             $('#page1 #right').fadeOut();
             body.removeClass("loading");
