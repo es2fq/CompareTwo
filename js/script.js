@@ -493,7 +493,7 @@ $(document).ready(function() {
             barGraph.style.width = '100%';
             barGraph.style.height = '100%';
 
-            $('#chartArea').style.display = 'block';
+            $('#page1 #chartArea').style.display = 'block';
 
             $('#page1 #left').fadeOut();
             $('#page1 #right').fadeOut();
