@@ -466,6 +466,9 @@ $(document).ready(function() {
             var ctx = barGraph.getContext('2d');
 
             var totalVotes = currentPost.votes1 + currentPost.votes2;
+            console.log(totalVotes);
+            console.log(currentPost.votes1 / totalVotes);
+            console.log((currentPost.votes1 / totalVotes) * 100);
             var percentLeft = (currentPost.votes1 / totalVotes) * 100;
             var percentRight = (currentPost.votes2 / totalVotes) * 100;
 
