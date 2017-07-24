@@ -6,6 +6,7 @@ $(document).ready(function() {
         resizeImageWindow();
         initImportHandler();
         initImportButtons();
+        initSelectButtons();
     }
 
     function initMenu() {
@@ -411,6 +412,19 @@ $(document).ready(function() {
             }
             resetImportPage();
         });
+    }
+
+    function initSelectButtons() {
+        $('#selectButton1').on('click', function() {
+            selectImage(0);
+        });
+        $('#selectButton2').on('click', function() {
+            selectImage(1);
+        });
+    }
+
+    function selectImage(num) {
+        console.log(num);
     }
 
     function isValidImageUrl(url, callback) {
