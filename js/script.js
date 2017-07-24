@@ -466,9 +466,11 @@ $(document).ready(function() {
             var chart = new Chart(ctx, {
                 type: 'bar',
                 data: {
+                    labels: ["Left", "Right"],
                     datasets: [
                         {
                             label: "Vote Percentages",
+                            backgroundColor: ["#3e95cd", "#8e5ea2"],
                             data: [60, 40]
                         }
                     ]
