@@ -54,18 +54,6 @@ func initializeTables() {
 
 	_, err = db.Exec("CREATE TABLE IF NOT EXISTS Posts (id serial PRIMARY KEY, Question varchar(255) NOT NULL, Desc1 varchar(255), Desc2 varchar(255), Image1 text NOT NULL, Image2 text NOT NULL, Votes1 int, Votes2 int, Date varchar(255))")
 	checkError(err)
-
-	// _, err = db.Exec("ALTER TABLE Posts ADD Votes1 int")
-	// checkError(err)
-
-	// _, err = db.Exec("ALTER TABLE Posts ADD Votes2 int")
-	// checkError(err)
-
-	// _, err = db.Exec("UPDATE Posts SET Votes1 = 0")
-	// checkError(err)
-
-	// _, err = db.Exec("UPDATE Posts SET Votes2 = 0")
-	// checkError(err)
 }
 
 func determinePort() (string, error) {
