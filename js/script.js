@@ -336,6 +336,7 @@ $(document).ready(function() {
             nextButton.show();
         }
 
+        console.log("hi");
         loaded = true;
         removeImageClick(num);
     }
@@ -416,11 +417,13 @@ $(document).ready(function() {
             croppie1.croppie('result', 'base64').then(function(data) {
                 var image = $('#croppedImg1');
                 image.attr('src', data);
+                console.log("croppie1");
                 body.removeClass("loading");
             });
             croppie2.croppie('result', 'base64').then(function(data) {
                 var image = $('#croppedImg2');
                 image.attr('src', data);
+                console.log("croppie2");
                 body.removeClass("loading");
             });
         });
