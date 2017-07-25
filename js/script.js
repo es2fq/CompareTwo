@@ -397,11 +397,12 @@ $(document).ready(function() {
         while (chartArea.firstChild) {
             chartArea.removeChild(chartArea.firstChild);
         }
-
         var newCanvas = document.createElement('canvas');
         newCanvas.id = "barGraph";
-
         chartArea.appendChild(newCanvas);
+
+        $('#page1 #left').fadeIn();
+        $('#page1 #right').fadeIn();
     }
 
     function resetImportPage() {
