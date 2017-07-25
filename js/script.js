@@ -66,6 +66,7 @@ $(document).ready(function() {
                             currentPost.votes1 = clickedPost.votes1;
                             currentPost.votes2 = clickedPost.votes2;
                             setMainPost();
+                            resetBarGraph();
                         };
                         postContainer.append(recentPost);
 
@@ -389,6 +390,18 @@ $(document).ready(function() {
         if (image) {
             image.off('click');
         }
+    }
+
+    function resetBarGraph() {
+        var chartArea = document.getElementById("chartArea");
+        while (chartArea.firstChild) {
+            chartArea.removeChild(chartArea.firstChild);
+        }
+
+        var newCanvas = document.createElement('canvas');
+        newCanvas.id = "barGraph";
+
+        chartArea.appendChild(newCanvas);
     }
 
     function resetImportPage() {
