@@ -52,9 +52,9 @@ $(document).ready(function() {
                             padding-left: 5%;
                             padding-right: 5%;
                         `;
-                        recentPost.on('click', function() {
+                        recentPost.onclick = function() {
                             console.log($(this).index());
-                        });
+                        };
                         postContainer.append(recentPost);
 
                         recentPosts.push({
