@@ -24,6 +24,7 @@ $(document).ready(function() {
 
     var postCount;
     var currentPost = {};
+    var recentPosts = [];
     function setPostDisplay() {
         setMainPost();
 
@@ -42,6 +43,7 @@ $(document).ready(function() {
                         var obj = JSON.parse(data);
                         var recentPost = document.createElement('div');
                         recentPost.innerHTML = obj.Question;
+                        recentPost.className = "recentPost";
                         recentPost.style = `\
                             position: relative;
                             width: 100%;
@@ -51,6 +53,18 @@ $(document).ready(function() {
                             padding-right: 5%;
                         `;
                         postContainer.append(recentPost);
+
+                        recentPosts.push({
+                            id: obj.Id,
+                            question: obj.Question,
+                            date: obj.Date;
+                            image1: obj.Image1.split(' ').join('+'),
+                            image2: obj.Image2.split(' ').join('+'),
+                            desc1: obj.Desc1,
+                            desc2: obj.Desc2,
+                            votes1: parseInt(obj.Votes1),
+                            votes2: parseInt(obj.Votes2),
+                        });
                     }
                 });
             }
