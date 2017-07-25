@@ -71,6 +71,9 @@ $(document).ready(function() {
                     }
                 });
             }
+            recentPosts.forEach(function(data) {
+                console.log(data.Question);
+            });
         });
     }
 
