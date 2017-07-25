@@ -5,7 +5,6 @@ $(document).ready(function() {
         initIconHandlers();
         initResizeHandler();
         resizeImageWindow();
-        getIpAddress();
         initImportHandler();
         initImportButtons();
         initSelectButtons();
@@ -614,14 +613,6 @@ $(document).ready(function() {
         })
         .attr({
             src: url
-        });
-    }
-
-    var ip;
-    function getIpAddress() {
-        $.get("https://api.ipify.org/?format=json", function(response) {
-            console.log(response.ip);
-            ip = response.ip;
         });
     }
 
