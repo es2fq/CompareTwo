@@ -22,6 +22,18 @@ $(document).ready(function() {
         });
     }
 
+    function initIconHandlers() {
+        var reloadIcon = $('#reloadIcon');
+        var reportIcon = $('#reportIcon');
+
+        reloadIcon.on('click', function() {
+            console.log("reload");
+        });
+        reportIcon.on('click', function() {
+            console.log("report");
+        });
+    }
+
     var postCount;
     var currentPost = {};
     var recentPosts = [];
