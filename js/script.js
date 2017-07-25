@@ -29,12 +29,14 @@ $(document).ready(function() {
 
         reloadIcon.on('click', function() {
             getMainPost();
+            resetBarGraph();
         });
         reportIcon.on('click', function() {
             var report = confirm("Report this post?");
             if (report) {
                 alert("Post reported.");
                 getMainPost();
+                resetBarGraph();
             }
         });
     }
