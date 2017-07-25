@@ -2,6 +2,7 @@ $(document).ready(function() {
     function main() {
         initMenu();
         setPostDisplay();
+        initIconHandlers();
         initResizeHandler();
         resizeImageWindow();
         initImportHandler();
