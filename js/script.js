@@ -28,7 +28,7 @@ $(document).ready(function() {
         var reportIcon = $('#reportIcon');
 
         reloadIcon.on('click', function() {
-            console.log("reload");
+            getMainPost();
         });
         reportIcon.on('click', function() {
             console.log("report");
