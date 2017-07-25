@@ -54,9 +54,7 @@ $(document).ready(function() {
                         `;
                         recentPost.onclick = function() {
                             console.log($(this).index());
-                            recentPosts.forEach(function(data) {
-                                console.log(data.Question);
-                            });
+                            console.log(recentPosts);
                         };
                         postContainer.append(recentPost);
 
