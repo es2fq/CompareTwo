@@ -53,6 +53,17 @@ $(document).ready(function() {
                             padding-right: 5%;
                         `;
                         recentPost.onclick = function() {
+                            var clickedPost = recentPosts[$(this).index()];
+                            currentPost.id = clickedPost.id
+                            currentPost.question = clickedPost.question;
+                            currentPost.date = clickedPost.date;
+                            currentPost.image1 = clickedPost.image1;
+                            currentPost.image2 = clickedPost.image2;
+                            currentPost.desc1 = clickedPost.desc1;
+                            currentPost.desc2 = clickedPost.desc2;
+                            currentPost.votes1 = clickedPost.votes1;
+                            currentPost.votes2 = clickedPost.votes2;
+                            setMainPost();
                         };
                         postContainer.append(recentPost);
 
