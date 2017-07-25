@@ -25,6 +25,7 @@ $(document).ready(function() {
     var postCount;
     var currentPost = {};
     var recentPosts = [];
+    var recentPostIndex;
     function setPostDisplay() {
         getMainPost();
 
@@ -54,8 +55,9 @@ $(document).ready(function() {
                         `;
                         recentPost.onclick = function() {
                             $("body").addClass("loading");
+                            recentPostIndex = $(this).index() - 3;
 
-                            var clickedPost = recentPosts[$(this).index() - 3];
+                            var clickedPost = recentPosts[recentPostIndex];
                             currentPost.id = clickedPost.id
                             currentPost.question = clickedPost.question;
                             currentPost.date = clickedPost.date;
@@ -522,8 +524,18 @@ $(document).ready(function() {
         postRequest.done(function() {
             body.removeClass("loading");
 
-            if (num == 1) currentPost.votes1 += 1
-            if (num == 2) currentPost.votes2 += 1
+            if (num == 1) {
+                currentPost.votes1 += 1
+                if (recentPostIndex) {
+                    recentPosts[recentPostIndex].votes1 += 1;
+                }
+            }
+            if (num == 2) {
+                currentPost.votes2 += 1
+                if (recentPostIndex) {
+                    recentPosts[recentPostIndex].votes2 += 1;
+                }
+            }
 
             var barGraph = document.getElementById("barGraph");
             var ctx = barGraph.getContext('2d');
