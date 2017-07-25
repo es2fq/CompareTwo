@@ -31,7 +31,11 @@ $(document).ready(function() {
             getMainPost();
         });
         reportIcon.on('click', function() {
-            console.log("report");
+            var report = confirm("Report this post?");
+            if (report) {
+                alert("Post reported.");
+                getMainPost();
+            }
         });
     }
 
