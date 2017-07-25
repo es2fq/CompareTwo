@@ -54,6 +54,9 @@ $(document).ready(function() {
                         `;
                         recentPost.onclick = function() {
                             console.log($(this).index());
+                            recentPosts.forEach(function(data) {
+                                console.log(data.Question);
+                            });
                         };
                         postContainer.append(recentPost);
 
@@ -71,9 +74,6 @@ $(document).ready(function() {
                     }
                 });
             }
-            recentPosts.forEach(function(data) {
-                console.log(data.Question);
-            });
         });
     }
 
