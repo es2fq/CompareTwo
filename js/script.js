@@ -26,7 +26,7 @@ $(document).ready(function() {
     var currentPost = {};
     var recentPosts = [];
     function setPostDisplay() {
-        setMainPost();
+        getMainPost();
 
         $.get("/getpostcount", function(data) {
             postCount = data;
@@ -53,8 +53,7 @@ $(document).ready(function() {
                             padding-right: 5%;
                         `;
                         recentPost.onclick = function() {
-                            console.log($(this).index());
-                            console.log(recentPosts);
+                            
                         };
                         postContainer.append(recentPost);
 
@@ -75,29 +74,15 @@ $(document).ready(function() {
         });
     }
 
-    function setMainPost() {
+    function getMainPost() {
         var body = $("body");
         body.addClass("loading");
 
         $.get("/getpost", function(data) {
             var obj = JSON.parse(data);
 
-            var image1URL = obj.Image1.split(' ').join('+');
-            var image2URL = obj.Image2.split(' ').join('+');
-
-            var question = $('#page1 #bottom #questionText');
-            var date = $('#page1 #bottom #dateText');
-            var image1 = $('#page1 #left #image1');
-            var image2 = $('#page1 #right #image2');
-            var desc1 = $('#page1 #left #desc1');
-            var desc2 = $('#page1 #right #desc2');
-
-            question.text(obj.Question);
-            date.text(obj.Date);
-            image1.attr('src', 'data:image/png;base64,' + image1URL);
-            image2.attr('src', 'data:image/png;base64,' + image2URL);
-            desc1.text(obj.Desc1);
-            desc2.text(obj.Desc2);
+            var image1URL = 'data:image/png;base64,' + obj.Image1.split(' ').join('+');
+            var image2URL = 'data:image/png;base64,' + obj.Image2.split(' ').join('+');
 
             currentPost.id = obj.Id;
             currentPost.question = obj.Question;
@@ -110,8 +95,25 @@ $(document).ready(function() {
             currentPost.votes2 = parseInt(obj.Votes2);
         })
         .done(function(data) {
-            body.removeClass("loading");     
+            setMainPost();
+            body.removeClass("loading");
         });
+    }
+
+    function setMainPost() {
+        var question = $('#page1 #bottom #questionText');
+        var date = $('#page1 #bottom #dateText');
+        var image1 = $('#page1 #left #image1');
+        var image2 = $('#page1 #right #image2');
+        var desc1 = $('#page1 #left #desc1');
+        var desc2 = $('#page1 #right #desc2');
+
+        question.text(currentPost.question);
+        date.text(currentPost.date);
+        image1.attr('src', currentPost.image1);
+        image2.attr('src', 'currentPost.image2);
+        desc1.text(currentPost.desc1);
+        desc2.text(currentPost.desc2);
     }
 
     var offset;
@@ -127,7 +129,7 @@ $(document).ready(function() {
         var contentWindow = '.page';
         var navigationBar = '#topnav';
         var newWidth = parseFloat($(navigationBar).css('width')) + offset;
-        var newHeight = parseFloat(newWidth, 10) * (14/30); 
+        var newHeight = parseFloat(newWidth, 10) * (14/30);
         $(contentWindow).css('width', newWidth);
         $(contentWindow).css('height', newHeight);
 
