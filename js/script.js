@@ -619,10 +619,10 @@ $(document).ready(function() {
 
     var ip;
     function getIpAddress() {
-        $.get("https://ipinfo.io", function(response) {
+        $.get("https://api.ipify.org/?format=json", function(response) {
             console.log(response.ip);
             ip = response.ip;
-        }, "jsonp");
+        });
     }
 
     main();
