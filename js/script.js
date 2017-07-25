@@ -57,7 +57,7 @@ $(document).ready(function() {
                         recentPosts.push({
                             id: obj.Id,
                             question: obj.Question,
-                            date: obj.Date;
+                            date: obj.Date,
                             image1: obj.Image1.split(' ').join('+'),
                             image2: obj.Image2.split(' ').join('+'),
                             desc1: obj.Desc1,
