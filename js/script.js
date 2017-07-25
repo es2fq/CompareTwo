@@ -53,6 +53,8 @@ $(document).ready(function() {
                             padding-right: 5%;
                         `;
                         recentPost.onclick = function() {
+                            $("body").addClass("loading");
+
                             var clickedPost = recentPosts[$(this).index() - 3];
                             currentPost.id = clickedPost.id
                             currentPost.question = clickedPost.question;
@@ -71,8 +73,8 @@ $(document).ready(function() {
                             id: obj.Id,
                             question: obj.Question,
                             date: obj.Date,
-                            image1: obj.Image1.split(' ').join('+'),
-                            image2: obj.Image2.split(' ').join('+'),
+                            image1: 'data:image/png;base64,' + obj.Image1.split(' ').join('+'),
+                            image2: 'data:image/png;base64,' + obj.Image2.split(' ').join('+'),
                             desc1: obj.Desc1,
                             desc2: obj.Desc2,
                             votes1: parseInt(obj.Votes1),
@@ -124,6 +126,8 @@ $(document).ready(function() {
         image2.attr('src', currentPost.image2);
         desc1.text(currentPost.desc1);
         desc2.text(currentPost.desc2);
+
+        $("body").removeClass("loading");
     }
 
     var offset;
