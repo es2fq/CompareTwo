@@ -53,7 +53,7 @@ $(document).ready(function() {
                             padding-right: 5%;
                         `;
                         recentPost.onclick = function() {
-                            var clickedPost = recentPosts[$(this).index()];
+                            var clickedPost = recentPosts[$(this).index() - 3];
                             currentPost.id = clickedPost.id
                             currentPost.question = clickedPost.question;
                             currentPost.date = clickedPost.date;
