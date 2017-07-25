@@ -53,7 +53,6 @@ $(document).ready(function() {
                             padding-right: 5%;
                         `;
                         recentPost.onclick = function() {
-                            
                         };
                         postContainer.append(recentPost);
 
@@ -111,7 +110,7 @@ $(document).ready(function() {
         question.text(currentPost.question);
         date.text(currentPost.date);
         image1.attr('src', currentPost.image1);
-        image2.attr('src', 'currentPost.image2);
+        image2.attr('src', currentPost.image2);
         desc1.text(currentPost.desc1);
         desc2.text(currentPost.desc2);
     }
