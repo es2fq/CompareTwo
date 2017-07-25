@@ -619,7 +619,7 @@ $(document).ready(function() {
 
     var ip;
     function getIpAddress() {
-        $.get("http://ipinfo.io", function(response) {
+        $.get("https://ipinfo.io", function(response) {
             console.log(response.ip);
             ip = response.ip;
         }, "jsonp");
