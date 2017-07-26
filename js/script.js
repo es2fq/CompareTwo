@@ -632,7 +632,7 @@ $(document).ready(function() {
     }
 
     function deleteCookie(name) {
-        document.cookie = name + ";expires=1";
+        document.cookie = name + "=;expires=1";
     }
 
     function isValidImageUrl(url, callback) {
