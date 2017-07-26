@@ -157,6 +157,8 @@ $(document).ready(function() {
 
     function checkVoted() {
         var votedList = votedValues.split(',');
+        console.log(votedList);
+        console.log(currentPost.id);
         if (votedList.includes(currentPost.id)) {
             console.log("already viewed");
         }
