@@ -542,7 +542,7 @@ $(document).ready(function() {
         $('#selectButton2').on('click', function() {
             selectImage(2);
         });
-        $('#alreadyVoted').on('click', function() {
+        $('#seeResults').on('click', function() {
             showGraph();
         });
     }
