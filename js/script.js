@@ -157,10 +157,7 @@ $(document).ready(function() {
 
     function checkVoted() {
         var votedList = votedValues.split(',');
-        console.log(votedList);
-        console.log(currentPost.id);
         if (votedList.includes(currentPost.id)) {
-            console.log("already viewed");
         }
     }
 
@@ -626,8 +623,6 @@ $(document).ready(function() {
                 votedValues = allCookies[i].trim().split("=")[1];
             }
         }
-        console.log(document.cookie);
-        console.log(votedValues);
     }
 
     function setViewed(postId) {
