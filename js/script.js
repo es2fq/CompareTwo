@@ -622,7 +622,7 @@ $(document).ready(function() {
     function getViewed() {
         var allCookies = decodeURIComponent(document.cookie).split(';');
         for (var i = 0; i < allCookies.length; i++) {
-            if (allCookies[i].trim().indexOf("viewed=") == 0) {
+            if (allCookies[i].trim().indexOf("voted=") == 0) {
                 votedValues = allCookies[i].trim().split("=")[1];
             }
         }
