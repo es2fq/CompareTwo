@@ -155,12 +155,18 @@ $(document).ready(function() {
         $("body").removeClass("loading");
     }
 
+    var voted = false;
     function checkVoted() {
         var votedList = votedValues.split(',');
         if (votedList.includes(currentPost.id)) {
+            voted = true;
+
             var alreadyVoted = $('#alreadyVoted');
-            alreadyVoted.style.visibility = "visible";
-            alreadyVoted.style.opacity = "1";
+            alreadyVoted.css("visibility", "visible");
+            alreadyVoted.css("opacity", "1");
+        }
+        else {
+            voted = false;
         }
     }
 
