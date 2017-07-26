@@ -413,6 +413,9 @@ button:focus {
     z-index: 9999;
     content: url("https://cdn3.iconfinder.com/data/icons/line/36/arrow_left-512.png");
 }
+    #backButton:hover {
+        cursor: hand;
+    }
 #barGraph {
     width: 90%;
     height: 90%;
