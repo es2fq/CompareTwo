@@ -35,6 +35,12 @@ body.loading {
 body.loading .loadingModal {
     display: block;
 }
+.disable-select {
+    -webkit-user-select: none;  
+    -moz-user-select: none;    
+    -ms-user-select: none;      
+    user-select: none;
+}
 .loadingModal {
     display: none;
     position: fixed;
