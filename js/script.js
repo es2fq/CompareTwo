@@ -545,6 +545,9 @@ $(document).ready(function() {
         $('#seeResults').on('click', function() {
             showGraph();
         });
+        $('#backButton').on('click', function() {
+            showHome();
+        });
     }
 
     function selectImage(num) {
@@ -593,6 +596,8 @@ $(document).ready(function() {
         alreadyVoted.css("visibility", "hidden");
         alreadyVoted.css("opacity", "0");
 
+        voted = true;
+
         var barGraph = document.getElementById("barGraph");
         var ctx = barGraph.getContext('2d');
 
@@ -639,6 +644,17 @@ $(document).ready(function() {
 
         $('#page1 #left').fadeOut();
         $('#page1 #right').fadeOut();
+    }
+
+    function showHome() {
+        $('#page1 #chartArea').css('visibility', 'hidden');
+        $('#page1 #chartArea').css('opacity', '0');
+        $('#page1 #left').fadeIn();
+        $('#page1 #right').fadeIn();
+
+        var alreadyVoted = $('#alreadyVoted');
+        alreadyVoted.css("visibility", "visible");
+        alreadyVoted.css("opacity", "1");
     }
 
     var votedValues = "";
