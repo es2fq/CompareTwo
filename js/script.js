@@ -612,6 +612,8 @@ $(document).ready(function() {
         deleteCookie("name");
         deleteCookie("viewed");
         console.log(document.cookie);
+        var allCookies = decodeURIComponent(document.cookie).split(';');
+        console.log(allCookies);
         for (var i = 0; i < allCookies.length; i++) {
             if (allCookies[i].trim().indexOf("viewed=") == 0) {
                 viewedValues = allCookies[i].trim().split("=")[1];
@@ -623,12 +625,7 @@ $(document).ready(function() {
         var d = new Date();
         var numDays = 1000;
         d.setTime(d.getTime() + (numDays*24*60*60*1000));
-        
         var expires = "expires=" + d.toUTCString();
-
-        var allCookies = decodeURIComponent(document.cookie).split(';');
-        console.log(allCookies);
-
         viewedValues += "," + postId;
 
         document.cookie = "viewed=" + viewedValues + ";" + expires;
