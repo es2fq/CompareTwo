@@ -585,8 +585,8 @@ $(document).ready(function() {
 
     function showGraph() {
         var alreadyVoted = $('#alreadyVoted');
-        alreadyVoted.style.visibility = "hidden";
-        alreadyVoted.style.opacity = "1";
+        alreadyVoted.css("visibility", "visible");
+        alreadyVoted.css("opacity", "1");
 
         var barGraph = document.getElementById("barGraph");
         var ctx = barGraph.getContext('2d');
