@@ -8,6 +8,9 @@ $(document).ready(function() {
         initImportHandler();
         initImportButtons();
         initSelectButtons();
+
+        console.log("cookie: " + document.cookie);
+        document.cookie = "name=value;";
     }
 
     function initMenu() {
@@ -543,6 +546,8 @@ $(document).ready(function() {
         postRequest.done(function() {
             body.removeClass("loading");
 
+            setViewed(currentPost.id);
+
             if (num == 1) {
                 currentPost.votes1 += 1
                 if (recentPostIndex) {
@@ -602,6 +607,15 @@ $(document).ready(function() {
             $('#page1 #left').fadeOut();
             $('#page1 #right').fadeOut();
         });
+    }
+
+    function setViewed(postId) {
+        var d = new Date();
+        var numDays = 1000;
+        d.setTime(d.getTime() + (numDays*24*60*60*1000));
+        
+        var expireDate = "expires=" + d.toUTCString();
+        console.log("expire date: " + expireDate);
     }
 
     function isValidImageUrl(url, callback) {
