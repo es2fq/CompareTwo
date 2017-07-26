@@ -609,11 +609,7 @@ $(document).ready(function() {
 
     var viewedValues = "";
     function getViewed() {
-        deleteCookie("name");
-        deleteCookie("viewed");
-        console.log(document.cookie);
         var allCookies = decodeURIComponent(document.cookie).split(';');
-        console.log(allCookies);
         for (var i = 0; i < allCookies.length; i++) {
             if (allCookies[i].trim().indexOf("viewed=") == 0) {
                 viewedValues = allCookies[i].trim().split("=")[1];
