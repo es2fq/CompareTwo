@@ -533,6 +533,9 @@ $(document).ready(function() {
         $('#selectButton2').on('click', function() {
             selectImage(2);
         });
+        $('#alreadyVoted').on('click', function() {
+            showGraph();
+        });
     }
 
     function selectImage(num) {
@@ -567,52 +570,56 @@ $(document).ready(function() {
                 }
             }
 
-            var barGraph = document.getElementById("barGraph");
-            var ctx = barGraph.getContext('2d');
-
-            var totalVotes = currentPost.votes1 + currentPost.votes2;
-            var percentLeft = (currentPost.votes1 / totalVotes) * 100;
-            var percentRight = (currentPost.votes2 / totalVotes) * 100;
-
-            var chart = new Chart(barGraph, {
-                type: 'bar',
-                data: {
-                    labels: ["Left", "Right"],
-                    datasets: [{
-                        label: "Percent (%)",
-                        backgroundColor: ["#3e95cd", "#8e5ea2"],
-                        data: [percentLeft, percentRight]
-                    }]
-                },
-                options: {
-                    animation: {
-                        duration: 3000,
-                    },
-                    legend: {display: false},
-                    title: {
-                        display: true,
-                        text: "Total Votes: " + totalVotes
-                    },
-                    scales: {
-                        yAxes: [{
-                            ticks: {
-                                suggestedMin: 0,
-                                suggestedMax: 100,
-                            }
-                        }]
-                    }
-                }
-            });
-
-            barGraph.style.width = '100%';
-            barGraph.style.height = '100%';
-
-            $('#page1 #chartArea').css('visibility', 'visible');
-            $('#page1 #chartArea').css('opacity', '1');
-
-            $('#page1 #left').fadeOut();
-            $('#page1 #right').fadeOut();
+            showGraph();
         });
+    }
+
+    function showGraph() {
+        var barGraph = document.getElementById("barGraph");
+        var ctx = barGraph.getContext('2d');
+
+        var totalVotes = currentPost.votes1 + currentPost.votes2;
+        var percentLeft = (currentPost.votes1 / totalVotes) * 100;
+        var percentRight = (currentPost.votes2 / totalVotes) * 100;
+
+        var chart = new Chart(barGraph, {
+            type: 'bar',
+            data: {
+                labels: ["Left", "Right"],
+                datasets: [{
+                    label: "Percent (%)",
+                    backgroundColor: ["#3e95cd", "#8e5ea2"],
+                    data: [percentLeft, percentRight]
+                }]
+            },
+            options: {
+                animation: {
+                    duration: 3000,
+                },
+                legend: {display: false},
+                title: {
+                    display: true,
+                    text: "Total Votes: " + totalVotes
+                },
+                scales: {
+                    yAxes: [{
+                        ticks: {
+                            suggestedMin: 0,
+                            suggestedMax: 100,
+                        }
+                    }]
+                }
+            }
+        });
+
+        barGraph.style.width = '100%';
+        barGraph.style.height = '100%';
+
+        $('#page1 #chartArea').css('visibility', 'visible');
+        $('#page1 #chartArea').css('opacity', '1');
+
+        $('#page1 #left').fadeOut();
+        $('#page1 #right').fadeOut();
     }
 
     var votedValues = "";
