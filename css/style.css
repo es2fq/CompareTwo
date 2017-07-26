@@ -406,6 +406,8 @@ button:focus {
     border-color: #6d7993;
 }
 #backButton {
+    width: 10%;
+    height: 10%;
     content: url("https://cdn3.iconfinder.com/data/icons/line/36/arrow_left-512.png");
 }
 #barGraph {
