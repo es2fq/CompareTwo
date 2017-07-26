@@ -440,6 +440,10 @@ $(document).ready(function() {
         newCanvas.id = "barGraph";
         chartArea.appendChild(newCanvas);
 
+        var backButton = document.createElement('div');
+        backButton.id = "backButton";
+        backButton.className = "hvr-grow";
+
         $('#page1 #chartArea').css('visibility', 'hidden');
         $('#page1 #chartArea').css('opacity', '0');
 
