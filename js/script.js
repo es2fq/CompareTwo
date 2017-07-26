@@ -609,8 +609,8 @@ $(document).ready(function() {
 
     var viewedValues = "";
     function getViewed() {
-        eraseCookie("name");
-        eraseCookie("viewed");
+        deleteCookie("name");
+        deleteCookie("viewed");
         console.log(document.cookie);
         for (var i = 0; i < allCookies.length; i++) {
             if (allCookies[i].trim().indexOf("viewed=") == 0) {
@@ -632,6 +632,10 @@ $(document).ready(function() {
         viewedValues += "," + postId;
 
         document.cookie = "viewed=" + viewedValues + ";" + expires;
+    }
+
+    function deleteCookie(name) {
+        document.cookie = name + ";expires=1";
     }
 
     function isValidImageUrl(url, callback) {
