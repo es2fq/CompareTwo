@@ -418,20 +418,18 @@ button:focus {
     z-index: 9999;
 }
 #seeResults {
-    background: rgba(0, 0, 0, 0);
-    border: solid 2px green;
-    color: green;
+    /* border: solid 2px green; */
+    /* color: green; */
     padding: 2px 8px 2px 8px;
     font-size: 2vw;
-    visibility: hidden;
     transition: all 0.4s ease-in;
     -ms-transition: all 0.4s ease-in;
     -moz-transition: all 0.4s ease-in;
     -webkit-transition: all 0.4s ease-in;
 }
     #seeResults:hover {
-        background: green;
-        color: white;
+        /* background: green; */
+        /* color: white; */
         cursor: hand;
     }
 /* PAGE 2 */
