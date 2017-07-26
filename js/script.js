@@ -8,8 +8,7 @@ $(document).ready(function() {
         initImportHandler();
         initImportButtons();
         initSelectButtons();
-
-        console.log(document.cookie);
+        getViewed();
     }
 
     function initMenu() {
@@ -608,6 +607,18 @@ $(document).ready(function() {
         });
     }
 
+    var viewedValues = "";
+    function getViewed() {
+        eraseCookie("name");
+        eraseCookie("viewed");
+        console.log(document.cookie);
+        for (var i = 0; i < allCookies.length; i++) {
+            if (allCookies[i].trim().indexOf("viewed=") == 0) {
+                viewedValues = allCookies[i].trim().split("=")[1];
+            }
+        }
+    }
+
     function setViewed(postId) {
         var d = new Date();
         var numDays = 1000;
@@ -618,15 +629,7 @@ $(document).ready(function() {
         var allCookies = decodeURIComponent(document.cookie).split(';');
         console.log(allCookies);
 
-        var viewedValues = "";
-        for (var i = 0; i < allCookies.length; i++) {
-            if (allCookies[i].trim().indexOf("viewed=") == 0) {
-                viewedValues = allCookies[i].trim().split("=")[1];
-            }
-        }
-        console.log(viewedValues);
-
-        viewedValues += postId;
+        viewedValues += "," + postId;
 
         document.cookie = "viewed=" + viewedValues + ";" + expires;
     }
