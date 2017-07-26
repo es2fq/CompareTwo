@@ -405,6 +405,14 @@ button:focus {
     top: 5%;
     left: 5%;
 }
+#alreadyVoted {
+    width: 50%;
+    height: 20%;
+    margin: 0 auto;
+    text-align: center;
+    border: solid;
+    z-index: 9999;
+}
 /* PAGE 2 */
 #page2 {
     height: 100%;
