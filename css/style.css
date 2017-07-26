@@ -405,10 +405,13 @@ button:focus {
     border-right: 3px solid;
     border-color: #6d7993;
 }
+#backButton {
+    content: url("https://cdn3.iconfinder.com/data/icons/line/36/arrow_left-512.png");
+}
 #barGraph {
     width: 90%;
     height: 90%;
-    top: 5%;
+    bottom: 2%;
     left: 5%;
 }
 #alreadyVoted {
