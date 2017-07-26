@@ -150,7 +150,16 @@ $(document).ready(function() {
         desc1.text(currentPost.desc1);
         desc2.text(currentPost.desc2);
 
+        checkVoted();
+
         $("body").removeClass("loading");
+    }
+
+    function checkVoted() {
+        var votedList = votedValues.split(',');
+        if (votedList.includes(currentPost.id)) {
+            console.log("already viewed");
+        }
     }
 
     var offset;
