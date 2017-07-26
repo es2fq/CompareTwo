@@ -615,6 +615,7 @@ $(document).ready(function() {
                 viewedValues = allCookies[i].trim().split("=")[1];
             }
         }
+        console.log(document.cookie);
     }
 
     function setViewed(postId) {
