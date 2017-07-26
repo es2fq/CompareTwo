@@ -443,6 +443,7 @@ $(document).ready(function() {
         var backButton = document.createElement('div');
         backButton.id = "backButton";
         backButton.className = "hvr-grow";
+        chartArea.appendChild(backButton);
 
         $('#page1 #chartArea').css('visibility', 'hidden');
         $('#page1 #chartArea').css('opacity', '0');
