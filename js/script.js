@@ -548,6 +548,11 @@ $(document).ready(function() {
     }
 
     function selectImage(num) {
+        if (voted) {
+            alert("You've already voted!");
+            showGraph();
+        }
+
         var body = $("body");
         body.addClass("loading");
 
