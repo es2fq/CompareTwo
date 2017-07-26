@@ -613,7 +613,7 @@ $(document).ready(function() {
         var numDays = 1000;
         d.setTime(d.getTime() + (numDays*24*60*60*1000));
         
-        var expireDate = "expires=" + d.toUTCString();
+        var expires = "expires=" + d.toUTCString();
 
         var allCookies = decodeURIComponent(document.cookie).split(';');
         console.log(allCookies);
