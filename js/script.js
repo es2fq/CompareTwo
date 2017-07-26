@@ -9,8 +9,7 @@ $(document).ready(function() {
         initImportButtons();
         initSelectButtons();
 
-        console.log("cookie: " + document.cookie);
-        document.cookie = "name=value;";
+        console.log(document.cookie);
     }
 
     function initMenu() {
@@ -615,7 +614,21 @@ $(document).ready(function() {
         d.setTime(d.getTime() + (numDays*24*60*60*1000));
         
         var expireDate = "expires=" + d.toUTCString();
-        console.log("expire date: " + expireDate);
+
+        var allCookies = decodeURIComponent(document.cookie).split(';');
+        console.log(allCookies);
+
+        var viewedValues = "";
+        for (var i = 0; i < allCookies.length; i++) {
+            if (allCookies[i].trim().indexOf("viewed=") == 0) {
+                viewedValues = allCookies[i].trim().split("=")[1];
+            }
+        }
+        console.log(viewedValues);
+
+        viewedValues += postId;
+
+        document.cookie = "viewed=" + viewedValues + ";" + expires;
     }
 
     function isValidImageUrl(url, callback) {
