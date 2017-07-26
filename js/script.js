@@ -626,6 +626,8 @@ $(document).ready(function() {
                 votedValues = allCookies[i].trim().split("=")[1];
             }
         }
+        console.log(document.cookie);
+        console.log(votedValues);
     }
 
     function setViewed(postId) {
