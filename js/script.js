@@ -158,6 +158,9 @@ $(document).ready(function() {
     function checkVoted() {
         var votedList = votedValues.split(',');
         if (votedList.includes(currentPost.id)) {
+            var alreadyVoted = $('#alreadyVoted');
+            alreadyVoted.style.visibility = "visible";
+            alreadyVoted.style.opacity = "1";
         }
     }
 
@@ -575,6 +578,10 @@ $(document).ready(function() {
     }
 
     function showGraph() {
+        var alreadyVoted = $('#alreadyVoted');
+        alreadyVoted.style.visibility = "hidden";
+        alreadyVoted.style.opacity = "1";
+
         var barGraph = document.getElementById("barGraph");
         var ctx = barGraph.getContext('2d');
 

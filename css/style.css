@@ -416,6 +416,12 @@ button:focus {
     vertical-align: middle;
     line-height: 8;
     z-index: 9999;
+    opacity: 0;
+    visibility: hidden;
+    transition: all 0.4s ease-in;
+    -ms-transition: all 0.4s ease-in;
+    -moz-transition: all 0.4s ease-in;
+    -webkit-transition: all 0.4s ease-in;
 }
 #seeResults {
     background: white;
