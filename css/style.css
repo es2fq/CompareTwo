@@ -406,10 +406,14 @@ button:focus {
     left: 5%;
 }
 #alreadyVoted {
-    left: 15%;
     width: 40%;
     height: 20%;
+    left: 15%;
+    top: 5%;
     font-size: 2vw;
+    background: #6d7993;
+    background-color: rgba(0, 0, 0, 0.5);
+    opacity: 0.7;
     margin: 0 auto;
     text-align: center;
     vertical-align: middle;
