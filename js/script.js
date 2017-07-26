@@ -624,7 +624,8 @@ $(document).ready(function() {
                         ticks: {
                             suggestedMin: 0,
                             suggestedMax: 100,
-                        }
+                        },
+                        position: "right"
                     }]
                 }
             }
