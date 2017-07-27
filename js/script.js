@@ -9,6 +9,7 @@ $(document).ready(function() {
         initImportButtons();
         initSelectButtons();
         getViewed();
+        generateList();
     }
 
     function initMenu() {
@@ -40,6 +41,10 @@ $(document).ready(function() {
                 resetBarGraph();
             }
         });
+    }
+
+    function generateList() {
+
     }
 
     var postCount;
