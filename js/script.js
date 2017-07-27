@@ -45,7 +45,7 @@ $(document).ready(function() {
 
     function generateList() {
         $.get("/readpostsfile", function(data) {
-            console.log(data);
+            var dataList = data.split('\n');
         });
     }
 

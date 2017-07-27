@@ -136,7 +136,8 @@ func loadPostsIntoFile() {
 		err = res.Scan(&id, &question, &desc1, &desc2, &image1, &image2, &date, &votes1, &votes2)
 		checkError(err)
 
-		post := question + "|||" + id + "\n"
+		post := id + "|||" + question + "\n"
+		log.Println(post)
 
 		_, err = f.WriteString(post)
 		checkError(err)
@@ -146,12 +147,7 @@ func loadPostsIntoFile() {
 }
 
 func writePostToFile(question string, id string) {
-	log.Println("id: " + id)
-	nextId, err := strconv.Atoi(id)
-	nextId += 1
-	checkError(err)
-
-	post := question + "|||" + strconv.Itoa(nextId) + "\n"
+	post := question + "|||" + id + "\n"
 	log.Println(post)
 
 	if _, err := os.Stat("posts.txt"); os.IsNotExist(err) {
