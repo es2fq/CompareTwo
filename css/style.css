@@ -55,6 +55,7 @@ body.loading .loadingModal {
     width: 100%;
     height: 20%;
     border: solid;
+    margin-top: 2vw;
 }
 #title {
     position: absolute;
@@ -635,6 +636,9 @@ button:focus {
 /* PAGE 3 */
 #page3 {
 
+}
+#list {
+    overflow-y: scroll;
 }
 /* NAVIGATION BAR */
 #topnav,
