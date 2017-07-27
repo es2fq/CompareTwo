@@ -293,9 +293,9 @@ $(document).ready(function() {
             var desc1 = $('#description1').val();
             var desc2 = $('#description2').val();
 
-            question = escapeHtml(question);
-            desc1 = escapeHtml(desc1);
-            desc2 = escapeHtml(desc2);
+            question = mysql_real_escape_string(question);
+            desc1 = mysql_real_escape_string(desc1);
+            desc2 = mysql_real_escape_string(desc2);
 
             var image1 = $('#croppedImg1').prop('src').replace('data:image/png;base64,', '');
             var image2 = $('#croppedImg2').prop('src').replace('data:image/png;base64,', '');
@@ -735,6 +735,31 @@ $(document).ready(function() {
         var div = document.createElement('div');
         div.appendChild(document.createTextNode(str));
         return div.innerHTML;
+    }
+
+    function mysql_real_escape_string (str) {
+        return str.replace(/[\0\x08\x09\x1a\n\r"'\\\%]/g, function (char) {
+            switch (char) {
+                case "\0":
+                    return "\\0";
+                case "\x08":
+                    return "\\b";
+                case "\x09":
+                    return "\\t";
+                case "\x1a":
+                    return "\\z";
+                case "\n":
+                    return "\\n";
+                case "\r":
+                    return "\\r";
+                case "\"":
+                case "'":
+                case "\\":
+                case "%":
+                    return "\\"+char; // prepends a backslash to backslash, percent,
+                    // and double/single quotes
+            }
+        });
     }
 
     main();
