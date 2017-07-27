@@ -114,6 +114,37 @@ func submitHandler(w http.ResponseWriter, r *http.Request) {
 	writePostToFile(question, id)
 }
 
+func loadPostsIntoFileHandler(w http.ResponseWriter, r *http.Request) {
+	f, err := os.Create("posts.txt")
+	checkError(err)
+	defer f.Close()
+
+	res, err := db.Query("SELECT * FROM Posts")
+	checkError(err)
+
+	var id string
+	var question string
+	var desc1 string
+	var desc2 string
+	var image1 string
+	var image2 string
+	var date string
+	var votes1 string
+	var votes2 string
+
+	for res.Next() {
+		err = res.Scan(&id, &question, &desc1, &desc2, &image1, &image2, &date, &votes1, &votes2)
+		checkError(err)
+
+		post := question + "|||" + id + "\n"
+
+		_, err = f.WriteString(post)
+		checkError(err)
+	}
+
+	f.Sync()
+}
+
 func writePostToFile(question string, id string) {
 	log.Println("id: " + id)
 	nextId, err := strconv.Atoi(id)
@@ -282,6 +313,7 @@ func main() {
 	http.HandleFunc("/getpostbyrownumber", getPostByRowNumber)
 	http.HandleFunc("/incrementvote", incrementVoteHandler)
 	http.HandleFunc("/readpostsfile", readPostsFileHandler)
+	http.HandleFunc("/loadpostsintofile", loadPostsIntoFileHandler)
 
 	if err := http.ListenAndServe(addr, nil); err != nil {
 		panic(err)
