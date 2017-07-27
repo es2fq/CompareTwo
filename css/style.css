@@ -51,6 +51,11 @@ body.loading .loadingModal {
     width: 100%;
     background: rgba(255, 255, 255, 0.8) url('http://i.stack.imgur.com/FhHRx.gif') 50% 50% no-repeat;
 }
+.listPost {
+    width: 100%;
+    height: 20%;
+    border: solid;
+}
 #title {
     position: absolute;
     font-size: 32px;
