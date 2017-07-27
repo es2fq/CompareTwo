@@ -296,7 +296,7 @@ $(document).ready(function() {
             var image1 = $('#croppedImg1').prop('src').replace('data:image/png;base64,', '');
             var image2 = $('#croppedImg2').prop('src').replace('data:image/png;base64,', '');
 
-            var nextId = postCount + 1;
+            var nextId = parseInt(postCount) + 1;
 
             var monthNames = ["January", "February", "March", "April", "May", "June", "July", "August", "September", "October", "November", "December"];
             var currentDate = new Date();
