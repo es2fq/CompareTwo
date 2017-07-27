@@ -445,6 +445,10 @@ $(document).ready(function() {
         backButton.className = "hvr-grow";
         chartArea.appendChild(backButton);
 
+        $('#backButton').on('click', function() {
+            showHome();
+        });
+
         $('#page1 #chartArea').css('visibility', 'hidden');
         $('#page1 #chartArea').css('opacity', '0');
 
