@@ -167,6 +167,10 @@ $(document).ready(function() {
         }
         else {
             voted = false;
+
+            var alreadyVoted = $('#alreadyVoted');
+            alreadyVoted.css("visibility", "hidden");
+            alreadyVoted.css("opacity", "0");
         }
     }
 
