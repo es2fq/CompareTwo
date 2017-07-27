@@ -293,8 +293,9 @@ $(document).ready(function() {
             var desc1 = $('#description1').val();
             var desc2 = $('#description2').val();
 
-            console.log(question);
-            console.log(escapeHtml(question));
+            question = escapeHtml(question);
+            desc1 = escapeHtml(desc1);
+            desc2 = escapeHtml(desc2);
 
             var image1 = $('#croppedImg1').prop('src').replace('data:image/png;base64,', '');
             var image2 = $('#croppedImg2').prop('src').replace('data:image/png;base64,', '');
