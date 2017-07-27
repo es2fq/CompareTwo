@@ -294,6 +294,8 @@ $(document).ready(function() {
             var image1 = $('#croppedImg1').prop('src').replace('data:image/png;base64,', '');
             var image2 = $('#croppedImg2').prop('src').replace('data:image/png;base64,', '');
 
+            var nextId = postCount + 1;
+
             var monthNames = ["January", "February", "March", "April", "May", "June", "July", "August", "September", "October", "November", "December"];
             var currentDate = new Date();
             var year = currentDate.getFullYear();
@@ -324,7 +326,8 @@ $(document).ready(function() {
                 "&desc2\=" + desc2 +
                 "&image1\=" + image1 +
                 "&image2\=" + image2 +
-                "&date\=" + dateString;
+                "&date\=" + dateString +
+                "&id\=" + nextId;
 
             var postRequest = $.ajax({
                 type: "POST",
@@ -333,6 +336,10 @@ $(document).ready(function() {
             });
 
             postRequest.done(function() {
+                $.get("/getpostcount", function(data) {
+                    postCount = data;
+                })
+
                 body.removeClass("loading");
             });
         });

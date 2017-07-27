@@ -99,6 +99,7 @@ func submitHandler(w http.ResponseWriter, r *http.Request) {
 	image1 := r.PostFormValue("image1")
 	image2 := r.PostFormValue("image2")
 	date := r.PostFormValue("date")
+	id := r.PostFormValue("id")
 	votes1 := 0
 	votes2 := 0
 
@@ -108,6 +109,27 @@ func submitHandler(w http.ResponseWriter, r *http.Request) {
 	res, err := stmt.Exec(question, desc1, desc2, image1, image2, date, votes1, votes2)
 	checkError(err)
 	log.Println(res)
+
+	writePostToFile(question, id)
+}
+
+func writePostToFile(question string, id string) {
+	post := question + "," + id + "\n"
+	log.Println(post)
+
+	// if _, err := os.Stat("posts.txt"); os.IsNotExist(err) {
+	//     log.Println("File does not exist")
+	// }
+
+	f, err := os.Create("posts.txt")
+	checkError(err)
+
+	defer f.Close()
+
+	_, err = f.WriteString(post)
+	checkError(err)
+
+	f.Sync()
 }
 
 func getPostHandler(w http.ResponseWriter, r *http.Request) {
