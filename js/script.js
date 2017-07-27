@@ -44,7 +44,9 @@ $(document).ready(function() {
     }
 
     function generateList() {
-
+        $.get("posts.txt", function(data) {
+            console.log(data)
+        }, 'text');
     }
 
     var postCount;

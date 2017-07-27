@@ -114,7 +114,11 @@ func submitHandler(w http.ResponseWriter, r *http.Request) {
 }
 
 func writePostToFile(question string, id string) {
-	post := question + "," + id + "\n"
+	nextId, err := strconv.Atoi(id)
+	nextId += 1
+	checkError(err)
+
+	post := question + "," + strconv.Itoa(nextId) + "\n"
 	log.Println(post)
 
 	// if _, err := os.Stat("posts.txt"); os.IsNotExist(err) {
