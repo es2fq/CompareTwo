@@ -46,6 +46,16 @@ $(document).ready(function() {
     function generateList() {
         $.get("/readpostsfile", function(data) {
             var dataList = data.split('\n');
+            for (var i = 0; i < dataList.length; i++) {
+                if (dataList[i] == "") {
+                    continue;
+                }
+                var post = dataList[i].split("|||");
+                var id = post[0];
+                var question = post[1];
+
+                console.log(question);
+            }
         });
     }
 
