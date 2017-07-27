@@ -293,6 +293,9 @@ $(document).ready(function() {
             var desc1 = $('#description1').val();
             var desc2 = $('#description2').val();
 
+            console.log(question);
+            console.log(escapeHtml(question));
+
             var image1 = $('#croppedImg1').prop('src').replace('data:image/png;base64,', '');
             var image2 = $('#croppedImg2').prop('src').replace('data:image/png;base64,', '');
 
@@ -725,6 +728,12 @@ $(document).ready(function() {
         .attr({
             src: url
         });
+    }
+
+    function escapeHtml(str) {
+        var div = document.createElement('div');
+        div.appendChild(document.createTextNode(str));
+        return div.innerHTML;
     }
 
     main();
