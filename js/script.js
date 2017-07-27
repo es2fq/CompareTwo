@@ -401,8 +401,14 @@ $(document).ready(function() {
             setTimeout(function() {
                 if ($("body").hasClass("loading")) {
                     alert("Sorry, that URL either cannot be accessed or found.");
-                    body.removeClass("loading");
+                    if (croppie1) {
+                        croppie1.croppie('destroy');
+                    }
+                    if (croppie2) {
+                        croppie2.croppie('destroy');
+                    }
                     resetImportPage();
+                    body.removeClass("loading");
                 }
             }, 10000);
         }
