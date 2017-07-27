@@ -147,8 +147,7 @@ func loadPostsIntoFile() {
 }
 
 func writePostToFile(question string, id string) {
-	post := question + "|||" + id + "\n"
-	log.Println(post)
+	post := id + "|||" + question + "\n"
 
 	if _, err := os.Stat("posts.txt"); os.IsNotExist(err) {
 		f, err := os.Create("posts.txt")
