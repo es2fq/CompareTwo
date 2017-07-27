@@ -114,7 +114,7 @@ func submitHandler(w http.ResponseWriter, r *http.Request) {
 	writePostToFile(question, id)
 }
 
-func loadPostsIntoFileHandler(w http.ResponseWriter, r *http.Request) {
+func loadPostsIntoFile() {
 	f, err := os.Create("posts.txt")
 	checkError(err)
 	defer f.Close()
@@ -277,24 +277,25 @@ func incrementVoteHandler(w http.ResponseWriter, r *http.Request) {
 func main() {
 	initializeDatabase()
 	initializeTables()
+	loadPostsIntoFile()
 
-	result, err := db.Query("SELECT * FROM Posts")
-	checkError(err)
+	// result, err := db.Query("SELECT * FROM Posts")
+	// checkError(err)
 
-	for result.Next() {
-		var id string
-		var question string
-		var desc1 string
-		var desc2 string
-		var image1 string
-		var image2 string
-		var date string
-		var votes1 string
-		var votes2 string
-		err = result.Scan(&id, &question, &desc1, &desc2, &image1, &image2, &date, &votes1, &votes2)
-		checkError(err)
-		log.Println(id, question, votes1, votes2)
-	}
+	// for result.Next() {
+	//     var id string
+	//     var question string
+	//     var desc1 string
+	//     var desc2 string
+	//     var image1 string
+	//     var image2 string
+	//     var date string
+	//     var votes1 string
+	//     var votes2 string
+	//     err = result.Scan(&id, &question, &desc1, &desc2, &image1, &image2, &date, &votes1, &votes2)
+	//     checkError(err)
+	//     log.Println(id, question, votes1, votes2)
+	// }
 
 	addr, err := determinePort()
 	if err != nil {
@@ -313,7 +314,6 @@ func main() {
 	http.HandleFunc("/getpostbyrownumber", getPostByRowNumber)
 	http.HandleFunc("/incrementvote", incrementVoteHandler)
 	http.HandleFunc("/readpostsfile", readPostsFileHandler)
-	http.HandleFunc("/loadpostsintofile", loadPostsIntoFileHandler)
 
 	if err := http.ListenAndServe(addr, nil); err != nil {
 		panic(err)
