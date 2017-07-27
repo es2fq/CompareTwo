@@ -316,6 +316,8 @@ $(document).ready(function() {
                 ampm = "PM";
             }
 
+            minutes = (minutes<10?'0':'') + minutes;
+
             hour = hour % 12;
             if (hour == 0) {
                 hour = 12

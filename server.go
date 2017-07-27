@@ -94,6 +94,8 @@ func mainHandler(w http.ResponseWriter, r *http.Request) {
 }
 
 func submitHandler(w http.ResponseWriter, r *http.Request) {
+	log.Println("submitHandler----------------------------")
+
 	question := r.PostFormValue("question")
 	desc1 := r.PostFormValue("desc1")
 	desc2 := r.PostFormValue("desc2")
@@ -103,6 +105,8 @@ func submitHandler(w http.ResponseWriter, r *http.Request) {
 	id := r.PostFormValue("id")
 	votes1 := 0
 	votes2 := 0
+
+	log.Println(question)
 
 	stmt, err := db.Prepare("INSERT INTO Posts (Question, Desc1, Desc2, Image1, Image2, Date, Votes1, Votes2) VALUES ($1, $2, $3, $4, $5, $6, $7, $8)")
 	checkError(err)
