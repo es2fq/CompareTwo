@@ -6,6 +6,7 @@ import (
 	"fmt"
 	_ "github.com/lib/pq"
 	"html/template"
+	"io/ioutil"
 	"log"
 	"math/rand"
 	"net/http"
@@ -134,6 +135,14 @@ func writePostToFile(question string, id string) {
 	checkError(err)
 
 	f.Sync()
+}
+
+func readPostsFileHandler(w http.ResponseWriter, r *http.Request) {
+	text, err := ioutil.ReadFile("posts.txt")
+	checkError(err)
+	log.Println(string(text))
+
+	w.Write(text)
 }
 
 func getPostHandler(w http.ResponseWriter, r *http.Request) {
@@ -269,6 +278,7 @@ func main() {
 	http.HandleFunc("/getpostcount", getPostCountHandler)
 	http.HandleFunc("/getpostbyrownumber", getPostByRowNumber)
 	http.HandleFunc("/incrementvote", incrementVoteHandler)
+	http.HandleFunc("/readpostsfile", readPostsFileHandler)
 
 	if err := http.ListenAndServe(addr, nil); err != nil {
 		panic(err)
