@@ -55,8 +55,13 @@ $(document).ready(function() {
                 var question = post[1];
 
                 var listPost = document.createElement('div');
+                listPost.id = 'post' + id;
                 listPost.className = 'listPost';
                 listPost.innerHTML = question;
+
+                listPost.onclick = function() {
+                    console.log(this.id);
+                };
 
                 if (i > 0) {
                     listPost.style.marginTop = '1vw';
