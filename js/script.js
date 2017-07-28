@@ -73,8 +73,8 @@ $(document).ready(function() {
                             currentPost.id = obj.Id
                             currentPost.question = obj.Question;
                             currentPost.date = obj.Date;
-                            currentPost.image1 = obj.Image1;
-                            currentPost.image2 = obj.Image2;
+                            currentPost.image1 = 'data:image/png;base64,' + obj.Image1.split(' ').join('+');
+                            currentPost.image2 = 'data:image/png;base64,' + obj.Image2.split(' ').join('+');
                             currentPost.desc1 = obj.Desc1;
                             currentPost.desc2 = obj.Desc2;
                             currentPost.votes1 = obj.Votes1;
