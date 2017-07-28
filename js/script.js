@@ -56,7 +56,7 @@ $(document).ready(function() {
 
                 var listPost = document.createElement('div');
                 listPost.className = 'listPost';
-                listPost.text = question;
+                listPost.innerHTML = question;
 
                 $('#page3 #list').append(listPost);
             }
