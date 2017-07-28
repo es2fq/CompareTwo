@@ -55,11 +55,12 @@ body.loading .loadingModal {
     position: relative !important;
     width: 100%;
     font-size: 2.5vw;
-    border: solid;
+    border: 2px solid;
     padding: 0.5% 1% 0.5% 1%;
 }
     .listPost:hover {
         cursor: hand;
+        border-color: black;
     }
 .scrollbarStyle::-webkit-scrollbar-track
 {
