@@ -54,7 +54,10 @@ $(document).ready(function() {
                 var id = post[0];
                 var question = post[1];
 
-                console.log(question);
+                var listPost = document.createElement('div');
+                listPost.className = 'listPost';
+
+                $('#page3 #list').append(listPost);
             }
         });
     }
