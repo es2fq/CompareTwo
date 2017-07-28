@@ -68,7 +68,7 @@ body.loading .loadingModal {
 .scrollbarStyle::-webkit-scrollbar
 {
     width: 12px;
-    background-color: #F5F5F5;
+    background-color: #D8D8D8;
 }
 .scrollbarStyle::-webkit-scrollbar-thumb
 {
