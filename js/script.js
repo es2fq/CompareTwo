@@ -61,7 +61,8 @@ $(document).ready(function() {
 
                 listPost.onclick = function() {
                     $("body").addClass("loading");
-                    var postData = "id\=" + this.id;
+                    var theId = this.id.substr(this.id.length - 1);
+                    var postData = "id\=" + theId;
                     var postRequest = $.ajax({
                         type: "POST",
                         url: "/getpostbyid",
