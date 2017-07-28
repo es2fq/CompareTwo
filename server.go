@@ -230,11 +230,39 @@ func checkCount(rows *sql.Rows) (count int) {
 	return count
 }
 
-func getPostByRowNumber(w http.ResponseWriter, r *http.Request) {
+func getPostByRowNumberHandler(w http.ResponseWriter, r *http.Request) {
 	rowNum, err := strconv.Atoi(r.PostFormValue("row"))
 	checkError(err)
 
 	res, err := db.Query("SELECT * FROM Posts LIMIT " + "1" + " OFFSET " + strconv.Itoa(rowNum-1))
+	checkError(err)
+
+	var id string
+	var question string
+	var desc1 string
+	var desc2 string
+	var image1 string
+	var image2 string
+	var date string
+	var votes1 string
+	var votes2 string
+
+	for res.Next() {
+		err = res.Scan(&id, &question, &desc1, &desc2, &image1, &image2, &date, &votes1, &votes2)
+		checkError(err)
+	}
+
+	post := &Post{Id: id, Question: question, Desc1: desc1, Desc2: desc2, Image1: image1, Image2: image2, Date: date, Votes1: votes1, Votes2: votes2}
+	data, err := json.Marshal(post)
+	checkError(err)
+
+	w.Write(data)
+}
+
+func getPostByIdHandler(w http.ResponseWriter, r *http.Request) {
+	id := r.PostFormValue("id")
+
+	res, err := db.Query("SELECT * FROM Posts WHERE id=" + id)
 	checkError(err)
 
 	var id string
@@ -310,7 +338,8 @@ func main() {
 	http.HandleFunc("/submit", submitHandler)
 	http.HandleFunc("/getpost", getPostHandler)
 	http.HandleFunc("/getpostcount", getPostCountHandler)
-	http.HandleFunc("/getpostbyrownumber", getPostByRowNumber)
+	http.HandleFunc("/getpostbyrownumber", getPostByRowNumberHandler)
+	http.HandleFunc("/getpostbyid", getPostByIdHandler)
 	http.HandleFunc("/incrementvote", incrementVoteHandler)
 	http.HandleFunc("/readpostsfile", readPostsFileHandler)
 

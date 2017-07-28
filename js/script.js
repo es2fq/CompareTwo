@@ -60,7 +60,18 @@ $(document).ready(function() {
                 listPost.innerHTML = question;
 
                 listPost.onclick = function() {
-                    console.log(this.id);
+                    $("body").addClass("loading");
+                    var postData = "id\=" + this.id;
+                    var postRequest = $.ajax({
+                        type: "POST",
+                        url: "/getpostbyid",
+                        data: postData,
+                        success: function(data) {
+                            var obj = JSON.parse(data);
+                            console.log(obj.Question);
+                            $("body").removeClass("loading");
+                        }
+                    });
                 };
 
                 if (i > 0) {
