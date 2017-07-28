@@ -56,7 +56,7 @@ $(document).ready(function() {
 
                 var listPost = document.createElement('div');
                 listPost.id = 'post' + id;
-                listPost.className = 'listPost';
+                listPost.className = 'listPost hvr-fade';
                 listPost.innerHTML = question;
 
                 listPost.onclick = function() {
