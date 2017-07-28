@@ -58,6 +58,10 @@ $(document).ready(function() {
                 listPost.className = 'listPost';
                 listPost.innerHTML = question;
 
+                if (i > 0) {
+                    listPost.style.marginTop = '1vw';
+                }
+
                 $('#page3 #list').append(listPost);
             }
         });

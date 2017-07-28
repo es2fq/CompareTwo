@@ -56,7 +56,6 @@ body.loading .loadingModal {
     width: 100%;
     font-size: 2.5vw;
     border: solid;
-    margin-top: 1vw;
     padding: 0.5% 1% 0.5% 1%;
 }
 .scrollbarStyle::-webkit-scrollbar-track
