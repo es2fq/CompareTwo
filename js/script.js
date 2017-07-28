@@ -69,7 +69,21 @@ $(document).ready(function() {
                         data: postData,
                         success: function(data) {
                             var obj = JSON.parse(data);
-                            console.log(obj.Question);
+
+                            currentPost.id = obj.Id
+                            currentPost.question = obj.Question;
+                            currentPost.date = obj.Date;
+                            currentPost.image1 = obj.Image1;
+                            currentPost.image2 = obj.Image2;
+                            currentPost.desc1 = obj.Desc1;
+                            currentPost.desc2 = obj.Desc2;
+                            currentPost.votes1 = obj.Votes1;
+                            currentPost.votes2 = obj.Votes2;
+
+                            setMainPost();
+                            resetBarGraph();
+
+                            $("#topnav ul li").first().click();
                             $("body").removeClass("loading");
                         }
                     });
