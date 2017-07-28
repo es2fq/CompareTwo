@@ -260,9 +260,9 @@ func getPostByRowNumberHandler(w http.ResponseWriter, r *http.Request) {
 }
 
 func getPostByIdHandler(w http.ResponseWriter, r *http.Request) {
-	id := r.PostFormValue("id")
+	theId := r.PostFormValue("id")
 
-	res, err := db.Query("SELECT * FROM Posts WHERE id=" + id)
+	res, err := db.Query("SELECT * FROM Posts WHERE id=" + theId)
 	checkError(err)
 
 	var id string
