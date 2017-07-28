@@ -77,8 +77,8 @@ $(document).ready(function() {
                             currentPost.image2 = 'data:image/png;base64,' + obj.Image2.split(' ').join('+');
                             currentPost.desc1 = obj.Desc1;
                             currentPost.desc2 = obj.Desc2;
-                            currentPost.votes1 = obj.Votes1;
-                            currentPost.votes2 = obj.Votes2;
+                            currentPost.votes1 = parseInt(obj.Votes1);
+                            currentPost.votes2 = parseInt(obj.Votes2);
 
                             setMainPost();
                             resetBarGraph();
