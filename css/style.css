@@ -659,11 +659,18 @@ button:focus {
 #page3 {
 
 }
-#list {
+#listTitle { 
     width: 90%;
-    height: 90%;
+    height: 10%;
     left: 5%;
     top: 5%;
+    font-size: 2.5vw;
+}
+#list {
+    width: 90%;
+    height: 80%;
+    left: 5%;
+    top: 15%;
     overflow-y: auto;
 }
 /* NAVIGATION BAR */
