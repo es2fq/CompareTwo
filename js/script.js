@@ -116,8 +116,7 @@ $(document).ready(function() {
     }
 
     function sortByName(list) {
-        console.log(list);
-        return list;
+        return list.sort();
     }
 
     function sortByPopularity(list) {
