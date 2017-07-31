@@ -372,7 +372,7 @@ $(document).ready(function() {
                 hour = 12
             }
 
-            var dateString = "Posted on " + hour + ":" + minutes + ":" + seconds + ampm + ", " + month + " " + day + ", " + year;
+            var dateString = "Posted on " + hour + ":" + minutes + ampm + ", " + month + " " + day + ", " + year;
 
             var body = $("body");
             body.addClass("loading");
