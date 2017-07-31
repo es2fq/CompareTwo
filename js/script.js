@@ -44,9 +44,13 @@ $(document).ready(function() {
         });
     }
 
-    function generateList() {
+    function generateList(sorting = "") {
         $.get("/readpostsfile", function(data) {
             var dataList = data.split('\n');
+            if (sorting === "name") dataList = sortByName(dataList);
+            if (sorting === "popularity") dataList = sortByPopularity(dataList);
+            if (sorting === "date") dataList = sortByDate(dataList);
+
             for (var i = 0; i < dataList.length; i++) {
                 if (dataList[i] == "") {
                     continue;
@@ -104,24 +108,20 @@ $(document).ready(function() {
         sortBox.change(function() {
             var value = sortBox.find(":selected").val();
 
-            console.log(value);
-            if (value === "name") sortByName();
-            if (value === "popularity") sortByPopularity();
-            if (value === "date") sortByDate();
+            $("body").addClass("loading");
+            deleteList();
+            generateList(value);
+            $("body").removeClass("loading");
         });
     }
 
-    function sortByName() {
-        console.log("name");
+    function sortByName(list) {
     }
 
-    function sortByPopularity() {
-        console.log("popularity");
+    function sortByPopularity(list) {
     }
 
-    function sortByDate() {
-        console.log("date");
-        deleteList();
+    function sortByDate(list) {
     }
 
     function deleteList() {
