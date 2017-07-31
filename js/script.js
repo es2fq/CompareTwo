@@ -119,14 +119,15 @@ $(document).ready(function() {
     }
 
     function sortByName() {
-        
+        console.log("name");
     }
 
     function sortByPopularity() {
-
+        console.log("popularity");
     }
 
     function sortByDate() {
+        console.log("date");
         deleteList();
     }
 
