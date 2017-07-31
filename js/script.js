@@ -103,8 +103,36 @@ $(document).ready(function() {
         var sortBox = $('#sort');
         sortBox.change(function() {
             var value = sortBox.find(":selected").text();
-            console.log(value);
+
+            switch(value) {
+                case "name":
+                    sortByName();
+                    break;
+                case "popularity":
+                    sortByPopularity();
+                    break;
+                case "date":
+                    sortByDate();
+                    break;
+            }
         });
+    }
+
+    function sortByName() {
+        
+    }
+
+    function sortByPopularity() {
+
+    }
+
+    function sortByDate() {
+        deleteList();
+    }
+
+    function deleteList() {
+        var list = $('#list');
+        list.empty();
     }
 
     var postCount;
