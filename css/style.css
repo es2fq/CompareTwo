@@ -675,6 +675,8 @@ button:focus {
     overflow-y: auto;
 }
 #sort {
+    position: absolute;
+    right: 0;
     margin: 50px;
     border: 1px solid #111;
     background: transparent;
