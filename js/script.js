@@ -8,6 +8,7 @@ $(document).ready(function() {
         initImportHandler();
         initImportButtons();
         initSelectButtons();
+        initSort();
         getViewed();
         generateList();
     }
@@ -95,6 +96,14 @@ $(document).ready(function() {
 
                 $('#page3 #list').append(listPost);
             }
+        });
+    }
+
+    function initSort() {
+        var sortBox = $('#sort');
+        sortBox.change(function() {
+            var value = sortBox.find(":selected").text();
+            console.log(value);
         });
     }
 
