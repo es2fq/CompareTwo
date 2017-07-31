@@ -677,19 +677,20 @@ button:focus {
 #sort {
     position: absolute;
     right: 0;
-    margin: 50px;
-    border: 1px solid #111;
     background: transparent;
-    width 150px;
-    padding: 5px 35px 5px 5px;
+    padding: 3px 35px 5px 5px;
     font-size: 2vw;
-    border: 1px solid #ccc;
-    height: 34px;
+    border: 1px solid;
+    height: 3.5vw;
     -webkit-appearance: none;
     -moz-appearance: none;
     appearance: none;
     background: url(https://image.flaticon.com/icons/svg/60/60781.svg) no-repeat #eee;
 }
+    #sort:hover {
+        opacity: 0.7;
+        cursor: hand;
+    }
 select::-ms-expand {
     display: none;
 }
