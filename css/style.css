@@ -674,6 +674,29 @@ button:focus {
     top: 15%;
     overflow-y: auto;
 }
+#sort {
+    margin: 50px;
+    border: 1px solid #111;
+    background: transparent;
+    width 150px;
+    padding: 5px 35px 5px 5px;
+    font-size: 2vw;
+    border: 1px solid #ccc;
+    height: 34px;
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    appearance: none;
+    background: url(https://image.flaticon.com/icons/svg/60/60781.svg) no-repeat #eee;
+}
+select::-ms-expand {
+    display: none;
+}
+@media screen and (min-width:0\0) {
+    select {
+        background: none\9;
+        padding: 5px\0;
+    }
+}
 /* NAVIGATION BAR */
 #topnav,
 #topnav ul,
