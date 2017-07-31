@@ -104,6 +104,8 @@ $(document).ready(function() {
         sortBox.change(function() {
             var value = sortBox.find(":selected").text();
 
+            console.log("hi");
+            console.log(value);
             switch(value) {
                 case "name":
                     sortByName();
