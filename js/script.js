@@ -102,8 +102,9 @@ $(document).ready(function() {
     function initSort() {
         var sortBox = $('#sort');
         sortBox.change(function() {
-            var value = sortBox.find(":selected").text();
+            var value = sortBox.find(":selected").val();
 
+            console.log(value);
             if (value === "name") sortByName();
             if (value === "popularity") sortByPopularity();
             if (value === "date") sortByDate();
