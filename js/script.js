@@ -116,12 +116,18 @@ $(document).ready(function() {
     }
 
     function sortByName(list) {
+        console.log(list);
+        return list;
     }
 
     function sortByPopularity(list) {
+        console.log(list);
+        return list;
     }
 
     function sortByDate(list) {
+        console.log(list);
+        return list;
     }
 
     function deleteList() {
