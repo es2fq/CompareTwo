@@ -47,9 +47,11 @@ $(document).ready(function() {
     function generateList(sorting = "") {
         $.get("/readpostsfile", function(data) {
             var dataList = data.split('\n');
-            if (sorting === "name") dataList = sortByName(dataList);
-            if (sorting === "popularity") dataList = sortByPopularity(dataList);
-            if (sorting === "date") dataList = sortByDate(dataList);
+            if (sorting !== "") {
+                dataList = quickSort(dataList, 0, dataList.length - 1, sorting);
+            }
+
+            console.log(dataList);
 
             for (var i = 0; i < dataList.length; i++) {
                 if (dataList[i] == "") {
@@ -115,18 +117,67 @@ $(document).ready(function() {
         });
     }
 
-    function sortByName(list) {
-        return list.sort();
-    }
-
-    function sortByPopularity(list) {
-        console.log(list);
+    function quickSort(list, left, right, type) {
+        var index;
+        if (list.length > 1) {
+            index = partition(list, left, right, type);
+            if (left < index - 1) {
+                quickSort(list, left, index - 1);
+            }
+            if (index < right) {
+                quickSort(list, index, right);
+            }
+        }
         return list;
     }
 
-    function sortByDate(list) {
-        console.log(list);
-        return list;
+    function partition(list, left, right, type) {
+        var pivot = list[Math.floor((right + left) / 2)];
+        var i = left;
+        var j = right;
+
+        while (i <= j) {
+            while (compare(list, i, pivot, type) == -1) {
+                i++;
+            }
+            while (compare(list, j, pivot, type) == 1) {
+                j--;
+            }
+            if (i <= j) {
+                swap(list, i, j);
+                i++;
+                j--;
+            }
+        }
+    }
+
+    function compare(list, index1, index2, type) {
+        var splitList1 = list[index1].split("|||");
+        var splitList2 = list[index2].split("|||");
+        if (type === "name") {
+            var question1 = splitList1[1];
+            var question2 = splitList2[1];
+            if (question1 < question2) return -1;
+            if (question1 > question2) return 1;
+            if (question1 === question2) return 0;
+        }
+        if (type === "popularity") {
+            return 1;
+        }
+        if (type === "date") {
+            var id1 = parseInt(splitList1[0]);
+            var id2 = parseInt(splitList2[0]);
+            if (id1 < id2) return -1;
+            if (id1 > id2) return 1;
+            if (id1 == id2) return 0;
+        }
+        return 1;
+    }
+
+    function swap(list, index1, index2) {
+        var temp = list[index1];
+        list[index1] = list[index2];
+        list[index2] = temp;
     }
 
     function deleteList() {
