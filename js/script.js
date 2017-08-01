@@ -142,6 +142,7 @@ $(document).ready(function() {
             }
             while (compare(list, j, pivot, type) == 1) {
                 j--;
+                if (j < i) break;
             }
             if (i <= j) {
                 swap(list, i, j);
@@ -154,12 +155,13 @@ $(document).ready(function() {
     }
 
     function compare(list, index1, index2, type) {
-        console.log(index1, index2);
         var splitList1 = list[index1].split("|||");
         var splitList2 = list[index2].split("|||");
+        console.log(type);
         if (type === "name") {
             var question1 = splitList1[1];
             var question2 = splitList2[1];
+            console.log(question1, question2);
             if (question1 < question2) return -1;
             if (question1 > question2) return 1;
             if (question1 === question2) return 0;
@@ -170,6 +172,7 @@ $(document).ready(function() {
         if (type === "date") {
             var id1 = parseInt(splitList1[0]);
             var id2 = parseInt(splitList2[0]);
+            console.log(id1, id2);
             if (id1 < id2) return -1;
             if (id1 > id2) return 1;
             if (id1 == id2) return 0;
