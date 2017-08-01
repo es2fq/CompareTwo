@@ -75,11 +75,10 @@ $(document).ready(function() {
 
                 var listText = question;
                 if (sorting === "date") {
-                    listText = question + new Array(50 - question.length).join(' ') + date;
+                    listText = question + ' '.repeat(50 - question.length) + date;
                 }
                 if (sorting === "popularity") {
-                    listText = question + new Array(50 - question.length).join(' ') + totalVotes + " Votes";
-                    listText = question + " | " + totalVotes + " Votes";
+                    listText = question + ' '.repeat(50 - question.length) + totalVotes + " Votes";
                 }
                 listPost.innerHTML = listText;
 
@@ -863,7 +862,6 @@ $(document).ready(function() {
                 votedValues = allCookies[i].trim().split("=")[1];
             }
         }
-        console.log(votedValues);
     }
 
     function setViewed(postId) {
