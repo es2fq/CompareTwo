@@ -154,9 +154,11 @@ $(document).ready(function() {
     }
 
     function compare(list, index, pivot, type) {
-        console.log(index, type);
         var splitList1 = list[index].split("|||");
         var splitList2 = pivot.split("|||");
+        if (splitList1.length < 2) {
+            return 0;
+        }
         if (type === "name") {
             var question1 = splitList1[1].toLowerCase();
             var question2 = splitList2[1].toLowerCase();
