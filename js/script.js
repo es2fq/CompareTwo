@@ -788,6 +788,7 @@ $(document).ready(function() {
             }
 
             showGraph();
+            deleteList();
             generateList();
         });
     }
