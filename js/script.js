@@ -136,9 +136,6 @@ $(document).ready(function() {
         var i = left;
         var j = right;
 
-        console.log("partition");
-        console.log(left, pivot, right);
-        console.log("----------------------");
         while (i <= j) {
             while (compare(list, i, pivot, type) == -1) {
                 i++;
@@ -146,7 +143,6 @@ $(document).ready(function() {
             while (compare(list, j, pivot, type) == 1) {
                 j--;
             }
-            console.log("i: " + i + " j: " + j);
             if (i <= j) {
                 swap(list, i, j);
                 i++;
@@ -162,8 +158,8 @@ $(document).ready(function() {
         var splitList1 = list[index].split("|||");
         var splitList2 = pivot.split("|||");
         if (type === "name") {
-            var question1 = splitList1[1];
-            var question2 = splitList2[1];
+            var question1 = splitList1[1].toLowerCase();
+            var question2 = splitList2[1].toLowerCase();
             if (question1 < question2) return -1;
             if (question1 > question2) return 1;
             if (question1 === question2) return 0;
@@ -174,7 +170,6 @@ $(document).ready(function() {
         if (type === "date") {
             var id1 = parseInt(splitList1[0]);
             var id2 = parseInt(splitList2[0]);
-            console.log(id1, id2);
             if (id1 < id2) return -1;
             if (id1 > id2) return 1;
             if (id1 == id2) return 0;
