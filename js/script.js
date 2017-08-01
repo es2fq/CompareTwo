@@ -132,7 +132,7 @@ $(document).ready(function() {
     }
 
     function partition(list, left, right, type) {
-        var pivot = Math.floor((right + left) / 2);
+        var pivot = list[Math.floor((right + left) / 2)];
         var i = left;
         var j = right;
 
@@ -142,10 +142,6 @@ $(document).ready(function() {
             }
             while (compare(list, j, pivot, type) == 1) {
                 j--;
-                if (j < i) {
-                    console.log("it is less")
-                    return i;
-                }
             }
             if (i <= j) {
                 swap(list, i, j);
@@ -157,9 +153,9 @@ $(document).ready(function() {
         return i;
     }
 
-    function compare(list, index1, index2, type) {
-        var splitList1 = list[index1].split("|||");
-        var splitList2 = list[index2].split("|||");
+    function compare(list, index, pivot, type) {
+        var splitList1 = list[index].split("|||");
+        var splitList2 = pivot.split("|||");
         console.log(type);
         if (type === "name") {
             var question1 = splitList1[1];
