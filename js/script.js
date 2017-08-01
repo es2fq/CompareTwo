@@ -66,11 +66,21 @@ $(document).ready(function() {
                 var post = dataList[i].split("|||");
                 var id = post[0];
                 var question = post[1];
+                var totalVotes = post[2];
+                var date = post[3];
 
                 var listPost = document.createElement('div');
                 listPost.id = 'post' + id;
                 listPost.className = 'listPost hvr-fade';
-                listPost.innerHTML = question;
+
+                var listText = question;
+                if (sorting === "date") {
+                    listText = question.substring(0, 15) + "... | " + date;
+                }
+                if (sorting === "popularity") {
+                    listText = question + " | " + totalVotes + " Votes";
+                }
+                listPost.innerHTML = listText;
 
                 listPost.onclick = function() {
                     $("body").addClass("loading");
