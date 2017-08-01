@@ -510,6 +510,7 @@ $(document).ready(function() {
                 })
 
                 body.removeClass("loading");
+                location.reload();
             });
         });
     }
