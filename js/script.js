@@ -74,13 +74,16 @@ $(document).ready(function() {
                 listPost.className = 'listPost hvr-fade';
 
                 var listText = question;
-                if (sorting === "date") {
-                    listText = question + '<br>' + date;
-                }
+                var infoText = document.createElement('span');
+                infoText.style.position = "absolute";
+                infoText.style.right = "0";
+                infoText.innerHTML = date;
                 if (sorting === "popularity") {
-                    listText = question + '<br>' + totalVotes + " Votes";
+                    infoText.innerHTML = totalVotes + " Votes";
                 }
+
                 listPost.innerHTML = listText;
+                listPost.appendChild(infoText);
 
                 listPost.onclick = function() {
                     $("body").addClass("loading");
