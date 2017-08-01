@@ -167,7 +167,11 @@ $(document).ready(function() {
             if (question1 === question2) return 0;
         }
         if (type === "popularity") {
-            return 1;
+            var totalVotes1 = parseInt(splitList1[2]);
+            var totalVotes2 = parseInt(splitList2[2]);
+            if (totalVotes1 < totalVotes2) return -1;
+            if (totalVotes1 > totalVotes2) return 1;
+            if (totalVotes1 == totalVotes2) return 0;
         }
         if (type === "date") {
             var id1 = parseInt(splitList1[0]);
