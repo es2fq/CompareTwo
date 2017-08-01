@@ -169,15 +169,15 @@ $(document).ready(function() {
         if (type === "popularity") {
             var totalVotes1 = parseInt(splitList1[2]);
             var totalVotes2 = parseInt(splitList2[2]);
-            if (totalVotes1 < totalVotes2) return -1;
-            if (totalVotes1 > totalVotes2) return 1;
+            if (totalVotes1 < totalVotes2) return 1;
+            if (totalVotes1 > totalVotes2) return -1;
             if (totalVotes1 == totalVotes2) return 0;
         }
         if (type === "date") {
             var id1 = parseInt(splitList1[0]);
             var id2 = parseInt(splitList2[0]);
-            if (id1 < id2) return -1;
-            if (id1 > id2) return 1;
+            if (id1 < id2) return 1;
+            if (id1 > id2) return -1;
             if (id1 == id2) return 0;
         }
         return 1;
