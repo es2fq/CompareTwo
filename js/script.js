@@ -145,8 +145,7 @@ $(document).ready(function() {
             }
             while (compare(list, j, pivot, type) == 1) {
                 j--;
-                console.log(i, j);
-                if (j < 0) return i;
+                if (j < 0) break;
             }
             if (i <= j) {
                 swap(list, i, j);
