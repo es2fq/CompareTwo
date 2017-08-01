@@ -122,7 +122,7 @@ $(document).ready(function() {
         if (list.length > 1) {
             index = partition(list, left, right, type);
             if (left < index - 1) {
-                quickSort(list, left, index - 1);
+                quickSort(list, left, index - 1, type);
             }
             if (index < right) {
                 quickSort(list, index, right, type);
