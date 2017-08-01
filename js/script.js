@@ -485,6 +485,7 @@ $(document).ready(function() {
             }
 
             var dateString = "Posted on " + hour + ":" + minutes + ampm + ", " + month + " " + day + ", " + year;
+            console.log(dateString);
 
             var body = $("body");
             body.addClass("loading");
