@@ -75,10 +75,10 @@ $(document).ready(function() {
 
                 var listText = question;
                 if (sorting === "date") {
-                    listText = question + '\n' + date;
+                    listText = question + '<br>' + date;
                 }
                 if (sorting === "popularity") {
-                    listText = question + '\n' + totalVotes + " Votes";
+                    listText = question + '<br>' + totalVotes + " Votes";
                 }
                 listPost.innerHTML = listText;
 
