@@ -132,7 +132,7 @@ $(document).ready(function() {
     }
 
     function partition(list, left, right, type) {
-        var pivot = list[Math.floor((right + left) / 2)];
+        var pivot = Math.floor((right + left) / 2);
         var i = left;
         var j = right;
 
