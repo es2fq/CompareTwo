@@ -56,7 +56,7 @@ $(document).ready(function() {
                 dataList = quickSort(dataList, 0, dataList.length - 1, sorting);
             }
             else {
-                dataList = quickSort(dataList, 0, datalist.length - 1, "name");
+                dataList = quickSort(dataList, 0, dataList.length - 1, "name");
             }
 
             for (var i = 0; i < dataList.length; i++) {
