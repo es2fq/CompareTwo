@@ -307,6 +307,8 @@ func incrementVoteHandler(w http.ResponseWriter, r *http.Request) {
 	res, err := stmt.Exec(id)
 	checkError(err)
 	log.Println(res)
+
+	loadPostsIntoFile()
 }
 
 func main() {
