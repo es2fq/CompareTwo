@@ -76,7 +76,7 @@ $(document).ready(function() {
                 var listText = question;
                 var infoText = document.createElement('span');
                 infoText.style.position = "absolute";
-                infoText.style.right = "0";
+                infoText.style.right = "0.5%";
                 infoText.innerHTML = date;
                 if (sorting === "popularity") {
                     infoText.innerHTML = totalVotes + " Votes";
