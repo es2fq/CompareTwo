@@ -142,6 +142,7 @@ $(document).ready(function() {
             }
             while (compare(list, j, pivot, type) == 1) {
                 j--;
+                console.log(i, j);
             }
             if (i <= j) {
                 swap(list, i, j);
