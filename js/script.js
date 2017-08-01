@@ -136,6 +136,7 @@ $(document).ready(function() {
         var i = left;
         var j = right;
 
+        console.log("partition");
         while (i <= j) {
             while (compare(list, i, pivot, type) == -1) {
                 i++;
@@ -157,11 +158,9 @@ $(document).ready(function() {
     function compare(list, index, pivot, type) {
         var splitList1 = list[index].split("|||");
         var splitList2 = pivot.split("|||");
-        console.log(type);
         if (type === "name") {
             var question1 = splitList1[1];
             var question2 = splitList2[1];
-            console.log(question1, question2);
             if (question1 < question2) return -1;
             if (question1 > question2) return 1;
             if (question1 === question2) return 0;
