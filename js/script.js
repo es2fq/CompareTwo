@@ -136,6 +136,9 @@ $(document).ready(function() {
         var i = left;
         var j = right;
 
+        console.log(pivot, i, j);
+        console.log(list);
+
         while (i <= j) {
             while (compare(list, i, pivot, type) == -1) {
                 i++;
