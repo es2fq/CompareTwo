@@ -137,6 +137,8 @@ $(document).ready(function() {
         var j = right;
 
         console.log("partition");
+        console.log(left, pivot, right);
+        console.log("----------------------");
         while (i <= j) {
             while (compare(list, i, pivot, type) == -1) {
                 i++;
