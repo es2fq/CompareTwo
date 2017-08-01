@@ -142,7 +142,10 @@ $(document).ready(function() {
             }
             while (compare(list, j, pivot, type) == 1) {
                 j--;
-                if (j < i) break;
+                if (j < i) {
+                    console.log("it is less")
+                    return i;
+                }
             }
             if (i <= j) {
                 swap(list, i, j);
