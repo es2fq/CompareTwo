@@ -47,6 +47,11 @@ $(document).ready(function() {
     function generateList(sorting = "") {
         $.get("/readpostsfile", function(data) {
             var dataList = data.split('\n');
+            for (var i = 0; i < dataList.length; i++) {
+                if (dataList[i] === "") {
+                    dataList.splice(i, 1);
+                }
+            }
             if (sorting !== "") {
                 dataList = quickSort(dataList, 0, dataList.length - 1, sorting);
             }
@@ -156,8 +161,6 @@ $(document).ready(function() {
     function compare(list, index, pivot, type) {
         var splitList1 = list[index].split("|||");
         var splitList2 = pivot.split("|||");
-        console.log(splitList1);
-        console.log(splitList2);
         if (type === "name") {
             var question1 = splitList1[1].toLowerCase();
             var question2 = splitList2[1].toLowerCase();
