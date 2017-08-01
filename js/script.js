@@ -149,6 +149,8 @@ $(document).ready(function() {
                 j--;
             }
         }
+
+        return i;
     }
 
     function compare(list, index1, index2, type) {
