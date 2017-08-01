@@ -116,6 +116,7 @@ func submitHandler(w http.ResponseWriter, r *http.Request) {
 	log.Println(res)
 
 	writePostToFile(question, id)
+	loadPostsIntoFile()
 }
 
 func loadPostsIntoFile() {
