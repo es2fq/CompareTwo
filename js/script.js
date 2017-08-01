@@ -125,7 +125,7 @@ $(document).ready(function() {
                 quickSort(list, left, index - 1);
             }
             if (index < right) {
-                quickSort(list, index, right);
+                quickSort(list, index, right, type);
             }
         }
         return list;
@@ -145,7 +145,6 @@ $(document).ready(function() {
             }
             while (compare(list, j, pivot, type) == 1) {
                 j--;
-                if (j < 0) break;
             }
             if (i <= j) {
                 swap(list, i, j);
