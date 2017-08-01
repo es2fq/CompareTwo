@@ -75,9 +75,10 @@ $(document).ready(function() {
 
                 var listText = question;
                 if (sorting === "date") {
-                    listText = question.substring(0, 15) + "... | " + date;
+                    listText = question + new Array(20 - question.length).join(' ') + date;
                 }
                 if (sorting === "popularity") {
+                    listText = question + new Array(20 - question.length).join(' ') + totalVotes + " Votes";
                     listText = question + " | " + totalVotes + " Votes";
                 }
                 listPost.innerHTML = listText;
