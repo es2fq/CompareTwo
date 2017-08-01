@@ -56,8 +56,6 @@ $(document).ready(function() {
                 dataList = quickSort(dataList, 0, dataList.length - 1, sorting);
             }
 
-            console.log(dataList);
-
             for (var i = 0; i < dataList.length; i++) {
                 if (dataList[i] == "") {
                     continue;

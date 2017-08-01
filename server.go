@@ -140,7 +140,15 @@ func loadPostsIntoFile() {
 		err = res.Scan(&id, &question, &desc1, &desc2, &image1, &image2, &date, &votes1, &votes2)
 		checkError(err)
 
-		post := id + "|||" + question + "\n"
+		intVotes1, err := strconv.Atoi(votes1)
+		checkError(err)
+		intVotes2, err := strconv.Atoi(votes2)
+		checkError(err)
+
+		totalVotes := intVotes1 + intVotes2
+		strTotalVotes := strconv.Itoa(totalVotes)
+
+		post := id + "|||" + question + "|||" + strTotalVotes + "|||" + date + "\n"
 		log.Println(post)
 
 		_, err = f.WriteString(post)
