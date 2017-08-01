@@ -790,6 +790,7 @@ $(document).ready(function() {
             showGraph();
             deleteList();
             generateList();
+            $('#sort').val("name");
         });
     }
 
