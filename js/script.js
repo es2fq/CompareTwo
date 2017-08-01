@@ -146,6 +146,7 @@ $(document).ready(function() {
             while (compare(list, j, pivot, type) == 1) {
                 j--;
             }
+            console.log("i: " + i + " j: " + j);
             if (i <= j) {
                 swap(list, i, j);
                 i++;
@@ -157,6 +158,7 @@ $(document).ready(function() {
     }
 
     function compare(list, index, pivot, type) {
+        console.log(index);
         var splitList1 = list[index].split("|||");
         var splitList2 = pivot.split("|||");
         if (type === "name") {
