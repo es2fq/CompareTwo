@@ -223,10 +223,10 @@ $(document).ready(function() {
         .done(function(data) {
             var postContainer = $('#page1 #rightSide');
             for (var i = 0; i < 5; i++) {
-                var postData = "row\=" + (postCount - i);
+                var postData = "id\=" + (postCount - i);
                 var postRequest = $.ajax({
                     type: "POST",
-                    url: "/getpostbyrownumber",
+                    url: "/getpostbyid",
                     data: postData,
                     success: function(data) {
                         var obj = JSON.parse(data);
