@@ -411,10 +411,10 @@ button:focus {
     }
 #reloadIcon {
     position: absolute;
-    width: 40%;
-    height: 25%;
-    left: 5%;
-    bottom: 0;
+    width: 33%;
+    height: 21%;
+    left: 10%;
+    bottom: 2%;
     opacity: 0.7;
 }
     #reloadIcon:hover {
